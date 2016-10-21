@@ -1,0 +1,2256 @@
+Civilite:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+
+Statut:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Utilisateur:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    civilite_id:              { type: integer, notnull: true }
+    nom:                      { type: string(255), notnull: true }
+    nom_jeunefille:           { type: string(255) }
+    prenom:                   { type: string(255), notnull: true }
+    email:                    { type: string(255), notnull: true }
+    email2:                   { type: string(255) }
+    email_perso:              { type: string(255) }
+    mot_de_passe:             { type: string(255), notnull: true }
+    date_naissance:           { type: date }
+    date_deces:               { type: date }
+    adresse_perso:            { type: string(255) }
+    adresse_perso2:           { type: string(255) }
+    adresse_perso3:           { type: string(255) }
+    code_postal_perso:        { type: string(255) }
+    complement_adresse_perso: { type: string(255) }
+    ville_perso_id:           { type: integer }
+    telephone_fixe:           { type: string(20) }
+    telephone_mobile:         { type: string(20) }
+    telephone_autre:          { type: string(20) }
+    telephone_fixe_perso:     { type: string(20) }
+    telephone_mobile_perso:   { type: string(20) }
+    fax:                      { type: string(20) }
+    photographie:             { type: string(255) }
+    photographie_orig:        { type: string(255) }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    uid:                      { type: string(255) }
+    entite_id:                { type: integer }
+    entite_ancienne_id:       { type: integer }
+    organisme_mindef_id:      { type: integer }
+    grade_id:                 { type: integer }
+    statut_id:                { type: integer }
+    est_utilisateur_ldap:     { type: boolean }
+  relations:
+    Civilite:                 { local: civilite_id, foreign: id }
+    Statut:                   { local: statut_id, foreign: id }
+    Entite:                   { local: entite_id, foreign: id }
+    EntiteAncienne:           { class: Entite, local: entite_ancienne_id, foreign: id }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    Grade:                    { local: grade_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Ville:                    { local: ville_perso_id, foreign: id }
+    Profils:
+      class:                   Profil
+      refClass:                Utilisateur_profil
+      foreign:                 profil_id
+      local:                   utilisateur_id
+      foreignAlias:            Utilisateurs
+    DomainesScientifiques:
+      class:                   Domaine_scientifique
+      refClass:                Utilisateur_domaine_scientifique
+      foreign:                 domaine_scientifique_id
+      local:                   utilisateur_id
+      foreignAlias:            Utilisateurs
+
+Profil:
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+    code:                     { type: string(255), notnull: true }
+    metier_id:                { type: integer, notnull: true }
+    priorite:                 { type: integer, notnull: true }
+  relations:
+    Metier:                   { local: metier_id, foreign: id }
+    Utilisateurs:
+      class:                  Utilisateur
+      refClass:               Utilisateur_profil
+      local:                  profil_id
+      foreign:                utilisateur_id
+      foreignAlias:           Profils
+
+Utilisateur_profil:
+  columns:
+    utilisateur_id:           { type: integer, primary: true}
+    profil_id:                { type: integer, primary: true}
+  relations:
+    Utilisateur:              { local: utilisateur_id, foreign: id, onDelete: CASCADE }
+    Profil:                   { local: profil_id, foreign: id , onDelete: CASCADE}
+
+Notification:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    metier_id:                { type: integer, notnull: true }
+    contenu:                  { type: string, notnull: true }
+    date_debut:               { type: timestamp, notnull: true }
+    date_fin:                 { type: timestamp, notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Metier:                   { local: metier_id, foreign: id}
+
+Mail_statut:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Mail:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    sujet:                    { type: string(255), notnull: true }
+    message:                  { type: string, notnull: true }
+    destinataire:             { type: string(255), notnull: true }
+    statut_id:                { type: integer, notnull: true, default: 1 }
+    nombre_tentative:         { type: integer, notnull: true }
+    date_envoi:               { type: timestamp }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    Mail_statut:              { local: statut_id, foreign: id }
+
+Connexion:
+  columns:
+    date_debut:               { type: date, notnull: true }
+    compteur:                 { type: integer, notnull: true }
+
+Domaine_scientifique:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+  relations:
+    Utilisateurs:
+      class:                  Utilisateur
+      refClass:               Utilisateur_domaine_scientifique
+      local:                  domaine_scientifique_id
+      foreign:                utilisateur_id
+      foreignAlias:           DomainesScientifiques
+
+Utilisateur_domaine_scientifique:
+  columns:
+    utilisateur_id:           { type: integer, primary: true }
+    domaine_scientifique_id:  { type: integer, primary: true }
+  relations:
+    Utilisateur:              { local: utilisateur_id, foreign: id, onDelete: CASCADE }
+    Domaine_scientifique:     { local: domaine_scientifique_id, foreign: id, onDelete: CASCADE }
+
+Region:
+  actAs:                      { Timestampable: ~ }
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+
+Departement:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    nom:                      { type: string(255), notnull: true }
+    code_departemental:       { type: string(3), notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    region_id:                { type: integer }
+  relations:
+    Region:                   { class: Region, local: region_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Ville:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    nom:                      { type: string(255), notnull: true }
+    code_postal:              { type: string(5), notnull: true }
+    departement_id:           { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+  relations:
+    Departement:              { local: departement_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Entite:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+    lieu:                     { type: string(255), notnull: true }
+    ville_id:                 { type: integer }
+    organisme_mindef_id:      { type: integer, notnull: true }
+    entite_id:                { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    parents:                  { type: string(255) }
+    parents_arbo:             { type: string(255) }
+    est_executant:            { type: boolean, notnull: true }
+    code_executant:           { type: string(255) }
+  relations:
+    Ville:                    { local: ville_id, foreign: id }
+    Entite:                   { class: Entite, local: entite_id, foreign: id, foreignAlias: SousEntites }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Contact_se:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    nom:                      { type: string(255) }
+    prenom:                   { type: string(255) }
+    email:                    { type: string(255), notnull: true }
+    email2:                   { type: string(255) }
+    telephone:                { type: string(255) }
+    fax:                      { type: string(20) }
+    adresse:                  { type: string(255) }
+    adresse2:                 { type: string(255) }
+    adresse3:                 { type: string(255) }
+    code_postal:              { type: string(5) }
+    complement_adresse:       { type: string(255) }
+    information_libre:        { type: string }
+    ville_id:                 { type: integer }
+    entite_id:                { type: integer, notnull: true }
+    metier_id:                { type: integer, notnull: true }
+  relations:
+    Metier:                   { class: Metier, local: metier_id, foreign: id}
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Ville:                    { local: ville_id, foreign: id }
+    Entite:                   { local: entite_id, foreign: id }
+
+Organisme_mindef:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+    code:                     { type: string(255), notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Grade:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    organisme_mindef_id:      { type: integer, notnull: true }
+  relations:
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_organisme:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Organisme:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    intitule_ancien:          { type: string(255) }
+    abreviation:              { type: string(255) }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    type_organisme_id:        { type: integer, notnull: true }
+  relations:
+    Type_organisme:           { local: type_organisme_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Service:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    intitule_ancien:          { type: string(255) }
+    abreviation:              { type: string(255) }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    organisme_id:             { type: integer }
+  relations:
+    Organisme:                { local: organisme_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Laboratoire:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    intitule_ancien:          { type: string(255) }
+    abreviation:              { type: string(255) }
+    evaluation_aers:          { type: string(3) }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    service_id:               { type: integer }
+    organisme_id:             { type: integer }
+    
+  relations:
+    Service:                  { local: service_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Point_contact:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    email:                    { type: string(255) }
+    email2:                   { type: string(255) }
+    telephone:                { type: string(20) }
+    fax:                      { type: string(20) }
+    adresse:                  { type: string(255) }
+    adresse2:                 { type: string(255) }
+    adresse3:                 { type: string(255) }
+    complement_adresse:       { type: string(255) }
+    ville_id:                 { type: integer }
+    code_postal:              { type: string(5) }
+    adresse_etrangere:        { type: string }
+    pays_id:                  { type: integer }
+    metier_id:                { type: integer, notnull: true }
+    organisme_id:             { type: integer }
+    laboratoire_id:           { type: integer }
+    service_id:               { type: integer }
+  relations:
+    Ville:                    { local: ville_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Metier:                   { local: metier_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    Laboratoire:              { local: laboratoire_id, foreign: id }
+    Service:                  { local: service_id, foreign: id }
+    Pays:                     { class: Pays, local: pays_id, foreign: id}
+
+Metier:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    est_administrateur:       { type: boolean, notnull: true, default: false }
+
+Etat_partage:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Dossier_mip:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero:                   { type: string(255) }
+    titre:                    { type: string(255), notnull: true }
+    acronyme:                 { type: string(255) }
+    descriptif:               { type: string }
+    etat_partage_id:          { type: integer }
+    est_publie:               { type: boolean, default: 0 }
+    dossier_vivant:           { type: boolean, default: 1 }
+    photographie:             { type: string(255) }
+    photographie_orig:        { type: string(255) }
+    repertoire_partage:       { type: string(255) }
+    statut_dossier_mip_id:    { type: integer }
+    niveau_protection_id:     { type: integer }
+    pilote_id:                { type: integer }
+    organisme_mindef_id:      { type: integer, notnull: true }
+    statut_projet_mip_id:     { type: integer, notnull: true, default: 0 }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    necessite_controle:       { type: int, notnull: true, default: 2 }
+    date_bascule:             { type: timestamp }
+    repertoire_partage:       { type: string(255), notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Etat_partage:             { local: etat_partage_id, foreign: id }
+    Statut_projet_mip:        { local: statut_projet_mip_id, foreign: id }
+    Statut_dossier_mip:       { local: statut_dossier_mip_id, foreign: id }
+    Niveau_protection:        { local: niveau_protection_id, foreign: id }
+    Pilote:                   { class: Utilisateur, local: pilote_id, foreign: id }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    DossiersBPI:
+      class:                  Dossier_bpi
+      refClass:               Dossier_mip_dossier_bpi
+      local:                  dossier_bpi_id
+      foreign:                dossier_mip_id
+      foreignAlias:           DossiersMIP
+    Innovateurs:
+      class:                  Utilisateur
+      refClass:               Innovateur_dossier_mip
+      foreign:                utilisateur_id
+      local:                  dossier_mip_id
+
+Statut_projet_mip:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+
+Statut_dossier_mip:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255) }
+    precedent_statut_dossier_mip_id: { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Precedent:                { class: Statut_dossier_mip, local: precedent_statut_dossier_mip_id, foreign: id }
+
+Innovateur_dossier_mip:
+  columns:
+    dossier_mip_id:           { type: integer, primary: true, notnull: true }
+    utilisateur_id:           { type: integer, primary: true, notnull: true }
+    type_innovateur_id:       { type: integer, notnull: true}
+  relations:
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+    Innovateur:               { class: Utilisateur, local: utilisateur_id, foreign: id, onDelete: CASCADE}
+    Type_innovateur:          { class: Type_innovateur, local: type_innovateur_id, foreign: id}
+
+Type_innovateur:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Remarque_mip:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    contenu:                  { type: string, notnull: true }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+
+Evenement_mip:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date:                     { type: timestamp, notnull: true }
+    evenement:                { type: string, notnull: true }
+    est_cloture:              { type: boolean, notnull: true, default: false }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+
+Transfert_cloture:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_transfert:           { type: timestamp }
+    reference_transfert:      { type: string(255) }
+    destination_autre:        { type: string(255) }
+    date_cloture:             { type: timestamp }
+    reference_cloture:        { type: string(255) }
+    dossier_mip_id:           { type: integer, notnull: true }
+    entite_id:                { type: integer }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE, foreignType: one }
+    Entite:                   { local: entite_id, foreign: id }
+
+Niveau_protection:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+
+Documents_mip:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    fichier:                  { type: string(255), notnull: true }
+    fichier_orig:             { type: string(255) }
+    titre:                    { type: string(255) }
+    est_joint:                { type: boolean }
+    autre_type:               { type: string(255) }
+    dossier_mip_id:           { type: integer, notnull: true }
+    documents_mip_type_id:    { type: integer }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+    Documents_mip_type:       { local: documents_mip_type_id, foreign: id }
+
+Documents_mip_type:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Rendez_vous:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_prise_rdv:           { type: timestamp }
+    date_rdv:                 { type: timestamp }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE, foreignType: one }
+
+Echeance:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_echeance_ea:         { type: timestamp }
+    date_echeance_cr:         { type: timestamp }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE, foreignType: one }
+
+Soutien:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_emission:            { type: timestamp }
+    reference:                { type: string(255) }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE, foreignType: one }
+
+Avis_etatmajor:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_demande:             { type: timestamp }
+    reference_demande:        { type: string(255) }
+    date_reception:           { type: timestamp }
+    date_envoi:               { type: timestamp }
+    reference:                { type: string(255) }
+    est_favorable:            { type: boolean }
+    recommandation:           { type: string }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE, foreignType: one }
+
+Type_relance_dossier_mip:
+  columns:
+    id :                      { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255) }
+    
+Relance_dossier_mip:
+  actAs:                      { Timestampable: ~ }
+  columns:
+    dossier_mip_id:           { type: integer, notnull: true}
+    type_relance_dossier_mip_id: { type: integer, notnull: true }
+  relations:
+    TypeRelance:              { class: Type_relance_dossier_mip, local: type_relance_dossier_mip_id, foreign: id}
+    DossierMIP:               { class: Dossier_mip, local: dossier_mip_id, foreign: id}
+        
+
+
+Remise_documents:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_reception_ea:        { type: timestamp }
+    reference_ea:             { type: string(255) }
+    date_envoi_ar_ea:         { type: timestamp }
+    reference_ar_ea:          { type: string(255) }
+    mode_transmission_ea:     { type: integer }
+    date_reception_cr:        { type: timestamp }
+    reference_cr:             { type: string(255) }
+    date_envoi_ar_cr:         { type: timestamp }
+    reference_ar_cr:          { type: string(255) }
+    mode_transmission_cr:     { type: integer }
+    date_reception_video:     { type: timestamp }
+    reference_video:          { type: string(255) }
+    date_envoi_ar_video:      { type: timestamp }
+    reference_ar_video:       { type: string(255) }
+    mode_transmission_video:  { type: integer }
+    date_soutien:             { type: timestamp }
+    reference_soutien:        { type: integer }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    ModeTransmissionEA:       { class: Mode_transmission, local: mode_transmission_ea, foreign: id }
+    ModeTransmissionCR:       { class: Mode_transmission, local: mode_transmission_cr, foreign: id }
+    ModeTransmissionVideo:    { class: Mode_transmission, local: mode_transmission_video, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE, foreignType: one }
+
+Mode_transmission:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Budget:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_budget:              { type: date, notnull: true }
+    budget_type_id:           { type: integer, notnull: true }
+    dossier_mip_id:           { type: integer, notnull: true }
+    reference:                { type: string(255) }
+    montant:                  { type: float, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Budget_type:              { local: budget_type_id, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+
+Budget_type:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    est_negatif:              { type: boolean, notnull: true, default: false }
+
+Prix:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+
+Prix_dossier_mip:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    annee:                    { type: integer, notnull: true }
+    est_selectionne:          { type: boolean, notnull: true, default: false }
+    est_obtenu:               { type: boolean, notnull: true, default: false }
+    dossier_mip_id:           { type: integer, notnull: true }
+    prix_id:                  { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+    Prix:                     { local: prix_id, foreign: id }
+
+Valorisation:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_demande_generalisation:         { type: timestamp }
+    destinataire_demande_generalisation: { type: string(255) }
+    avantage_inconvenient:               { type: string(255) }
+    retour_experience:                   { type: string(255) }
+    fiche_internet:                      { type: string(255) }
+    dossier_mip_id:                      { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE, foreignType: one }
+
+Dossier_mip_dossier_bpi:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    dossier_mip_id:           { type: integer, primary: true }
+    dossier_bpi_id:           { type: integer, primary: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id }
+
+
+ ############################TABLES SUPPORT############################
+
+Session_innovateur_dossier_mip:
+  columns:
+    innovateur_id:            { type: integer   , notnull:  true }
+    transaction_token:        { type: string(20), notnull:  true }
+    nouveau_type_id:          { type: integer }
+  relations:
+    Innovateur:               { class: Utilisateur, local: innovateur_id, foreign: id}
+    Type_innovateur:          { class: Type_innovateur, local: nouveau_type_id, foreign: id}
+
+Session_situation_inventeurs:
+  columns:
+    inventeur_id:             { type: integer   , notnull:  true }
+    transaction_token:        { type: string(20), notnull:  true }
+    part_inventive:           { type: integer   , notnull:  true }
+  relations:
+    Inventeur:                { class: Inventeur, local: inventeur_id, foreign: id, onDelete: CASCADE }
+
+Session_valorisation_externe:
+  columns:
+    contrat_id:               { type: integer }
+    organisme_id:             { type: integer, notnull: true }
+    statut_valorisation_externe_id: { type: integer, notnull: true }
+    transaction_token:        { type: string(20), notnull: true }
+  relations:
+    Contrat:                  { class: Contrat, local: contrat_id, foreign: id, onDelete: CASCADE }
+    Organisme:                { class: Organisme, local: organisme_id, foreign: id, onDelete: CASCADE }
+    StatutValorisationExterne: { class: Statut_valorisation_externe, local: statut_valorisation_externe_id, foreign: id, onDelete: CASCADE }
+
+Session_valorisation_interne:
+  columns:
+    organisme_mindef_id:      { type: integer, notnull: true }
+    transaction_token:        { type: string(20), notnull: true }
+    date_debut_exploitation:  { type: date, notnull: true }
+  relations:
+    OrganismeMindef:          { class: Organisme_mindef, local: organisme_mindef_id, foreign: id, onDelete: CASCADE }
+    
+Session_participant_mindef_commission:
+  columns:
+    participant_id:           {type: integer    , notnull: true }
+    transaction_token:        {type: string(20) , notnull: true }
+    est_concerne:             {type: boolean    , notnull: true }
+  relations:
+    Participant:              {class: Utilisateur, local: participant_id, foreign: id, onDelete: CASCADE }
+
+Session_participant_exterieurs_commission:
+  columns:
+    intervenant_id:           {type: integer    , notnull: true }
+    transaction_token:        {type: string(20) , notnull: true }
+    est_concerne:             {type: boolean    , notnull: true }
+  relations:
+    Intervenant:              {class: Intervenant, local: intervenant_id, foreign: id, onDelete: CASCADE }
+
+Session_invitation_commission:
+  columns:
+    invitation_id:            { type: integer }
+    service_id:               { type: integer }
+    laboratoire_id:           { type: integer }
+    transaction_token:        { type: string(20), notnull: true }
+    est_concerne:             { type: boolean, notnull: true }
+  relations:
+    Invitation:               { local: invitation_id, foreign: id, onDelete: CASCADE }
+    Service:                  { local: service_id, foreign: id, onDelete: CASCADE }
+    Laboratoire:              { local: laboratoire_id, foreign: id, onDelete: CASCADE }
+
+Session_contrat_signataire:
+  columns:
+    contrat_id:               { type: integer}
+    organisme_id:             { type: integer}
+    service_id:               { type: integer}
+    transaction_token:        { type: string(20), notnull:  true }
+  relations:
+    Contrat:                  { local: contrat_id, foreign: id, onDelete: CASCADE }
+    Organisme:                { local: organisme_id, foreign: id, onDelete: CASCADE }
+    Service:                  { local: service_id, foreign: id, onDelete: CASCADE }
+
+
+Session_liaison_dossiers_mip_bpi:
+  columns:
+    dossier_bpi_id:           { type: integer    , notnull: true }
+    transaction_token:        { type: string(20) , notnull: true }
+    est_concerne:             { type: boolean    , notnull: true }
+  relations:
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id, onDelete: CASCADE }
+
+Session_liaison_dossiers_bpi_mip:
+  columns:
+    dossier_mip_id:           { type: integer    , notnull: true }
+    transaction_token:        { type: string(20) , notnull: true }
+    est_concerne:             { type: boolean    , notnull: true }
+  relations:
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+
+Session_encadrants_dossier_these:
+  columns:
+    dossier_these_id:         { type: integer }
+    intervenant_id:           { type: integer }
+    role_these_id:            { type: integer }
+    transaction_token:        { type: string(20), notnull:  true }
+  relations:
+    DossierThese:             { class: Dossier_these, local: dossier_these_id, foreign: id}
+    Intervenant:              { class: Intervenant, local: intervenant_id, foreign: id}
+    RoleThese:                { class: Role_these, local: role_these_id, foreign: id}
+
+Session_encadrants_dossier_ere:
+  columns:
+    dossier_ere_id:           { type: integer }
+    intervenant_id:           { type: integer }
+    role_ere_id:              { type: integer }
+    transaction_token:        { type: string(20), notnull:  true }
+  relations:
+    DossierEre:               { class: Dossier_ere, local: dossier_ere_id, foreign: id}
+    Intervenant:              { class: Intervenant, local: intervenant_id, foreign: id}
+    RoleEre:                  { class: Role_ere, local: role_ere_id, foreign: id}
+
+Session_encadrants_dossier_postdoc:
+  columns:
+    dossier_postdoc_id:       { type: integer }
+    intervenant_id:           { type: integer }
+    role_postdoc_id:          { type: integer }
+    transaction_token:        { type: string(20), notnull:  true }
+  relations:
+    DossierPostdoc:           { class: Dossier_postdoc, local: dossier_postdoc_id, foreign: id}
+    Intervenant:              { class: Intervenant, local: intervenant_id, foreign: id}
+    RolePostdoc:              { class: Role_postdoc, local: role_postdoc_id, foreign: id}
+
+Session_dossier_these_laboratoire:
+  columns:
+    dossier_these_id:         { type: integer }
+    laboratoire_id:           { type: integer }
+    transaction_token:        { type: string(20), notnull:  true }
+  relations:
+    DossierThese:             { class: Dossier_these, local: dossier_these_id, foreign: id}
+    Laboratoire:              { class: Laboratoire, local: laboratoire_id, foreign: id}
+
+Session_dossier_ere_laboratoire:
+  columns:
+    dossier_ere_id:           { type: integer }
+    laboratoire_id:           { type: integer }
+    transaction_token:        { type: string(20), notnull:  true }
+  relations:
+    DossierEre:               { class: Dossier_ere, local: dossier_ere_id, foreign: id}
+    Laboratoire:              { class: Laboratoire, local: laboratoire_id, foreign: id}
+
+Session_dossier_postdoc_laboratoire:
+  columns:
+    dossier_postdoc_id:       { type: integer }
+    laboratoire_id:           { type: integer }
+    transaction_token:        { type: string(20), notnull:  true }
+  relations:
+    DossierPostdoc:           { class: Dossier_postdoc, local: dossier_postdoc_id, foreign: id}
+    Laboratoire:              { class: Laboratoire, local: laboratoire_id, foreign: id}
+
+Session_cofinance_these:
+  columns:
+    dossier_these_id:         { type: integer}
+    organisme_id:             { type: integer}
+    transaction_token:        { type: string(20), notnull:  true }
+    part_cofinance:           { type: integer   , notnull:  true }
+  relations:
+    Dossier_these:            { class: Dossier_these, local: dossier_these_id, foreign: id }
+    Organisme:                { class: Organisme, local: organisme_id, foreign: id }
+    
+############################# MRIS #####################################
+
+Etudiant:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    civilite_id:              { type: integer, notnull: true }
+    nom:                      { type: string(255), notnull: true }
+    nom_jeunefille:           { type: string(255) }
+    prenom:                   { type: string(255), notnull: true }
+    date_naissance:           { type: date }
+    lieu_naissance:           { type: string(255) }
+    email:                    { type: string(255) }
+    email2:                   { type: string(255) }
+    adresse:                  { type: string(255) }
+    adresse2:                 { type: string(255) }
+    adresse3:                 { type: string(255) }
+    code_postal:              { type: string(255) }
+    complement_adresse:       { type: string(255) }
+    ville_id:                 { type: integer }
+    telephone_fixe:           { type: string(20) }
+    telephone_mobile:         { type: string(20) }
+    adresse_etrangere:        { type: string }
+    pays_id:                  { type: integer }
+    nationalite_id:           { type: integer }
+    autre_cursus:             { type: string(255) }
+    a_master:                 { type: boolean, notnull: true, default: false }
+    mention:                  { type: string(255) }
+    description_formation:    { type: string }
+    photographie:             { type: string(255) }
+    photographie_orig:        { type: string(255) }
+    type_cursus_id:           { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+  relations:
+    Civilite:                 { local: civilite_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Type_cursus:              { local: type_cursus_id, foreign: id }
+    Ville:                    { local: ville_id, foreign: id }
+    Pays:                     { class: Pays, local: pays_id, foreign: id}
+    Nationalite:              { class: Pays, local: nationalite_id, foreign: id}
+
+Type_cursus:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Intervenant:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    civilite_id:              { type: integer, notnull: true }
+    nom:                      { type: string(255), notnull: true }
+    prenom:                   { type: string(255), notnull: true }
+    titre:                    { type: string(255) }
+    est_participant_commission: { type: boolean, notnull: true, default: false }
+    est_responsable:          { type: boolean, notnull: true, default: false }
+    email:                    { type: string(255) }
+    email2:                   { type: string(255) }
+    adresse:                  { type: string(255) }
+    adresse2:                  { type: string(255) }
+    adresse3:                  { type: string(255) }
+    code_postal:              { type: string(255) }
+    complement_adresse:       { type: string(255) }
+    ville_id:                 { type: integer }
+    telephone_fixe:           { type: string(20) }
+    telephone_mobile:         { type: string(20) }
+    fax:                      { type: string(20) }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    adresse_etrangere:        { type: string }
+    pays_id:                  { type: integer }
+    organisme_id:             { type: integer }
+    service_id:               { type: integer }
+    laboratoire_id:           { type: integer }
+  relations:
+    Civilite:                 { local: civilite_id, foreign: id }
+    Laboratoire:              { local: laboratoire_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    Service:                  { local: service_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Ville:                    { local: ville_id, foreign: id }
+    Pays:                     { class: Pays, local: pays_id, foreign: id }
+
+### Commission
+Commission:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    ordre_jour:               { type: string(255) }
+    est_selection:            { type: boolean, notnull: true, default: false }
+    est_suivi:                { type: boolean, notnull: true, default: false }
+    est_analyse:              { type: boolean, notnull: true, default: false }
+    date_debut:               { type: timestamp }
+    date_fin:                 { type: timestamp }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    type_dossier_mris_id:     { type: integer }
+  relations:
+    Type_dossier_mris:        { local: type_dossier_mris_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Utilisateurs:
+      class:                  Utilisateur
+      refClass:               Commission_utilisateur
+      foreign:                commission_id
+      local:                  utilisateur_id
+    Intervenants:
+      class:                  Intervenant
+      refClass:               Commission_intervenant
+      foreign:                commission_id
+      local:                  intervenant_id
+
+Commission_utilisateur:
+  columns:
+    commission_id:            { type: integer, primary: true}
+    utilisateur_id:           { type: integer, primary: true}
+  relations:
+    Commission:               { local: commission_id, foreign: id, onDelete: CASCADE }
+    Utilisateur:              { local: utilisateur_id, foreign: id }
+
+Commission_intervenant:
+  columns:
+    commission_id:            { type: integer, primary: true}
+    intervenant_id:           { type: integer, primary: true}
+  relations:
+    Commission:               { local: commission_id, foreign: id, onDelete: CASCADE }
+    Intervenant:              { local: intervenant_id, foreign: id, onDelete: CASCADE }
+
+Type_dossier_mris:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Evaluation:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    note_id:                  { type: integer }
+    valeur_note_id:           { type: integer }
+    est_preselection:         { type: boolean, notnull: true, default: false }
+    est_globale:              { type: boolean, notnull: true, default: false }
+    est_actif:                { type: boolean, notnull: true, default: true }
+    est_finale:               { type: boolean, notnull: true, default: false }
+    invitation_id:            { type: integer }
+    dossier_these_id:         { type: integer }
+    dossier_ere_id:           { type: integer }
+    dossier_postdoc_id:       { type: integer }
+  relations:
+    Note:                     { local: note_id, foreign: id }
+    Valeur_note:              { local: valeur_note_id, foreign: id }
+    Invitation:               { local: invitation_id, foreign: id }
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Note:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    est_selection:            { type: boolean, notnull: true, default: true }
+
+Valeur_note:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Invitation:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    commission_id:            { type: integer }
+    service_id:               { type: integer }
+    laboratoire_id:           { type: integer }
+  relations:
+    Commission:               { local: commission_id, foreign: id, onDelete: CASCADE }
+    Service:                  { local: service_id, foreign: id, onDelete: CASCADE }
+    Laboratoire:              { local: laboratoire_id, foreign: id, onDelete: CASCADE }
+
+### dossier these
+Dossier_these:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero:                   { type: string(255), notnull: true }
+    titre:                    { type: string(255), notnull: true }
+    objet:                    { type: string }
+    fichier_editable:         { type: string(255) }
+    fichier_editable_orig:    { type: string(255) }
+    fichier_pdf:              { type: string(255) }
+    fichier_pdf_orig:         { type: string(255) }
+    classement:               { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    cotutelle:                { type: boolean, default: 0 }
+    cooperation:              { type: boolean, default: 0 }
+    statut_dossier_these_id:  { type: integer }
+    domaine_scientifique_id:  { type: integer }
+    organisme_mindef_id:      { type: integer }
+    organisme_id:             { type: integer }
+    realise_par:              { type: integer }
+    pilote_par:               { type: integer }
+    etat_partage_id:          { type: integer, default: 1 }
+    type_convention_organisme_id: { type: integer, notnull: true}
+    mis_en_attente_le:        { type: timestamp }
+    repertoire_partage:       { type: string(255), notnull: true }
+  relations:
+    Statut_dossier_these:     { local: statut_dossier_these_id, foreign: id }
+    Domaine_scientifique:     { local: domaine_scientifique_id, foreign: id }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    Etat_partage:             { local: etat_partage_id, foreign: id }
+    Etudiant:                 { local: realise_par, foreign: id }
+    Type_convention_organisme: { class: Type_convention_organisme, local: type_convention_organisme_id, foreign: id }
+    PilotePar:                { class: Utilisateur, local: pilote_par, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Laboratoires:
+      class:                  Laboratoire
+      refClass:               Dossier_these_laboratoire
+      foreign:                laboratoire_id
+      local:                  dossier_these_id
+      foreignAlias:           DossiersThese
+    AboutissementThese:      { class: Aboutissement_these, local: id, foreign: dossier_these_id }
+   
+
+Statut_dossier_these:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Encadrant_these:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    dossier_these_id:         { type: integer, primary: true, notnull: true }
+    intervenant_id:           { type: integer, primary: true, notnull: true }
+    role_these_id:            { type: integer, primary: true, notnull: true }
+  relations:
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Intervenant:              { local: intervenant_id, foreign: id, onDelete: CASCADE }
+    Role_these:               { local: role_these_id, foreign: id }
+
+Dossier_these_laboratoire:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    dossier_these_id:         { type: integer,  notnull: true }
+    laboratoire_id:           { type: integer,  notnull: true }
+  relations:
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Laboratoire:              { local: laboratoire_id, foreign: id, onDelete: CASCADE }
+
+Role_these:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Aboutissement_these:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    est_preselectionne_prix:  { type: boolean, notnull: true, default: false }
+    est_selectionne_prix:     { type: boolean, notnull: true, default: false }
+    reception_exemplaire_these:   { type: date }
+    reception_rapport_soutenance: { type: date }
+    reception_liste_publication:  { type: date }
+    reception_fiche_evaluation:   { type: date }
+    reception_synthese:       { type: date }
+    date_soutenance:          { type: date }
+    dossier_these_id:         { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_these:            { local: dossier_these_id, foreign: id, foreignType: one, onDelete: CASCADE }
+
+Suivi_dossier_these:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    descriptif:               { type: string }
+    date_demande:             { type: date }
+    date_reception:           { type: date }
+    dossier_these_id:         { type: integer, notnull: true }
+    type_suivi_these_id:      { type: integer, notnull: true }
+  relations:
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Type_suivi_these:         { local: type_suivi_these_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_suivi_these:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Cofinance_these:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    dossier_these_id:         { type: integer, notnull: true }
+    organisme_id:             { type: integer, notnull: true }
+    part_cofinance:           { type: integer }
+  relations:
+    Dossier_these:            { class: Dossier_these, local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Organisme:                { class: Organisme, local: organisme_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+
+### dossier ere
+Dossier_ere:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero_provisoire:        { type: string(255) }
+    numero_definitif:         { type: string(255) }
+    titre:                    { type: string(255), notnull: true }
+    objet:                    { type: string }
+    fichier_editable:         { type: string(255) }
+    fichier_editable_orig:    { type: string(255) }
+    fichier_pdf:              { type: string(255) }
+    fichier_pdf_orig:         { type: string(255) }
+    classement:               { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+    cotutelle:                { type: boolean, default: 0 }
+    cooperation:              { type: boolean, default: 0 }
+    statut_dossier_ere_id:    { type: integer }
+    domaine_scientifique_id:  { type: integer }
+    organisme_mindef_id:      { type: integer }
+    organisme_id:             { type: integer }
+    realise_par:              { type: integer }
+    pilote_par:               { type: integer }
+    etat_partage_id:          { type: integer, default: 1 }
+    mis_en_attente_le:        { type: timestamp }
+    repertoire_partage:       { type: string(255), notnull: true }
+  relations:
+    Statut_dossier_ere:       { local: statut_dossier_ere_id, foreign: id }
+    Domaine_scientifique:     { local: domaine_scientifique_id, foreign: id }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    Etat_partage:             { local: etat_partage_id, foreign: id }
+    Etudiant:                 { local: realise_par, foreign: id, onDelete: CASCADE }
+    PilotePar:                { class: Utilisateur, local: pilote_par, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Laboratoires:
+      class:                  Laboratoire
+      refClass:               Dossier_ere_laboratoire
+      foreign:                laboratoire_id
+      local:                  dossier_ere_id
+      foreignAlias:           DossiersEre
+    AboutissementEre:         { class: Aboutissement_ere, local: id, foreign: dossier_ere_id }
+
+Statut_dossier_ere:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Encadrant_ere:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    dossier_ere_id:           { type: integer, primary: true, notnull: true }
+    intervenant_id:           { type: integer, primary: true, notnull: true }
+    role_ere_id:              { type: integer, primary: true, notnull: true }
+  relations:
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+    Intervenant:              { local: intervenant_id, foreign: id, onDelete: CASCADE }
+    Role_ere:                 { local: role_ere_id, foreign: id }
+
+Dossier_ere_laboratoire:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    dossier_ere_id:           { type: integer, notnull: true }
+    laboratoire_id:           { type: integer, notnull: true }
+  relations:
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+    Laboratoire:              { local: laboratoire_id, foreign: id, onDelete: CASCADE }
+
+Role_ere:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Aboutissement_ere:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    reception_rapport_final:  { type: date }
+    reception_fiche_evaluation: { type: date }
+    reception_synthese:       { type: date }
+    dossier_ere_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_postdoc:          { local: dossier_ere_id, foreign: id, foreignType: one, onDelete: CASCADE }
+
+Suivi_dossier_ere:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    descriptif:               { type: string }
+    date_demande:             { type: date }
+    date_echeance:            { type: date }
+    date_reception:           { type: date }
+    dossier_ere_id:           { type: integer, notnull: true }
+    type_suivi_ere_id:        { type: integer, notnull: true }
+  relations:
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+    Type_suivi_ere:           { local: type_suivi_ere_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_suivi_ere:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+### dossier postdoc
+Dossier_postdoc:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero_provisoire:        { type: string(255) }
+    numero_definitif:         { type: string(255) }
+    titre:                    { type: string(255), notnull: true }
+    objet:                    { type: string }
+    fichier_editable:         { type: string(255) }
+    fichier_editable_orig:    { type: string(255) }
+    fichier_pdf:              { type: string(255) }
+    fichier_pdf_orig:         { type: string(255) }
+    classement:               { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: true }
+    cotutelle:                { type: boolean, default: 0 }
+    cooperation:              { type: boolean, default: 0 }
+    statut_dossier_postdoc_id: { type: integer }
+    domaine_scientifique_id:  { type: integer }
+    organisme_mindef_id:      { type: integer }
+    organisme_id:             { type: integer }
+    realise_par:              { type: integer }
+    pilote_par:               { type: integer }
+    etat_partage_id:          { type: integer, default: 1 }
+    mis_en_attente_le:        { type: timestamp }
+    repertoire_partage:       { type: string(255), notnull: true }
+  relations:
+    Statut_dossier_postdoc:   { local: statut_dossier_postdoc_id, foreign: id }
+    Domaine_scientifique:     { local: domaine_scientifique_id, foreign: id }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    Etat_partage:             { local: etat_partage_id, foreign: id }
+    Etudiant:                 { local: realise_par, foreign: id }
+    PilotePar:                { class: Utilisateur, local: pilote_par, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Laboratoires:
+      class:                  Laboratoire
+      refClass:               Dossier_postdoc_laboratoire
+      foreign:                laboratoire_id
+      local:                  dossier_postdoc_id
+      foreignAlias:           DossiersPostdoc
+    AboutissementPostdoc:    { class: Aboutissement_postdoc, local: id, foreign: dossier_postdoc_id }
+
+Statut_dossier_postdoc:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Encadrant_postdoc:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    dossier_postdoc_id:       { type: integer, primary: true, notnull: true }
+    intervenant_id:           { type: integer, primary: true, notnull: true }
+    role_postdoc_id:          { type: integer, primary: true, notnull: true }
+  relations:
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+    Intervenant:              { local: intervenant_id, foreign: id, onDelete: CASCADE }
+    Role_postdoc:             { local: role_postdoc_id, foreign: id }
+
+Dossier_postdoc_laboratoire:
+  columns:
+    dossier_postdoc_id:       { type: integer, primary: true, notnull: true }
+    laboratoire_id:           { type: integer, primary: true, notnull: true }
+  relations:
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+    Laboratoire:              { local: laboratoire_id, foreign: id, onDelete: CASCADE }
+
+Role_postdoc:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Aboutissement_postdoc:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    reception_rapport_final:  { type: date }
+    reception_fiche_evaluation: { type: date }
+    reception_synthese:       { type: date }
+    dossier_postdoc_id:       { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, foreignType: one, onDelete: CASCADE }
+
+Suivi_dossier_postdoc:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    descriptif:               { type: string }
+    date_demande:             { type: date }
+    date_echeance:            { type: date }
+    date_reception:           { type: date }
+    dossier_postdoc_id:       { type: integer, notnull: true }
+    type_suivi_postdoc_id:    { type: integer, notnull: true }
+  relations:
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+    Type_suivi_postdoc:       { local: type_suivi_postdoc_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_suivi_postdoc:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+### evenement
+Evenement_mris:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_evenement:           { type: date, notnull: true }
+    description:              { type: string, notnull: true }
+    dossier_these_id:         { type: integer }
+    dossier_ere_id:           { type: integer }
+    dossier_postdoc_id:       { type: integer }
+    type_evenement_these_id:  { type: integer }
+    type_evenement_ere_id:    { type: integer }
+    type_evenement_postdoc_id: { type: integer }
+  relations:
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+    Type_evenement_these:     { local: type_evenement_these_id, foreign: id }
+    Type_evenement_ere:       { local: type_evenement_ere_id, foreign: id }
+    Type_evenement_postdoc:   { local: type_evenement_postdoc_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_evenement_these:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Type_evenement_ere:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Type_evenement_postdoc:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+### document
+Document_mris:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    fichier:                  { type: string(255) }
+    fichier_orig:             { type: string(255) }
+    est_joint:                { type: boolean, notnull: true, default: false }
+    titre:                    { type: string(255) }
+    autre_type:               { type: string(255) }
+    dossier_these_id:         { type: integer }
+    dossier_ere_id:           { type: integer }
+    dossier_postdoc_id:       { type: integer }
+    type_document_these_id:   { type: integer }
+    type_document_ere_id:     { type: integer }
+    type_document_postdoc_id: { type: integer }
+  relations:
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+    Type_document_these:      { local: type_document_these_id, foreign: id }
+    Type_document_ere:        { local: type_document_ere_id, foreign: id }
+    Type_document_postdoc:    { local: type_document_postdoc_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_document_these:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Type_document_ere:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Type_document_postdoc:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+### remarque
+Remarque_mris:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    contenu:                  { type: string }
+    dossier_these_id:         { type: integer }
+    dossier_ere_id:           { type: integer }
+    dossier_postdoc_id:       { type: integer }
+  relations:
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+### avis
+Avis_mris:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_avis:                { type: date }
+    date_envoi_lettre:        { type: date }
+    est_satisfaisant:         { type: boolean, notnull: true, default: false }
+    dossier_these_id:         { type: integer }
+    dossier_ere_id:           { type: integer }
+    dossier_postdoc_id:       { type: integer }
+  relations:
+    Dossier_theses:
+      class:                  Dossier_these
+      refClass:               Avis_mris_dossier_these
+      foreign:                dossier_these_id
+      local:                  avis_mris_id
+    Dossier_eres:
+      class:                  Dossier_ere
+      refClass:               Avis_mris_dossier_ere
+      foreign:                dossier_ere_id
+      local:                  avis_mris_id
+    Dossier_postdocs:
+      class:                  Dossier_postdoc
+      refClass:               Avis_mris_dossier_postdoc
+      foreign:                dossier_postdoc_id
+      local:                  avis_mris_id
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Avis_mris_dossier_these:
+  columns:
+    avis_mris_id:             { type: integer, primary: true, notnull: true }
+    dossier_these_id:         { type: integer, primary: true, notnull: true }
+  relations:
+    Avis_mris:                { local: avis_mris_id, foreign: id, onDelete: CASCADE }
+    Dossier_these:            { local: dossier_these_id, foreign: id, onDelete: CASCADE }
+
+Avis_mris_dossier_ere:
+  columns:
+    avis_mris_id:             { type: integer, primary: true, notnull: true }
+    dossier_ere_id:           { type: integer, primary: true, notnull: true }
+  relations:
+    Avis_mris:                { local: avis_mris_id, foreign: id, onDelete: CASCADE }
+    Dossier_ere:              { local: dossier_ere_id, foreign: id, onDelete: CASCADE }
+
+Avis_mris_dossier_postdoc:
+  columns:
+    avis_mris_id:             { type: integer, primary: true, notnull: true }
+    dossier_postdoc_id:       { type: integer, primary: true, notnull: true }
+  relations:
+    Avis_mris:                { local: avis_mris_id, foreign: id, onDelete: CASCADE }
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id, onDelete: CASCADE }
+
+
+############################# BPI #####################################
+
+Inventeur:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    civilite_id:              { type: integer, notnull: true }
+    nom:                      { type: string(255), notnull: true }
+    prenom:                   { type: string(255) }
+    date_naissance:           { type: date }
+    date_deces:               { type: date }
+    date_retraite:            { type: date }
+    email:                    { type: string(255) }
+    email2:                   { type: string(255) }
+    telephone_fixe:           { type: string(20) }
+    telephone_mobile:         { type: string(20) }
+    telephone_autre:          { type: string(20) }
+    fax:                      { type: string(20) }
+    email_perso:              { type: string(255) }
+    adresse_perso:            { type: string(255) }
+    adresse_perso2:           { type: string(255) }
+    adresse_perso3:           { type: string(255) }
+    code_postal_perso:        { type: string(255) }
+    complement_adresse_perso: { type: string(255) }
+    ville_id:                 { type: integer }
+    telephone_fixe_perso:     { type: string(20) }
+    telephone_mobile_perso:   { type: string(20) }
+    est_exterieur:            { type: boolean, notnull: true, default: false }
+    est_actif:                { type: boolean, notnull: true, default: true }
+    organisme_mindef_id:      { type: integer }
+    entite_id:                { type: integer }
+    grade_id:                 { type: integer }
+    organisme_id:             { type: integer }
+    service_id:               { type: integer }
+  relations:
+    Civilite:                 { local: civilite_id, foreign: id }
+    Ville:                    { local: ville_id, foreign: id }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+    Entite:                   { local: entite_id, foreign: id }
+    Grade:                    { local: grade_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    Service:                  { local: service_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+### Contrat
+Contrat:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_proposition:         { type: date }
+    date_signature:           { type: date }
+    date_inscription_mb:      { type: date }
+    numero_mb:                { type: string(255) }
+    date_redaction:           { type: date }
+    est_actif:                { type: boolean, notnull: true, default: true }
+    juriste_id:               { type: integer }
+    statut_contrat_id:        { type: integer, notnull: true }
+    dossier_bpi_id:           { type: integer, notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: true }
+  relations:
+    Juriste:                  { class: Utilisateur, local: juriste_id, foreign: id }
+    Statut_contrat:           { local: statut_contrat_id, foreign: id }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Signataire:               { local: id, foreign: contrat_id, type: many}
+    Type_contrats:
+      class:                  Type_contrat
+      refClass:               Contrat_type_contrat
+      foreign:                type_contrat_id
+      local:                  contrat_id
+
+Signataire:
+  columns:
+    contrat_id:               { type: integer, primary: true, notnull: true }
+    organisme_id:             { type: integer, primary: true, notnull: true }
+    service_id:               { type: integer }
+  relations:
+    Contrat:                  { local: contrat_id, foreign: id, onDelete: CASCADE }
+    Organisme:                { local: organisme_id, foreign: id, onDelete: CASCADE }
+    Service:                  { local: service_id, foreign: id, onDelete: CASCADE }
+
+Type_contrat:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+
+Statut_contrat:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Contrat_type_contrat:
+  columns:
+    contrat_id:               { type: integer, primary: true, notnull: true }
+    type_contrat_id:          { type: integer, primary: true, notnull: true }
+  relations:
+    Contrat:                  { local: contrat_id, foreign: id, onDelete: CASCADE }
+    Type_contrat:             { local: type_contrat_id, foreign: id }
+
+### Action
+Action:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_echeance:            { type: date }
+    description:              { type: string }
+    date_action:              { type: date }
+    pilote_id:                { type: integer, notnull: true }
+    statut_action_id:         { type: integer, notnull: true }
+    type_action_id:           { type: integer, notnull: true }
+    dossier_bpi_id:           { type: integer, notnull: true }
+  relations:
+    Statut_action:            { local: statut_action_id, foreign: id }
+    Type_action:              { local: type_action_id, foreign: id }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id }
+    Pilote:                   { class: Utilisateur, local: pilote_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Statut_action:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Type_action:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+### Dossier BPI
+Dossier_bpi:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    titre:                    { type: string(255), notnull: true }
+    description:              { type: string }
+    date_predeclaration:      { type: date }
+    date_declaration_conforme: { type: date }
+    est_brevetable:           { type: boolean, notnull: true, default: false }
+    numero:                   { type: string(255) }
+    est_actif:                { type: boolean, notnull: true, default: true }
+    est_clos:                 { type: boolean, notnull: true, default: false }
+    date_cloture:             { type: date }
+    commentaire_cloture:      { type: string }
+    date_reouverture:         { type: date }
+    commentaire_reouverture:  { type: string }
+    autorite_decision_id:     { type: integer }
+    hierarchie_locale_id:     { type: integer }
+    etat_partage_id:          { type: integer, notnull: true, default: 1}
+    statut_declaration_id:    { type: integer, notnull: true }
+    statut_dossier_bpi_id:    { type: integer, notnull: true }
+    date_classement:          { type: date}
+    date_classement_cnis:     { type: date}
+    commentaire_classement:   { type: string}
+    repertoire_partage:       { type: string(255), notnull: true }
+    est_classifie:            { type: boolean, default: false }
+  relations:
+    AutoriteDecision:         { class: Entite, local: autorite_decision_id, foreign: id }
+    HierarchieLocale:         { class: Entite, local: hierarchie_locale_id, foreign: id }
+    Etat_partage:             { local: etat_partage_id, foreign: id }
+    Statut_declaration:       { local: statut_declaration_id, foreign: id }
+    Statut_dossier_bpi:       { local: statut_dossier_bpi_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Inventeurs:
+      class:                   Inventeur
+      refClass:                Part_inventive
+      foreign:                 inventeur_id
+      local:                   dossier_bpi_id
+      foreignAlias:            Dossier_bpis
+
+Attribution_droit:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    echeance_supplementaire:  { type: date }
+    droits_attribues:         { type: boolean, notnull: true, default: false }
+    date_decision_attribution: { type: date }
+    commentaire:              { type: string }
+    date_envoi_contrat:       { type: date }
+    redaction_brevet_lance:   { type: boolean, notnull: true, default: false }
+    contrat_id:               { type: integer }
+    brevet_id:                { type: integer }
+    dossier_bpi_id:           { type: integer, notnull: true }
+  relations:
+    Contrat:                  { local: contrat_id, foreign: id }
+    Brevet:                   { local: brevet_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id, onDelete: CASCADE, foreignType: one }
+
+Statut_dossier_bpi:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255) }
+    precedent_statut_dossier_bpi_id: { type: integer }
+    est_actif:                { type: boolean, notnull: true, default: 1 }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Precedent:                { class: Statut_dossier_bpi, local: precedent_statut_dossier_bpi_id, foreign: id }
+
+Statut_declaration:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: true }
+    statut_declaration_id:    { type: integer }
+  relations:
+    Statut_declaration:       { local: statut_declaration_id, foreign: id }
+
+Liaison_mip_bpi:
+  columns:
+    dossier_mip_id:           { type: integer, primary: true, notnull: true }
+    dossier_bpi_id:           { type: integer, primary: true, notnull: true }
+  relations:
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id, onDelete: CASCADE }
+
+Remarque_bpi:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    contenu:                  { type: string, notnull: true }
+    dossier_bpi_id:           { type: integer, notnull: true }
+  relations:
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id, onDelete: CASCADE }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Documents_bpi:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    fichier:                  { type: string(255), notnull: true }
+    fichier_orig:             { type: string(255) }
+    titre:                    { type: string(255) }
+    est_joint:                { type: boolean, notnull: true, default: false }
+    est_invisible:            { type: boolean, notnull: true, default: false }
+    dossier_bpi_id:           { type: integer, notnull: true }
+    statut_dossier_bpi_id:    { type: integer }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id, onDelete: CASCADE }
+    Statut_dossier_bpi:       { local: statut_dossier_bpi_id, foreign: id }
+
+Part_inventive:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    inventeur_id:             { type: integer, notnull: true }
+    dossier_bpi_id:           { type: integer, notnull: true }
+    part_inventive:           { type: integer }
+  relations:
+    Inventeur:                { local: inventeur_id, foreign: id, onDelete: CASCADE }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id, onDelete: CASCADE }
+
+
+### Demande brevet
+Brevet:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero_demande:           { type: string(255) }
+    numero_publication:       { type: string(255) }
+    titre:                    { type: string(255) }
+    date_decision_depot:      { type: date }
+    date_objectif_depot:      { type: date }
+    date_depot:               { type: date }
+    date_rapport_recherche:   { type: date }
+    date_obtention:           { type: date }
+    date_rejet:               { type: date }
+    date_cession:             { type: date }
+    date_reference:           { type: date }
+    somme_frais:              { type: float }
+    parent_id:                { type: integer }
+    contrat_id:               { type: integer }
+    pays_id:                  { type: integer }
+    type_depot_id:            { type: integer, notnull: true }
+    dossier_bpi_id:           { type: integer, notnull: true }
+    responsable_id:           { type: integer, notnull: true }
+    phase_depot_brevet_id:    { type: integer, notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: true }
+  relations:
+    Parent:                   { class: Brevet, local: parent_id, foreign: id }
+    Pays:                     { local: pays_id, foreign: id }
+    Contrat:                  { local: contrat_id, foreign: id }
+    Type_depot:               { local: type_depot_id, foreign: id }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id }
+    Phase_depot_brevet:       { local: phase_depot_brevet_id, foreign: id }
+    Responsable:              { class: Utilisateur, local: responsable_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_depot:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+
+Pays:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    nom:                      { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+
+Phase_depot_brevet:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: true }
+    est_actif_pere:           { type: boolean, notnull: true, default: true }
+    phase_depot_brevet_id:    { type: integer }
+  relations:
+    PhaseDepotBrevet:         { class: Phase_depot_brevet, local: phase_depot_brevet_id, foreign: id, foreignAlias: SousPhasesDepotBrevet}
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+## Classement
+
+Classement:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    abreviation:              { type: string(255), notnull: true }
+
+Classement_invention_inventeur:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    dossier_bpi_id:           { type: integer, notnull: true }
+    concerne_id:              { type: integer, notnull: true }
+    classement_autorite_id:   { type: integer, notnull: true }
+    classement_hierarchie_id: { type: integer, notnull: true }
+    classement_propose_id:    { type: integer, notnull: true }
+    classement_final_id:      { type: integer, notnull: true }
+  relations:
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id , onDelete: CASCADE}
+    Classement_autorite:      { class: Classement, local: classement_autorite_id, foreign: id }
+    Classement_hierarchie:    { class: Classement, local: classement_hierarchie_id, foreign: id }
+    Classement_propose:       { class: Classement, local: classement_propose_id, foreign: id }
+    Classement_final:         { class: Classement, local: classement_final_id, foreign: id }
+    Concerne:                 { class: Inventeur, local: concerne_id, foreign: id , onDelete: CASCADE}
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+### Valorisation
+
+Statut_valorisation_externe:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Valorisation_bpi:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    dossier_bpi_id:           { type: integer, notnull: true }
+    commentaire:              { type: string }
+    est_evalue:               { type: boolean, notnull: true, default: false }
+  relations:
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id , onDelete: CASCADE}
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Valorisation_externe:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    statut_valorisation_externe_id: { type: integer, notnull: true }
+    contrat_id:               { type: integer }
+    organisme_id:             { type: integer, notnull: true }
+    valorisation_bpi_id:      { type: integer, notnull: true }
+  relations:
+    Statut_valorisation_externe: { local: statut_valorisation_externe_id, foreign: id, onDelete: CASCADE }
+    Contrat:                  { local: contrat_id, foreign: id, onDelete: CASCADE }
+    Organisme:                { local: organisme_id, foreign: id, onDelete: CASCADE }
+    Valorisation_bpi:         { local: valorisation_bpi_id, foreign: id, onDelete: CASCADE }
+
+Valorisation_interne:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    date_debut_exploitation:  { type: date }
+    organisme_mindef_id:      { type: integer, notnull: true }
+    valorisation_bpi_id:      { type: integer, notnull: true }
+  relations:
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id, onDelete: CASCADE }
+    Valorisation_bpi:         { local: valorisation_bpi_id, foreign: id, onDelete: CASCADE }
+
+### Redevance
+
+Type_redevance:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Redevance:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    montant:                  { type: float }
+    date_versement:           { type: date }
+    dossier_bpi_id:           { type: integer, notnull: true }
+    contrat_id:               { type: integer }
+    type_redevance_id:        { type: integer, notnull: true }
+    organisme_id:             { type: integer, notnull: true }
+    est_actif:                { type: boolean, notnull: true, default: true }
+  relations:
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id }
+    Contrat:                  { local: contrat_id, foreign: id }
+    Type_redevance:           { local: type_redevance_id, foreign: id }
+    Organisme:                { local: organisme_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+ ### Récompenses et exploitation
+Exploitation_bpi:
+  columns:
+    est_par_inventeur:         { type: boolean, notnull: true, default: false }
+    nature_interne_id:         { type: integer, notnull: true }
+    nature_externe_id:         { type: integer, notnull: true }
+    dossier_bpi_id:            { type: integer, notnull: true }
+  relations:
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id, foreignType: one }
+    Nature_interne:           { class: Nature_exploitation, local: nature_interne_id, foreign: id }
+    Nature_externe:           { class: Nature_exploitation, local: nature_externe_id, foreign: id }
+
+Nature_exploitation:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Exploitation_interne:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    montant:                  { type: float }
+    date_decision_ouverture:  { type: date }
+    date_remise_rapport:      { type: date }
+    date_commission:          { type: date }
+    date_decision_recompense: { type: date }
+    date_versement:           { type: date }
+    date_envoi_lettre:        { type: date }
+    rapporteur_id:            { type: integer }
+    part_inventive_id:        { type: integer, notnull: true }
+  relations:
+    Rapporteur:               { class: Utilisateur, local: rapporteur_id, foreign: id }
+    Part_inventive:           { foreign: id, local: part_inventive_id, onDelete: CASCADE }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Recompenses:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_versement_20:        { type: date }
+    date_versement_80:        { type: date }
+    date_decision_recompense: { type: date }
+    part_inventive_id:        { type: integer, notnull: true }
+  relations:
+    Part_inventive:           { foreign: id, local: part_inventive_id, onDelete: CASCADE }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+
+Exploitation_externe:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    montant:                  { type: float }
+    redevance_id:             { type: integer, notnull: true }
+    date_versement:           { type: date }
+    part_inventive_id:        { type: integer, notnull: true }
+  relations:
+    Part_inventive:           { foreign: id, local: part_inventive_id, onDelete: CASCADE }
+    Redevance:                { local: redevance_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+
+
+ ### Recherche transversale
+View_recherche:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    dossier_mip_id:           { type: integer }
+    dossier_bpi_id:           { type: integer }
+    dossier_ere_id:           { type: integer }
+    dossier_postdoc_id:       { type: integer }
+    dossier_these_id:         { type: integer }
+    metier_id:                { type: integer }
+    titre:                    { type: string(255) }
+    etat_partage_id:          { type: integer }
+    created_at:               { type: date }
+  relations:
+    Dossier_mip:              { local: dossier_mip_id, foreign: id }
+    Dossier_bpi:              { local: dossier_bpi_id, foreign: id }
+    Dossier_ere:              { local: dossier_ere_id, foreign: id }
+    Dossier_postdoc:          { local: dossier_postdoc_id, foreign: id }
+    Dossier_these:            { local: dossier_these_id, foreign: id }
+    Metier:                   { local: metier_id, foreign: id }
+    Etat_partage:             { local: etat_partage_id, foreign: id }
+
+### Modèle de lettres
+Modele_lettre:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    cle:                      { type: string(255), primary: true }
+    fichier:                  { type: string(255) }
+    fichier_orig:             { type: string(255) }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+ ### contentieux
+
+Type_contentieux:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    
+Type_contentieux_tiers:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Contentieux:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    part_inventive_id:        { type: integer, notnull: true }
+    type_contentieux_id:      { type: integer, notnull: true }
+    est_desaccord:            { type: boolean, notnull: true, default: false }
+    commentaire_desaccord:    { type: string }
+    date_demande_cnis:        { type: date }
+    date_cnis:                { type: date }
+    decision_cnis:            { type: string }
+    date_accord:              { type: date }
+  relations:
+    Part_inventive:           { local: part_inventive_id, foreign: id }
+    Type_contentieux:         { local: type_contentieux_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    
+Contentieux_avec_tiers:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    organisme_id:             { type: integer, notnull: true }
+    type_contentieux_tiers_id: { type: integer, notnull: true }
+    est_desaccord:            { type: boolean, notnull: true, default: false }
+    commentaire_desaccord:    { type: string }
+    date_accord:              { type: date }
+  relations:
+    Organisme:                { local: organisme_id, foreign: id }
+    Type_contentieux_tiers:   { local: type_contentieux_tiers_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Convention_organisme:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero_convention:        { type: string(255) }
+    type_convention_organisme_id:  { type: integer, notnull: true}
+    organisme_id:             { type: integer, notnull: true }
+    montant:                  { type: integer, notnull: true }
+    date_signature:           { type: date }
+    date_notification:        { type: date }
+    date_prise_effet:         { type: date, notnull: true }
+    date_fin_effet:           { type: date }
+    date_archivage:           { type: date }
+    fichier:                  { type: string(255) }
+    fichier_orig:             { type: string(255) }
+  relations:
+    TypeConventionOrganisme:  { class: Type_convention_organisme, local: type_convention_organisme_id, foreign: id }
+    Organisme:                { class: Organisme, local: organisme_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_convention_organisme:
+  columns:
+    intitule:                 { type: string(255), notnull: true }
+
+Convention_dossier_these:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero_convention:        { type: string(255) }
+    type_convention_organisme_id:  { type: integer}
+    dossier_these_id:         { type: integer, notnull: true }
+    montant:                  { type: integer }
+    date_signature:           { type: date }
+    date_notification:        { type: date }
+    date_prise_effet:         { type: date, notnull: true }
+    date_fin_effet:           { type: date }
+    date_archivage:           { type: date }
+    fichier:                  { type: string(255) }
+    fichier_orig:             { type: string(255) }
+  relations:
+    TypeConventionOrganisme:  { class: Type_convention_organisme, local: type_convention_organisme_id, foreign: id }
+    DossierThese:             { class: Dossier_these, local: dossier_these_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Convention_dossier_postdoc:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero_convention:        { type: string(255) }
+    type_convention_organisme_id:  { type: integer}
+    dossier_postdoc_id:       { type: integer, notnull: true }
+    montant:                  { type: integer }
+    date_signature:           { type: date }
+    date_notification:        { type: date }
+    date_prise_effet:         { type: date, notnull: true }
+    date_fin_effet:           { type: date }
+    date_archivage:           { type: date }
+    fichier:                  { type: string(255) }
+    fichier_orig:             { type: string(255) }
+  relations:
+    TypeConventionOrganisme:  { class: Type_convention_organisme, local: type_convention_organisme_id, foreign: id }
+    DossierPostdoc:           { class: Dossier_postdoc, local: dossier_postdoc_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Convention_dossier_ere:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    numero_convention:        { type: string(255) }
+    type_convention_organisme_id:  { type: integer}
+    dossier_ere_id:           { type: integer, notnull: true }
+    montant:                  { type: integer }
+    date_signature:           { type: date }
+    date_notification:        { type: date }
+    date_prise_effet:         { type: date, notnull: true }
+    date_fin_effet:           { type: date }
+    date_archivage:           { type: date }
+    fichier:                  { type: string(255) }
+    fichier_orig:             { type: string(255) }
+  relations:
+    TypeConventionOrganisme:  { class: Type_convention_organisme, local: type_convention_organisme_id, foreign: id }
+    DossierEre:               { class: Dossier_ere, local: dossier_ere_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Versement_dossier_these:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_versement:           { type: date }
+    montant_versement:        { type: float}
+    dossier_these_id:         { type: integer, notnull: true }
+  relations:
+    DossierThese:             { class: Dossier_these, local: dossier_these_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Versement_dossier_postdoc:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_versement:           { type: date }
+    montant_versement:        { type: float}
+    dossier_postdoc_id:       { type: integer, notnull: true }
+  relations:
+    DossierPostdoc:           { class: Dossier_postdoc, local: dossier_postdoc_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Versement_dossier_ere:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_versement:           { type: date }
+    montant_versement:        { type: float }
+    dossier_ere_id:           { type: integer, notnull: true }
+  relations:
+    DossierEre:               { class: Dossier_ere, local: dossier_ere_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+# Alerte BPI
+Alerte_bpi:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    type_alerte_bpi_id:       { type: integer, notnull: true }
+    date_alerte:              { type: date, notnull: true }
+    date_echeance:            { type: date, notnull: true }
+    dossier_bpi_id:           { type: integer, notnull: true }
+    brevet_id:                { type: integer }
+    action_id:                { type: integer }
+    deja_passe:               { type: boolean, notnull: true, default: 0 }
+  relations:
+    TypeAlerteBpi:            { class: Type_alerte_bpi, local: type_alerte_bpi_id, foreign: id }
+    DossierBpi:               { class: Dossier_bpi, local: dossier_bpi_id, foreign: id }
+    Brevet:                   { local: brevet_id, foreign: id }
+    Action:                   { local: action_id, foreign: id }
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+
+Type_alerte_bpi:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+
+Ftp_recuperation:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    nom_dossier:              { type: string(255), notnull: true }
+    date_debut:               { type: timestamp }
+    date_fin:                 { type: timestamp }
+
+Ftp_dossier_recupere:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    nom_dossier_recupere:     { type: string(255), notnull: true }
+    date_debut:               { type: timestamp }
+    date_fin:                 { type: timestamp }
+
+Echec_authentification:
+  actAs:                      [Timestampable]
+  columns:
+    utilisateur_id:           { type: integer }
+    compeur_connection:       { type: integer, notnull: true }
+    info_supplementaire:      { type: string }
+  relations:
+    Utilisateur:
+        class: Utilisateur
+        local: utilisateur_id
+        foreign: id
+        type: one
+        foreignType: one
+        foreignAlias: EchecAuthentification
+
+Tache:
+  columns:
+    cle:                      { type: string(255), primary: true }
+    debut:                    { type: timestamp }
+    fin:                      { type: timestamp }
+    pid:                      { type: integer }
+    erreur:                   { type: boolean, notnull: true }
+    resultat:                 { type: string(255) }
+
+Libelle_organisme:
+  actAs:                      [Timestampable]
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    libelle_simple:           { type: string(255) }
+    libelle_liste:            { type: string(255) }
+    metier_id:                { type: integer, notnull: true }
+    organisme_mindef_id:      { type: integer, notnull: true }
+  relations:
+    Metier:                   { local: metier_id, foreign: id }
+    Organisme_mindef:         { local: organisme_mindef_id, foreign: id }
+
+Financement:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    budget_type_id:           { type: integer, notnull: true }
+    date_financement:         { type: date, notnull: true }
+    montant:                  { type: float, notnull: true }
+    reference:                { type: string(255) }
+    entite_id:                { type: integer, notnull: true }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Budget_type:              { local: budget_type_id, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id }
+    Entite:                   { local: entite_id, foreign: id }
+
+Engagement:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    type_engagement_id:       { type: integer, notnull: true }
+    date_engagement:          { type: date, notnull: true }
+    montant:                  { type: float, notnull: true }
+    reference:                { type: string(255) }
+    entite_id:                { type: integer, notnull: true }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Type_engagement:          { local: type_engagement_id, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id, onDelete: CASCADE}
+    Entite:                   { local: entite_id, foreign: id }
+
+Type_engagement:
+  columns:
+    id:                       { type: integer, primary: true, autoincrement: true }
+    intitule:                 { type: string(255), notnull: true }
+    est_negatif:              { type: boolean, notnull: true, default: false }
+
+Paiement:
+  actAs:                      [Timestampable, Signable]
+  columns:
+    date_paiement:            { type: date, notnull: true }
+    montant:                  { type: float, notnull: true }
+    reference:                { type: string(255) }
+    entite_id:                { type: integer, notnull: true }
+    dossier_mip_id:           { type: integer, notnull: true }
+  relations:
+    UtilisateurCreatedBy:     { class: Utilisateur, local: created_by, foreign: id }
+    UtilisateurUpdatedBy:     { class: Utilisateur, local: updated_by, foreign: id }
+    Dossier_mip:              { local: dossier_mip_id, foreign: id }
+    Entite:                   { local: entite_id, foreign: id }

@@ -1,0 +1,195 @@
+﻿#leftcolumn 
+{
+	margin-left:-100%;
+}
+#map_canvas { height: 100%; }
+html
+{
+	
+	height:100%;
+}
+
+body, form
+{
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	background:none;
+}
+.element_menuDivAddLocation
+{
+ top:40px;
+ margin-bottom:3px;   
+}
+	
+#choiceDisplaySearchActivity 
+{
+	height: 450px;
+	overflow: -moz-scrollbars-vertical;
+	position: absolute;
+	top:8%;
+	left: 60.5%;
+	z-index: 100;
+	opacity: .8;
+	-moz-opacity:0.8;
+	filter: alpha(opacity=80);
+}
+
+.decale
+{    
+    margin-left:80%;      
+}
+
+#nbrMarker {
+	position: absolute;
+	height: 30px;
+	width: 135px;
+	top: 75%;
+	left: 75%;
+	text-align: center;
+	padding: 2em;
+	border: 1px solid #ff0000;
+	background-color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 100;
+	opacity: .75;
+	-moz-opacity:0.75;
+	filter: alpha(opacity=75);
+}
+
+
+#choiceDisplay 
+{
+	position: absolute;
+	float:right;
+	margin-left:65%;
+	z-index: 100;
+}
+
+
+.topIE7  
+{
+	background:url("../icons/borderTop.png");
+	background-position:top;
+	padding-top:5px;
+	background-repeat: no-repeat;
+	position:relative;
+}
+.top
+{
+    background: none; 
+}
+.bottomIE7  
+{
+
+	background-image:url("../icons/borderBottom.png"); 
+	background-position:bottom;
+	background-repeat: no-repeat;
+	position:relative;
+}
+
+.selectSub:focus 
+{
+	 outline:2px #B4AF91 ridge!important; 
+}
+
+.imgList
+{
+	height: 10px;
+	width:10px;
+}
+
+.trList
+{
+	border:1px dotted #B4AF91;
+	border-collapse: collapse;
+}
+
+.hov
+{
+	border-collapse: collapse;
+	background-color:#B4AF91;
+	border:1px solid #B4AF91;
+}
+
+.list 
+{
+	border-collapse: collapse;
+}
+
+.list td, th {
+	border-top: 1px dotted #B4AF91;
+	border-bottom: 1px dotted #B4AF91;
+}
+
+
+.right
+{
+	text-align:right;
+	padding-right:10px;
+}
+
+.menu_search
+{    
+ margin-top:-5px;   
+}
+
+ul 
+{   
+	border-top:2px solid white;
+	margin-left: 12px;
+	margin-right:12px;
+	margin-bottom:0px;
+    padding: 0;
+    color:Black;
+    list-style-type: none;
+}
+
+.locationSlide  
+{
+	display:none;
+}
+
+#block-gmap_location-0 td.block-tc 
+{
+	width: 230px;
+	}
+
+
+
+.suggestionList {
+    padding: 0px;
+}
+
+.suggestionList ul
+{
+	border:0px;
+    padding: 0;
+    list-style-type: none;
+}
+
+.suggestionListli {
+   /* padding: 3px;*/
+    height: 20px;
+    border:0px;
+    padding-left: 5px;
+    background-color:White;
+}
+	
+.suggestionListOn
+{
+	cursor: pointer;
+    padding-left: 5px;
+    cursor: pointer;
+    height: 20px;
+    border:0px;
+    background-color:#B4AF91;
+}
+
+.zindexSplitBar
+{
+    z-index:1000;
+}

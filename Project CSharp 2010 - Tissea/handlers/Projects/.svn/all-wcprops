@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Connors.Erp.Web/!svn/ver/104/trunk/Connors.Erp.Web/trunk/_common/handlers/Projects
+END
+AddProjectHandler.ashx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Connors.Erp.Web/!svn/ver/104/trunk/Connors.Erp.Web/trunk/_common/handlers/Projects/AddProjectHandler.ashx
+END
+AddProjectHandler.ashx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Connors.Erp.Web/!svn/ver/104/trunk/Connors.Erp.Web/trunk/_common/handlers/Projects/AddProjectHandler.ashx.cs
+END
+GetProjectHandler.ashx
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Connors.Erp.Web/!svn/ver/104/trunk/Connors.Erp.Web/trunk/_common/handlers/Projects/GetProjectHandler.ashx
+END
+GetProjectHandler.ashx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/Connors.Erp.Web/!svn/ver/104/trunk/Connors.Erp.Web/trunk/_common/handlers/Projects/GetProjectHandler.ashx.cs
+END

@@ -1,0 +1,1 @@
+<?php include_partial('interface/conteneurForme', array('action' => 'creer', 'model' => 'Service', 'objForm' => $objForm,'strModule' => $sf_context->getModuleName(),'strContenant' => 'organisme', 'idContenant' => $idContenant)) ?>

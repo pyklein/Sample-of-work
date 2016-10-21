@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="MessageTemplate.ascx.cs" Inherits="Connors.Erp.Web.DynamicData.FieldTemplates.MessageTemplate" %>
+<asp:Literal ID="litHtml" runat="server" />

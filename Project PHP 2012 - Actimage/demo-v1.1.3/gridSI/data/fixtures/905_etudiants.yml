@@ -1,0 +1,36 @@
+Etudiant:
+  etudiant_1:
+    civilite_id: 1
+    nom: DUPOND
+    prenom: Marcel
+    email: marcel@actimage.com
+
+  etudiant_2:
+    civilite_id: 1
+    nom: DUPUIS
+    prenom: Gaston
+    email: gaston@actimage.com
+
+  etudiant_3:
+    civilite_id: 1
+    nom: DURANT
+    prenom: Denis
+    email: denis@actimage.com
+
+  etudiant_4:
+    civilite_id: 1
+    nom: DUMARCHAND
+    prenom: Francis
+    email: franz@actimage.com
+
+  etudiant_5:
+    civilite_id: 1
+    nom: SCHMIDT
+    prenom: Arthur
+    email: schmidt@actimage.com
+
+  etudiant_6:
+    civilite_id: 1
+    nom: NILETIN
+    prenom: Nicolas
+    email: niletin@actimage.com

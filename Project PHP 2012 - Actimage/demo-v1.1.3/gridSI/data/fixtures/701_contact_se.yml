@@ -1,0 +1,85 @@
+Contact_se:
+  contact_se_1:
+    nom:                      Nom 1
+    prenom:                   Prenom 1
+    email:                    nom1.prenom1@actimage.com
+    telephone:                "0388888888"
+    adresse:                  rue de 1ere armé
+    code_postal:              67000
+    complement_adresse:       rien
+    information_libre:        RAS
+    Ville:                    ville_1
+    Entite:                   entite_1
+    Metier:                   metier_mip
+    UtilisateurCreatedBy:     utilisateur_1
+    UtilisateurUpdatedBy:     utilisateur_1
+  contact_se_2:
+    nom:                      Nom 2
+    prenom:                   Prenom 2
+    email:                    nom2.prenom2@actimage.com
+    telephone:                "0388888888"
+    adresse:                  rue de 1ere armé
+    code_postal:              67000
+    complement_adresse:       rien
+    information_libre:        RAS
+    Ville:                    ville_1
+    Entite:                   entite_2
+    Metier:                   metier_mris
+    UtilisateurCreatedBy:     utilisateur_1
+    UtilisateurUpdatedBy:     utilisateur_1
+  contact_se_3:
+    nom:                      Nom 3
+    prenom:                   Prenom 3
+    email:                    nom3.prenom3@actimage.com
+    telephone:                "0388888888"
+    adresse:                  rue de 1ere armé
+    code_postal:              67000
+    complement_adresse:       rien
+    information_libre:        RAS
+    Ville:                    ville_1
+    Entite:                   entite_3
+    Metier:                   metier_bpi
+    UtilisateurCreatedBy:     utilisateur_1
+    UtilisateurUpdatedBy:     utilisateur_1
+  contact_se_4:
+    nom:                      Nom 4
+    prenom:                   Prenom 4
+    email:                    nom4.prenom4@actimage.com
+    telephone:                "0388888888"
+    adresse:                  rue de 1ere armé
+    code_postal:              67000
+    complement_adresse:       rien
+    information_libre:        RAS
+    Ville:                    ville_1
+    Entite:                   entite_4
+    Metier:                   metier_mip
+    UtilisateurCreatedBy:     utilisateur_1
+    UtilisateurUpdatedBy:     utilisateur_1
+  contact_se_5:
+    nom:                      Nom 5
+    prenom:                   Prenom 5
+    email:                    nom5.prenom5@actimage.com
+    telephone:                "0388888888"
+    adresse:                  rue de 1ere armé
+    code_postal:              67000
+    complement_adresse:       rien
+    information_libre:        RAS
+    Ville:                    ville_1
+    Entite:                   entite_5
+    Metier:                   metier_mris
+    UtilisateurCreatedBy:     utilisateur_1
+    UtilisateurUpdatedBy:     utilisateur_1
+  contact_se_6:
+    nom:                      Nom 6
+    prenom:                   Prenom 6
+    email:                    nom6.prenom6@actimage.com
+    telephone:                "0388888888"
+    adresse:                  rue de 1ere armé
+    code_postal:              67000
+    complement_adresse:       rien
+    information_libre:        RAS
+    Ville:                    ville_1
+    Entite:                   entite_6
+    Metier:                   metier_bpi
+    UtilisateurCreatedBy:     utilisateur_1
+    UtilisateurUpdatedBy:     utilisateur_1

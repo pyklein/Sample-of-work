@@ -1,0 +1,218 @@
+## YAML Template.
+---
+Tables:
+  organisme:          Organisme
+  laboratoire:        Laboratoire
+  organismemindef:    Organisme_mindef
+  pointcontact:       Point_contact
+  proposant:          Etudiant
+  encadrant:          Encadrant_+type:dossier
+  service:            Service
+  laboratoire:        Laboratoire
+  informations:       Intervenant
+  cofinancement:          Cofinance_these
+
+SauvegardesDirectes:
+  Laboratoire:       true
+  Organisme:         true
+  Point_contact:     true
+  Dossier_these:     true
+  Dossier_ere:       true
+  Dossier_postdoc:   true
+  Service:           true
+  Organisme_mindef:  true
+  Etudiant:          valide
+  Intervenant:       valide
+  Encadrant_ere:     false
+  Encadrant_these:   false
+  Encadrant_postdoc: false
+  Cofinance_these:   valide
+
+# Table:
+  # champxml: champGrid <statique/dynamique> <collection(=Alias)> <champRecherche=methode>
+Champs:
+  Dossier_ere:
+    numero:           numero_definitif
+    numeroprovisoire: numero_provisoire
+    titre:            titre
+    domaine:          Domaine_scientifique dynamique intitule=like
+    proposant:        Etudiant
+    organisme:        Organisme
+    organismemindef:  Organisme_mindef
+    laboratoire:      Laboratoire collection=Dossier_ere_laboratoire
+    encadrant:        Encadrant_ere collection
+    
+  Dossier_these:
+    numero:           numero
+    titre:            titre
+    domaine:          Domaine_scientifique dynamique intitule=like
+    proposant:        Etudiant
+    organisme:        Organisme
+    organismemindef:  Organisme_mindef
+    laboratoire:      Laboratoire collection=Dossier_these_laboratoire
+    encadrant:        Encadrant_these collection
+    cofinancement:    Cofinance_these collection
+    #cas spécifique, n'est pas directement présent dans le xml mais doit figurer içi pour MaJ de l'objet 
+    type_convention_organisme_id: type_convention_organisme_id
+
+  Dossier_postdoc:
+    numero:           numero_definitif
+    numeroprovisoire: numero_provisoire
+    titre:            titre
+    domaine:          Domaine_scientifique dynamique intitule=like
+    proposant:        Etudiant
+    organisme:        Organisme
+    organismemindef:  Organisme_mindef
+    laboratoire:      Laboratoire collection=Dossier_postdoc_laboratoire
+    encadrant:        Encadrant_postdoc collection
+
+  Cofinance_these:
+    organisme:        Organisme
+    partcofinance:    part_cofinance
+
+  Organisme:
+    intitule:         intitule
+    abreviation:      abreviation
+    type:             type_organisme_id
+    pointcontact:     Point_contact collection
+    laboratoire:      Laboratoire collection
+    service:          Service collection
+
+  Laboratoire:
+    intitule:         intitule
+    abreviation:      abreviation
+    pointcontact:     Point_contact collection
+#    organisme:        Organisme
+#    service:          Service
+
+  Service:
+    intitule:         intitule
+    abreviation:      abreviation
+    pointcontact:     Point_contact collection
+    laboratoire:      Laboratoire collection
+#    organisme:        Organisme
+
+  Organisme_mindef:
+    intitule:         intitule
+    abreviation:      abreviation
+
+  Point_contact:
+    email:            email
+    telephone:        telephone
+    adresse:          adresse
+    codepostal:       code_postal
+    ville:            Ville dynamique nom=like
+    complement:       complement_adresse
+    
+  Etudiant:
+    civilite:         Civilite statique abreviation=identique
+    nom:              nom
+    nomjeunefille:    nom_jeunefille
+    prenom:           prenom
+    datenaissance:    date_naissance
+    lieunaissance:    lieu_naissance
+    email:            email
+    telephone:        telephone_fixe
+    portable:         telephone_mobile
+    adresse:          adresse
+    codepostal:       code_postal
+    ville:            Ville dynamique nom=like
+    complement:       complement_adresse
+    typecursus:       type_cursus_id
+    autrecursus:      autre_cursus
+    obtentionmaster:  a_master
+    mention:          mention
+    descriptioncursus: description_formation
+
+
+  Encadrant_ere:
+    role:             role_ere_id
+    informations:     Intervenant
+  Encadrant_these:
+    role:             role_these_id
+    informations:     Intervenant
+  Encadrant_postdoc:
+    role:             role_postdoc_id
+    informations:     Intervenant
+
+  Intervenant:
+    civilite:         Civilite statique abreviation=identique
+    nom:              nom
+    prenom:           prenom
+    email:            email
+    telephone:        telephone_fixe
+    portable:         telephone_mobile
+    adresse:          adresse
+    codepostal:       code_postal
+    ville:            Ville dynamique nom=like
+    complement:       complement_adresse
+    titre:            titre
+    organisme:        Organisme
+    laboratoire:      Laboratoire
+    service:          Service
+
+
+
+Recherche:
+
+  Dossier_these:
+    numero:         identique
+  Dossier_ere:
+    numero_provisoire: identique
+  Dossier_postdoc:
+    numero_provisoire: identique
+
+  Cofinance_these:
+    dossier_these_id: identique
+    organisme_id:     identique
+
+  Encadrant_ere:
+    intervenant_id:   identique
+    dossier_ere_id:   identique
+    role_ere_id:      identique
+  Encadrant_these:
+    intervenant_id:     identique
+    dossier_these_id:   identique
+    role_these_id:      identique
+  Encadrant_postdoc:
+    intervenant_id:       identique
+    dossier_postdoc_id:   identique
+    role_postdoc_id:      identique
+
+  Organisme:
+    intitule:         like
+    abreviation:      like
+    
+  Laboratoire:
+    intitule:         like
+    abreviation:      like
+    organisme_id:     identique
+    service_id:       identique
+
+  Organisme_mindef:
+    intitule:         like
+    abreviation:      like
+
+  Point_contact:
+    email:            identique
+    telephone:        identique
+    code_postal:      identique
+
+    
+  Etudiant:
+    civilite_id:      identique
+    nom:              identique
+    prenom:           identique
+    date_naissance:   identique
+
+  Service:
+    intitule:         like
+    abreviation:      like
+    organisme_id:     identique
+
+  Intervenant:
+    civilite_id:      identique
+    nom:              identique
+    prenom:           identique
+
+#  Document_mris:

@@ -1,0 +1,12 @@
+# page d'accueil
+accueil:
+  url:   /
+  param: { module: interface, action: index }
+
+# pade d'accueil d'un module
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

@@ -1,0 +1,25 @@
+Dossier_bpi:
+<?php for ($i = 1; $i <= 100; $i++): ?>
+  dossier_bpi_<?php echo $i ?>:
+    titre: Dossier BPI <?php echo $i . "\r\n"?>
+    numero: <?php echo $i . "\r\n"?>
+    description : Je suis le dossier <?php echo $i . "\r\n"?>
+    Etat_partage: etat_partage_<?php echo ($i % 3) + 1 . "\r\n"?>
+    Statut_dossier_bpi: statut_dossier_bpi_<?php echo ($i % 4) + 1 . "\r\n"?>
+    Statut_declaration: statut_declaration_<?php echo ($i % 3) + 1 . "\r\n"?>
+    autorite_decision_id: <?php echo ($i % 6) + 1 . "\r\n"?>
+    hierarchie_locale_id: <?php echo ($i % 5) + 1 . "\r\n"?>
+    created_by: 1
+    updated_by: 1
+    updated_at: <?php echo 1990 + ($i % 20) ?>'-04-26 00:00:00'
+    created_at: <?php echo 1990 + ($i % 20) ?>'-04-26 00:00:00'
+    date_predeclaration: <?php echo 1990 + ($i % 20) ?>'-04-26 00:00:00'
+<?php endfor; ?>
+
+
+Dossier_mip_dossier_bpi:
+<?php for ($i = 1; $i < 100; $i += 3) : ?>
+  dossier_mip_dossier_bpi<?php echo $i ?>:
+    Dossier_bpi: dossier_bpi_<?php echo $i + 1 . "\r\n" ?>
+    Dossier_mip: dossier_mip_<?php echo $i + 1 . "\r\n" ?>
+<?php endfor; ?>

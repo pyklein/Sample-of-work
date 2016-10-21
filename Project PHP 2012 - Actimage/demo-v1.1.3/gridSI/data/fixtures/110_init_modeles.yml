@@ -1,0 +1,41 @@
+Modele_lettre:
+
+  modele_lettre_1:
+    cle:          mip_lettre_projet_un_innovateur
+    fichier:      Lettre_projet_un_inventeur.rtf
+    fichier_orig: Lettre_projet_un_inventeur.rtf
+
+  modele_lettre_2:
+    cle:          mip_lettre_projet_plusieurs_innovateurs
+    fichier:      Lettre_projet_plusieurs_inventeurs.rtf
+    fichier_orig: Lettre_projet_plusieurs_inventeurs.rtf
+
+  modele_lettre_3:
+    cle:          mip_lettre_soutien_un_innovateur
+    fichier:      Lettre_soutien_un_innovateur.rtf
+    fichier_orig: Lettre_soutien_un_innovateur.rtf
+  
+  modele_lettre_4:
+    cle:          mip_lettre_soutien_plusieurs_innovateurs
+    fichier:      Lettre_soutien_plusieurs_innovateurs.rtf
+    fichier_orig: Lettre_soutien_plusieurs_innovateurs.rtf
+
+  modele_lettre_5:
+    cle:          mip_lettre_cloture_un_innovateur_em
+    fichier:      Lettre_cloture_innovateur_em.rtf
+    fichier_orig: Lettre_cloture_innovateur_em.rtf
+
+  modele_lettre_6:
+    cle:          mip_lettre_cloture_un_innovateur_mindef
+    fichier:      Lettre_cloture_un_innovateur_organismeMINDEF.rtf
+    fichier_orig: Lettre_cloture_un_innovateur_organismeMINDEF.rtf
+
+  modele_lettre_7:
+    cle:          mip_lettre_cloture_plusieurs_innovateurs_mindef
+    fichier:      Lettre_cloture_plusieurs_innovateurs_organismeMINDEF.rtf
+    fichier_orig: Lettre_cloture_plusieurs_innovateurs_organismeMINDEF.rtf
+
+  modele_lettre_8:
+    cle:          mip_lettre_accuse_reception_visite
+    fichier:      Lettre_accuse_reception_visite.rtf
+    fichier_orig: Lettre_accuse_reception_visite.rtf

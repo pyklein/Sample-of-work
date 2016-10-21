@@ -1,0 +1,10 @@
+index:
+  is_secure: on
+nonAutorise:
+  is_secure: off
+nonAutoriseAdministrateur:
+  is_secure: off
+oubliMotdepasse:
+  is_secure: false
+erreurSgbdr:
+  is_secure: false

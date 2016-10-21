@@ -1,0 +1,136 @@
+﻿function calculRoadFurthest(tabDistance) {
+    var indexAdd = new Array();
+    var finalRoad = new Array();
+    finalRoad[0] = erpMarkerAddCollection.arrayErpMarker[indiceIDistanceMax].getCoordinateObject();
+    indexAdd[0] = erpMarkerAddCollection.arrayErpMarker[indiceJDistanceMax].listIndex;
+    //finalRoad[erpMarkerAddCollection.length() - 1] = erpMarkerAddCollection.arrayErpMarker[indiceJDistanceMax].getCoordinateObject();
+    //alert("verif index 0");
+    var current = indiceJDistanceMax;
+    var cmpt = 1;
+    while (cmpt != erpMarkerAddCollection.length() - 1) {
+        var indiceShorterMaxDistance = getMaxDistance(tabDistance, current);
+        indexAdd[cmpt] = erpMarkerAddCollection.arrayErpMarker[indiceShorterMaxDistance].listIndex;
+        finalRoad[cmpt] = erpMarkerAddCollection.arrayErpMarker[indiceShorterMaxDistance].getCoordinateObject();
+        tabDistance = clearCurrent(tabDistance, current);
+        current = indiceShorterMaxDistance;
+        cmpt++;
+        //showTab(indexAdd);DEBUG
+    }
+    cmpt = addLast(indexAdd);
+    finalRoad[finalRoad.length] = erpMarkerAddCollection.arrayErpMarker[cmpt].getCoordinateObject();
+    indexAdd[indexAdd.length] = erpMarkerAddCollection.arrayErpMarker[cmpt].listIndex;
+    showTab(indexAdd);// DEBUG
+
+
+}
+
+function addLast(tabIndexAdd) {
+    var i = 0;
+    var length = erpMarkerAddCollection.length();
+    while (length - i) {
+        var j = 0;
+        var boolIndexAdd = false;
+        while (tabIndexAdd.length - j) {
+            if (tabIndexAdd[j] == i)
+                boolIndexAdd = true;
+            j++;
+        }
+        if (!boolIndexAdd)
+            return i;
+        i++;
+    }
+}
+
+
+
+function showTab(tab) {
+
+    var i = 0;
+    var j = 0;
+    var str = "";
+    while (tab.length - i) {
+        str += "| " + tab[i];
+        i++;
+    }
+    alert(str);
+
+}
+
+function clearCurrent(tabDistance, current) {
+    var j = 0;
+    var length = erpMarkerAddCollection.length();
+    while (j < length) {
+        tabDistance[current][j] = 0;
+        j++;
+    }
+    var i = length - 1;
+    while (i > current) {
+        tabDistance[i][current] = 0;
+        i--;
+    }
+    return tabDistance;
+
+}
+
+function getMaxDistance(tabDistance, current) {
+    var i = 0;
+    var maxDistance = 0;
+    var indice = new Array('i', 'j');
+    indice['i'] = 0;
+    indice['j'] = 0;
+    while (tabDistance.length - i) {
+        var j = i - 1;
+        while (j >= 0) {
+            var showValueForDebug = tabDistance[i][j];
+            if (i != current && j != current) {
+                if (tabDistance[i][j] > maxDistance) {
+                    maxDistance = tabDistance[i][j];
+                    indice['i'] = i;
+                    indice['j'] = j;
+                }
+            }
+            j--;
+        }
+        i++;
+    }
+    var indiceShorterMaxDistance = compareDistance(tabDistance, indice, current);
+    return indiceShorterMaxDistance;
+
+}
+
+
+function compareDistance(tabDistance, indice, current) {
+    var i = indice['i'];
+    var j = indice['j'];
+    if (j > current) {
+        if (i > current) {
+            if (tabDistance[j][current] < tabDistance[i][current])
+                return j;
+            else
+                return i;
+        }
+        else {
+            if (tabDistance[j][current] < tabDistance[current][i])
+                return j;
+            else
+                return i;
+
+        }
+
+    }
+    else {
+        if (i > current) {
+            if (tabDistance[current][j] < tabDistance[i][current])
+                return j;
+            else
+                return i;
+        }
+        else {
+            if (tabDistance[current][j] < tabDistance[current][i])
+                return j;
+            else
+                return i;
+
+        }
+    }
+}

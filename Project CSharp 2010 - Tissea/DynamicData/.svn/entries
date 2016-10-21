@@ -1,0 +1,77 @@
+10
+
+dir
+110
+http://slpl0002:1526/svn/Connors.Erp.Web/trunk/Connors.Erp.Web/trunk/DynamicData
+http://slpl0002:1526/svn/Connors.Erp.Web
+
+
+
+2010-08-23T12:52:56.594884Z
+110
+Administrator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f919858e-f66e-5241-86d8-e8a016db8036
+
+web.config
+file
+
+
+
+
+2010-08-02T12:07:07.757628Z
+9dec6878e9d7277e01775d6f29be0469
+2010-06-14T09:02:04.911107Z
+3
+Administrator
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+368
+
+FieldTemplates
+dir
+
+Filters
+dir
+
+Content
+dir
+
+CustomPages
+dir
+
+PageTemplates
+dir
+

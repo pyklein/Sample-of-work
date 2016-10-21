@@ -1,0 +1,34 @@
+Inventeur:
+  inventeur_1:
+    civilite_id: 1
+    nom: Edison
+    prenom: Thomas
+    email: thomas.edison@actimage.com
+    est_exterieur: false
+    Organisme_mindef: organisme_mindef_1
+
+  inventeur_2:
+    civilite_id: 1
+    nom: Newton
+    prenom: Isaac
+    email: isaac.newton@actimage.com
+    est_exterieur: false
+    Organisme_mindef: organisme_mindef_1
+    Entite: entite_1
+
+  inventeur_3:
+    civilite_id: 1
+    nom: Pasteur
+    prenom: Louis
+    email: louis.pasteur@actimage.com
+    est_exterieur: true
+    Organisme: organisme_1
+
+  inventeur_4:
+    civilite_id: 1
+    nom: Volta
+    prenom: Alessandro
+    email: alessandro.volta@actimage.com
+    est_exterieur: true
+    Organisme: organisme_1
+    Service: service_1

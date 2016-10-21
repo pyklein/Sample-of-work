@@ -1,0 +1,4 @@
+demanderPartage:
+  credentials: [[ADM, SUP-MIP, USR-MIP, SUP-BPI, USR-BPI]]
+all:
+  credentials: [[ADM, SUP-MIP, USR-MIP, SUP-MRIS, USR-MRIS, SUP-BPI, USR-BPI]]

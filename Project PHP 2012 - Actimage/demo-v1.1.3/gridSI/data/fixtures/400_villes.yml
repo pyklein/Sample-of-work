@@ -1,0 +1,27 @@
+Ville:
+  ville_1:
+    nom: Strasbourg
+    code_postal: 67000
+    Departement: departement_67
+  ville_2:
+    nom: Mulhouse
+    code_postal: 68100
+    Departement: departement_68
+  ville_3:
+    nom: Sélestat
+    code_postal: 67000
+    Departement: departement_67
+  ville_4:
+    nom: Colmar
+    code_postal: 68040
+    Departement: departement_68
+  ville_5:
+    nom: Bordeaux
+    code_postal: 33000
+    Departement: departement_33
+  ville_6:
+    nom: Obernai
+    code_postal: 67000
+    Departement: departement_67
+
+

@@ -1,0 +1,28 @@
+Budget:
+  budget1:
+    date_budget: '2011-02-12 00:00:00'
+    budget_type_id: 1
+    dossier_mip_id: 19
+    reference: 'Lettre de soutien 1 dossier 19'
+    montant: 2500
+
+  budget2:
+    date_budget: '2010-03-12 00:00:00'
+    budget_type_id: 1
+    dossier_mip_id: 19
+    reference: 'Lettre de soutien 2 dossier 19'
+    montant: 14500
+
+  budget3:
+    date_budget: '2009-04-12 00:00:00'
+    budget_type_id: 2
+    dossier_mip_id: 19
+    reference: 'Lettre de soutien 3 dossier 19'
+    montant: 2000
+
+  budget4:
+    date_budget: '2011-03-12 00:00:00'
+    budget_type_id: 1
+    dossier_mip_id: 19
+    reference: 'Lettre de soutien 4 dossier 19'
+    montant: 5600

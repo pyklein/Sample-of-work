@@ -1,0 +1,70 @@
+Contrat:
+  contrat_1:
+    numero_mb:                Contrat 1
+    Statut_contrat:           statut_contrat_1
+    Dossier_bpi:              dossier_bpi_1
+
+  contrat_2:
+    numero_mb:                Contrat 2
+    Statut_contrat:           statut_contrat_2
+    Dossier_bpi:              dossier_bpi_1
+
+  contrat_3:
+    numero_mb:                Contrat 3
+    Statut_contrat:           statut_contrat_3
+    Dossier_bpi:              dossier_bpi_1
+
+Contrat_type_contrat:
+  contrat_type_contrat_1:
+    Contrat:                  contrat_1
+    Type_contrat:             type_contrat_1
+
+  contrat_type_contrat_2:
+    Contrat:                  contrat_1
+    Type_contrat:             type_contrat_2
+
+  contrat_type_contrat_3:
+    Contrat:                  contrat_1
+    Type_contrat:             type_contrat_3
+
+  contrat_type_contrat_4:
+    Contrat:                  contrat_2
+    Type_contrat:             type_contrat_3
+
+  contrat_type_contrat_5:
+    Contrat:                  contrat_2
+    Type_contrat:             type_contrat_4
+
+  contrat_type_contrat_6:
+    Contrat:                  contrat_3
+    Type_contrat:             type_contrat_1
+
+  contrat_type_contrat_7:
+    Contrat:                  contrat_3
+    Type_contrat:             type_contrat_4
+
+Signataire:
+  signataire_1:
+    Contrat:                  contrat_1
+    Organisme:                organisme_1
+    Service:                  service_1
+
+  signataire_2:
+    Contrat:                  contrat_1
+    Organisme:                organisme_2
+
+  signataire_3:
+    Contrat:                  contrat_1
+    Organisme:                organisme_3
+
+  signataire_4:
+    Contrat:                  contrat_1
+    Organisme:                organisme_4
+
+  signataire_5:
+    Contrat:                  contrat_2
+    Organisme:                organisme_1
+
+  signataire_6:
+    Contrat:                  contrat_3
+    Organisme:                organisme_2

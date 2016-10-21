@@ -1,0 +1,779 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Telerik.Web.UI;
+using Connors.Framework.Model;
+using System.Data;
+using System.Collections;
+using System.Web.Security;
+using System.Drawing;
+using Connors.Framework.Language.Properties;
+
+namespace Connors.Erp.Web.DynamicData.CustomPages.Activities
+{
+    public partial class List : ErpPage
+    {
+        public String[] roles;
+
+        #region Privates
+        MainDataContext dc = new MainDataContext();
+        RadComboBox cbxModules;
+        RadComboBox cbxCustomers;
+        String searchCriteria;
+        char[] delimiters = new char[] { '|' };
+        char[] delimitersSearch = new char[] { '^' };
+        String[] ajaxRequestParameters;
+        String ajaxRequestType;
+        String ajaxRequestValue;
+        String customerId;
+        String moduleId;
+        String programmeId;
+        String categoryId;
+        Boolean showArchived;
+        private const int ItemsPerRequest = 10;
+        Activity selectedActivity;
+        #endregion
+
+        #region Page Events
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                //We want to load both Customers and Modules combo box because we want to be able
+                //to filter list either by one them of both
+                cbxModules = (RadComboBox)toolbarActivities.FindItemByValue("MPC").FindControl("cbxModules");
+                Utilities.LoadModulesInComboBox(cbxModules);
+
+                cbxCustomers = (RadComboBox)toolbarActivities.FindItemByValue("MPC").FindControl("cbxCustomers");
+                Utilities.LoadCustomersInComboBox(cbxCustomers);
+
+                Session["ActivityGuid"] = String.Empty;
+                Session["ActivityId"] = String.Empty;
+                Session["CustomerId"] = String.Empty;
+                Session["CurrentPriceListId"] = null;
+                Session["CurrentProductId"] = null;
+
+                //SearchCriteria Session Variables
+                Session["Search.SearchCriteria"] = null;
+                Session["Search.CustomerId"] = null;
+                Session["Search.ModuleId"] = null;
+                Session["Search.ProgrammeId"] = null;
+                Session["Search.CategoryId"] = null;
+                Session["Search.ShowArchived"] = null;
+
+                #region Set Labels
+                cfV.RiskAssessmentLabelText = Resources.RiskAssessmentDone;
+                cfV.SiteProblemsLabelText = Resources.SiteProblems;
+                cfV.SiteHazardsLabelText = Resources.SiteHazards;
+                cfV.ActivityIdLabelText = Resources.Activity;
+                cfV.LocationNameLabelText = Resources.Location;
+                cfV.WeedsLabelText = Resources.Weeds;
+                cfV.KnotweedLabelText = Resources.Knotweed;
+                cfV.MayorTailsLabelText = Resources.MayorTails;
+                cfV.OthersLabelText = Resources.Other;
+                cfV.FlagsLabelText = Resources.Flags;
+                cfV.TarmacLabelText = Resources.Tarmac;
+                cfV.StoneLabelText = Resources.Stone;
+                cfV.GrassLabelText = Resources.Grass;
+                cfV.SoilLabelText = Resources.Soil;
+                cfV.DryLabelText = Resources.Dry;
+                cfV.RainLabelText = Resources.Rain;
+                cfV.OvercastLabelText = Resources.Overcast;
+                cfV.SnowLabelText = Resources.Snow;
+                cfV.ProductsUsedLabelText = Resources.ProductsUsed;
+                cfV.ExtraBrambleLabelText = Resources.BrambleExtraRemoved;
+                cfV.ExtraGrassLabelText = Resources.GrassExtraRemoved;
+                cfV.ExtraHedgeLabelText = Resources.HedgeExtraRemoved;
+                cfV.ExtraIvyLabelText = Resources.IvyExtraRemoved;
+                cfV.ExtraTreeLabelText = Resources.TreeExtraRemoved;
+                cfV.DumppedRubbishLabelText = Resources.DumpedRubbish;
+                cfV.VaccumingLabelText = Resources.VaccumingRequired;
+                cfV.DoorsLockedAndSecureLabelText = Resources.DoorsLockedAndSecure;
+                cfV.RevisitRequiredLabelText = Resources.RevisitRequired;
+                cfV.TotalGreenBagLabelText = Resources.TotalGreenBagsRemoved;
+                cfV.TotalSprayingLitresLabelText = Resources.TotalLitresApplied;
+                cfV.TotalSprayingTimeLabelText = Resources.TotalSprayingTime;
+                #endregion
+            }
+        }
+
+        protected override void Render(HtmlTextWriter writer)
+        {
+            base.Render(writer);
+            Global.Profile.MyGrid = new GridProfile();
+            Global.Profile.MyGrid.SaveGridSettings(gridActivities, "ActivitiesGrid");
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            if (Global.Profile.MyGrid.Names.Count > 0)
+            {
+                if (Global.Profile.MyGrid.Names.ContainsKey("ActivitiesGrid"))
+                {
+                    GridSettings settings = new GridSettings(gridActivities);
+                    settings.LoadSettings(Global.Profile.MyGrid.Names["ActivitiesGrid"].ToString());
+                }
+            }
+
+            roles = Roles.GetRolesForUser();
+
+            if (roles.Contains("Administrators") || roles.Contains("Manager") || roles.Contains("Supervisor"))
+            {
+                //Planning Menu Items
+                RadMenuItem separator1 = new RadMenuItem();
+                separator1.IsSeparator = true;
+                ActivitiesGridContextMenu.Items.Add(separator1);
+
+                RadMenuItem planningMI = new RadMenuItem(Resources.Planning);
+                ActivitiesGridContextMenu.Items.Add(planningMI);
+
+                RadMenuItem assignEmployeeMI = new RadMenuItem(Resources.AssignEmployee);
+                assignEmployeeMI.Value = "AssignEmployee";
+                planningMI.Items.Add(assignEmployeeMI);
+
+                RadMenuItem planMI = new RadMenuItem(Resources.Plan);
+                planMI.Value = "PlanActivity";
+                planningMI.Items.Add(planMI);
+            }
+
+            if (roles.Contains("Administrators") || roles.Contains("Manager"))
+            {
+                //Reset Menu Item
+                RadMenuItem separator2 = new RadMenuItem();
+                separator2.IsSeparator = true;
+                ActivitiesGridContextMenu.Items.Add(separator2);
+
+                RadMenuItem resetMI = new RadMenuItem(Resources.Reset);
+                resetMI.Value = "Reset";
+                ActivitiesGridContextMenu.Items.Add(resetMI);
+            }
+
+            //try
+            //{
+            //    gridActivities.Columns.FindByUniqueName("NetAmount");
+            //}
+            //catch (GridException)
+            //{
+            //    //If current user in roles Admin or Manager
+            //    String[] roles = Roles.GetRolesForUser();
+            //    if (roles.Contains("Administrators") || roles.Contains("Manager"))
+            //    {
+            //        GridBoundColumn netAmountColumn = new GridBoundColumn();
+            //        netAmountColumn.UniqueName = "NetAmount";
+            //        netAmountColumn.DataType = typeof(Double);
+            //        netAmountColumn.HeaderText = Resources.Net;
+            //        netAmountColumn.SortExpression = "NetAmount";
+            //        netAmountColumn.Aggregate = GridAggregateFunction.Sum;
+            //        netAmountColumn.DataField = "NetAmount";
+            //        netAmountColumn.DataFormatString = "{0:F2}";
+            //        netAmountColumn.ItemStyle.HorizontalAlign = HorizontalAlign.Right;
+            //        netAmountColumn.HeaderStyle.HorizontalAlign = HorizontalAlign.Right;
+            //        netAmountColumn.FooterStyle.HorizontalAlign = HorizontalAlign.Right;
+
+            //        gridActivities.Columns.Add(netAmountColumn);
+            //    }
+            //}
+        } 
+        #endregion
+
+        #region Private Methods
+        private void UpdateMediaToolTip(String elementID, UpdatePanel panel)
+        {
+            Control ctrl = Page.LoadControl("~/_common/controls/Medias/ViewMedia.ascx");
+            panel.ContentTemplateContainer.Controls.Add(ctrl);
+            ViewMedia mediaDetail = (ViewMedia)ctrl;
+            mediaDetail.ElementId = elementID;
+        }
+
+        private void UpdateLocationToolTip(String elementID, UpdatePanel panel)
+        {
+            Control ctrl = Page.LoadControl("~/_common/controls/Locations/ViewLocation.ascx");
+            panel.ContentTemplateContainer.Controls.Add(ctrl);
+            ViewLocation locationDetail = (ViewLocation)ctrl;
+            locationDetail.ElementId = elementID;
+        }
+
+        private void EnableTab(String tabId)
+        {
+            RadTab tab = TabStrip1.Tabs.FindTab(t => t.Text == tabId);
+            if (tab != null)
+            {
+                tab.Enabled = true;
+            }
+        }
+
+        private void DisableTab(String tabId)
+        {
+            RadTab tab = TabStrip1.Tabs.FindTab(t => t.Text == tabId);
+            if (tab != null)
+            {
+                tab.Enabled = false;
+            }
+        }
+        #endregion
+
+        #region Ajax
+        protected void RadAjaxManager1_AjaxRequest(object sender, AjaxRequestEventArgs e)
+        {
+            ajaxRequestParameters = e.Argument.Split(delimiters);
+            ajaxRequestType = ajaxRequestParameters[0];
+            ajaxRequestValue = ajaxRequestParameters[1];
+
+            switch (ajaxRequestType)
+            {
+                case "AddMultipleTasks.SelectedIds":
+                    Session["AddMultipleTasks.SelectedIds"] = ajaxRequestValue.TrimEnd(",".ToCharArray()).Split(",".ToCharArray());
+                    break;
+                case "ChangeActivityStatus.SelectedIds":
+                    Session["ChangeActivityStatus.SelectedIds"] = ajaxRequestValue.TrimEnd(",".ToCharArray()).Split(",".ToCharArray());
+                    break;
+                case "PlanActivitiesAndTasks.SelectedIds":
+                    Session["PlanActivitiesAndTasks.SelectedIds"] = ajaxRequestValue.TrimEnd(",".ToCharArray()).Split(",".ToCharArray());
+                    break;
+                case "AssignEmployees.SelectedIds":
+                    Session["AssignEmployees.SelectedIds"] = ajaxRequestValue.TrimEnd(",".ToCharArray()).Split(",".ToCharArray());
+                    break;
+                case "Clear":
+                    Session["Search.SearchCriteria"] = null;
+                    Session["Search.CustomerId"] = null;
+                    Session["Search.ModuleId"] = null;
+                    Session["Search.ProgrammeId"] = null;
+                    Session["Search.CategoryId"] = null;
+                    Session["Search.ShowArchived"] = null;
+                    gridActivities.Rebind();
+                    //Rebind related grid with Empty session variables to get empty grids
+                    RebindRelatedGrids(String.Empty, String.Empty, String.Empty);
+                    break;
+                case "Search":
+                    String[] criterion = ajaxRequestValue.Split(delimitersSearch);
+
+                    if (criterion[0] != "null")
+                        searchCriteria = criterion[0].Trim().ToLower();
+                    else
+                        searchCriteria = String.Empty;
+
+                    if (criterion[1] != "null")
+                        customerId = criterion[1];
+                    else
+                        customerId = String.Empty;
+
+                    if (criterion[2] != "null")
+                        moduleId = criterion[2];
+                    else
+                        moduleId = String.Empty;
+
+                    if (criterion[3] != "null")
+                        programmeId = criterion[3];
+                    else
+                        programmeId = String.Empty;
+
+                    if (criterion[4] != "null")
+                        categoryId = criterion[4];
+                    else
+                        categoryId = String.Empty;
+
+                    showArchived = Convert.ToBoolean(criterion[5]);
+
+                    Session["Search.SearchCriteria"] = searchCriteria;
+                    Session["Search.CustomerId"] = customerId;
+                    Session["Search.ModuleId"] = moduleId;
+                    Session["Search.ProgrammeId"] = programmeId;
+                    Session["Search.CategoryId"] = categoryId;
+                    Session["Search.ShowArchived"] = showArchived;
+
+                    gridActivities.Rebind();
+                    //Rebind related grid with Empty session variables to get empty grids
+                    RebindRelatedGrids(String.Empty, String.Empty, String.Empty);
+                    break;
+                case "RebindRelatedGrids":
+                    String[] rebindCriterion = ajaxRequestValue.Split(delimitersSearch);
+                    RebindRelatedGrids(rebindCriterion[0], rebindCriterion[1], rebindCriterion[2]);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void RebindRelatedGrids(String activityGuid, String activityId, String customerId)
+        {
+            Session["ActivityGuid"] = activityGuid;
+            Session["ActivityId"] = activityId;
+            Session["CustomerId"] = customerId;
+
+            if (PaneRelatedItems.Height.Value > 1)
+            {
+                //Here we clear the collection of target control in tooltip manager
+                //in order to add new tooltips that apply to selected activity
+                RadToolTipManager1.TargetControls.Clear();
+                RadToolTipManager2.TargetControls.Clear();
+
+                gridTasks.Rebind();
+                gridMedias.Rebind();
+                gridWorkTimes.Rebind();
+                gridNotes.Rebind();
+
+                #region Clearance Form
+                selectedActivity = dc.Activities.SingleOrDefault(a => a.Id.ToString() == Session["ActivityGuid"].ToString());
+
+                if (selectedActivity != null)
+                {
+                    //If the Selected Activity if a Recurrent
+                    if (selectedActivity.ActivityModule.Name.ToLower() == "recurrent")
+                    {
+                        //if Activity has a Clearance form Then show it
+                        if (selectedActivity.ClearanceForms.Count > 0)
+                        {
+                            EnableTab(Resources.ClearanceForm);
+                            cfV.Visible = true;
+                            cfV.ClearanceFormGuid = selectedActivity.ClearanceForms[0].Id.ToString();
+                        }
+                        else
+                        {
+                            DisableTab(Resources.ClearanceForm);
+                            cfV.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        DisableTab(Resources.ClearanceForm);
+                    }
+                }
+                else
+                {
+                    DisableTab(Resources.ClearanceForm);
+                }
+                #endregion
+            }
+        }
+
+        protected void MediaAjaxUpdate(object sender, ToolTipUpdateEventArgs args)
+        {
+            this.UpdateMediaToolTip(args.Value, args.UpdatePanel);
+        }
+
+        protected void LocationAjaxUpdate(object sender, ToolTipUpdateEventArgs args)
+        {
+            this.UpdateLocationToolTip(args.Value, args.UpdatePanel);
+        } 
+        #endregion
+
+        #region Combo boxes
+        protected void cbxCustomers_ItemsRequested(object o, Telerik.Web.UI.RadComboBoxItemsRequestedEventArgs e)
+        {
+            Utilities.LoadCustomersInComboBox((RadComboBox)o);
+        }
+
+        protected void cbxModules_ItemsRequested(object o, Telerik.Web.UI.RadComboBoxItemsRequestedEventArgs e)
+        {
+            Utilities.LoadModulesInComboBox((RadComboBox)o);
+        }
+
+        protected void cbxProgrammes_ItemsRequested(object o, Telerik.Web.UI.RadComboBoxItemsRequestedEventArgs e)
+        {
+            String moduleId;
+            String customerId;
+            String[] parameters;
+
+            parameters = e.Text.Split(delimiters);
+            moduleId = parameters[0];
+
+            if (parameters.Length > 1)
+                customerId = parameters[1];
+            else
+                customerId = null;
+
+            Session["CustomerId"] = customerId;
+
+            if (!String.IsNullOrEmpty(customerId))
+            {
+                //If Customer Id is not defined
+                Utilities.LoadCustomerProgrammesInComboBox((RadComboBox)o, moduleId, customerId);
+            }
+            else
+            {
+                Utilities.LoadProgrammesInComboBox((RadComboBox)o, moduleId);
+            }
+        }
+
+        protected void cbxCategories_ItemsRequested(object o, Telerik.Web.UI.RadComboBoxItemsRequestedEventArgs e)
+        {
+            String customerId;
+            if (Session["CustomerId"] != null)
+                customerId = Session["CustomerId"].ToString();
+            else
+                customerId = String.Empty;
+
+            if (!String.IsNullOrEmpty(customerId))
+            {
+                Utilities.LoadCustomerCategoriesInComboBox((RadComboBox)o, e.Text, Session["CustomerId"].ToString());
+            }
+            else
+            {
+                Utilities.LoadCategoriesInComboBox((RadComboBox)o, e.Text);
+            }
+        } 
+        #endregion
+
+        #region Activities Grid
+        protected void gridActivities_ItemDataBound(object sender, GridItemEventArgs e)
+        {
+            //Is it a GridDataItem
+            if (e.Item is GridDataItem)
+            {
+                GridDataItem dataBoundItem = (GridDataItem)e.Item;
+                vwActivity dataItem = (vwActivity)dataBoundItem.DataItem;
+                Double dueDateFlagDays = Convert.ToDouble(ApplicationSettingsManager.GetSettingValueByName("Activities.DueDateFlagDays"));
+
+                #region Convert the ratio into percentage
+                if (!String.IsNullOrEmpty(dataBoundItem["ProgressRatio"].Text))
+                {
+                    Double ratio = Convert.ToDouble(dataBoundItem["ProgressRatio"].Text);
+                    dataBoundItem["ProgressRatio"].Text = (ratio * 100).ToString();
+                } 
+                #endregion
+
+                #region Completed
+                //Find the image control in the InProgressImage template control
+                TableCell cellCompleted = dataBoundItem["CompletedImage"];
+                System.Web.UI.WebControls.Image completedImage = (System.Web.UI.WebControls.Image)cellCompleted.FindControl("imgPinCompleted");
+                //Retrieve InProgress value
+                Boolean completed = Convert.ToBoolean(dataItem.Completed);
+
+                if (completed)
+                {
+                    completedImage.ImageUrl = "~/Resources/icons/flagCompleted.gif";
+                    completedImage.AlternateText = "Completed";
+                }
+                else if (!completed)
+                {
+                    completedImage.ImageUrl = "~/Resources/icons/flagWhite.gif";
+                    completedImage.AlternateText = "Not Completed";
+                }
+                else
+                {
+                    completedImage.Visible = false;
+                }
+                #endregion
+
+                #region Due Date
+                Int32 workflowValue = Convert.ToInt32(dataItem.WorkflowState);
+
+                //If the activity has a Due Date & Workflow Status is lower than Completed (= 9) and is not Cancelled (= 5)
+                if (dataItem.DueDateTime.HasValue && workflowValue < 9 && workflowValue != 5)
+                {
+                    Double daysDue = dataItem.DueDateTime.Value.Subtract(DateTime.Now).TotalDays;
+
+                    if (daysDue < dueDateFlagDays && daysDue >= 0)
+                    {
+                        e.Item.BackColor = Color.Orange;
+                    }
+                    else if (daysDue < 0)
+                    {
+                        e.Item.BackColor = Color.Red;
+                    }
+                }
+                #endregion
+
+                #region Planned
+                //Find the image control in the PlannedImage template control
+                TableCell cellPlanned = dataBoundItem["PlannedImage"];
+                System.Web.UI.WebControls.Image plannedImage = (System.Web.UI.WebControls.Image)cellPlanned.FindControl("imgPinPlanned");
+                Boolean planned = Convert.ToBoolean(dataItem.Planned);
+
+                if (planned)
+                {
+                    plannedImage.ImageUrl = "~/Resources/icons/flagGreen.gif";
+                    plannedImage.AlternateText = "Planned";
+                }
+                else if (!planned)
+                {
+                    plannedImage.ImageUrl = "~/Resources/icons/flagRed.gif";
+                    plannedImage.AlternateText = "Not Planned";
+                }
+                else
+                {
+                    plannedImage.Visible = false;
+                }
+                #endregion
+
+                #region In Progress
+                //Find the image control in the InProgressImage template control
+                TableCell cellInProgress = dataBoundItem["InProgressImage"];
+                System.Web.UI.WebControls.Image inProgressImage = (System.Web.UI.WebControls.Image)cellInProgress.FindControl("imgPinInProgress");
+                //Retrieve InProgress value
+                Boolean inProgress = Convert.ToBoolean(dataItem.InProgress);
+
+                if (inProgress)
+                {
+                    inProgressImage.ImageUrl = "~/Resources/icons/flagGreen.gif";
+                    inProgressImage.AlternateText = String.Format("In Progress by {0}", dataItem.InProgressBy);
+                }
+                else if (!inProgress)
+                {
+                    inProgressImage.ImageUrl = "~/Resources/icons/flagRed.gif";
+                    inProgressImage.AlternateText = "Not In Progress";
+                }
+                else
+                {
+                    inProgressImage.Visible = false;
+                }
+                #endregion
+
+                #region Has Document Attached
+                //Find the image control in the InProgressImage template control
+                TableCell cellHasDocumentsAttached = dataBoundItem["HasDocumentsAttachedImage"];
+                System.Web.UI.WebControls.Image hasDocumentsAttachedImage = (System.Web.UI.WebControls.Image)cellHasDocumentsAttached.FindControl("imgPinHasDocumentsAttached");
+                //Retrieve InProgress value
+                Boolean hasDocumentsAttached = MediaManager.ActivityHasMedia(dataItem.Id.ToString());
+
+                if (hasDocumentsAttached)
+                {
+                    hasDocumentsAttachedImage.ImageUrl = "~/Resources/icons/document.gif";
+                    hasDocumentsAttachedImage.AlternateText = "Has Medias";
+                }
+                else
+                {
+                    hasDocumentsAttachedImage.Visible = false;
+                }
+                #endregion
+
+                #region Archived
+                if (dataItem.Archived.HasValue)
+                {
+                    if (dataItem.Archived.Value)
+                        e.Item.ForeColor = Color.Gray;
+                } 
+                #endregion
+            }
+
+            if (e.Item.ItemType == GridItemType.Item || e.Item.ItemType == GridItemType.AlternatingItem)
+            {
+                Control target = e.Item.FindControl("lblLocationNameTarget");
+                if (!Object.Equals(target, null))
+                {
+                    if (!Object.Equals(this.RadToolTipManager2, null))
+                    {
+                        //Add the button (target) id to the tooltip manager
+                        RadToolTipManager2.TargetControls.Add(target.ClientID, (e.Item as GridDataItem).GetDataKeyValue("Id").ToString(), true);
+                    }
+                }
+            }
+
+            if (e.Item is GridNestedViewItem)
+            {
+                GridNestedViewItem dataBoundItem = (GridNestedViewItem)e.Item;
+                vwActivity dataItem = (vwActivity)dataBoundItem.DataItem;
+
+                if (dataItem.ActualDuration > 0)
+                {
+                    Literal litActualDuration = (Literal)e.Item.FindControl("litActualDuration");
+                    TimeSpan actualDuration = new TimeSpan((Int64)dataItem.ActualDuration);
+                    litActualDuration.Text = String.Format(Resources.Xmins, Math.Round(actualDuration.TotalMinutes, 2));
+                }
+            }
+
+            //if (e.Item is GridGroupHeaderItem)
+            //{
+            //    GridGroupHeaderItem item = (GridGroupHeaderItem)e.Item;
+            //    DataRowView groupDataRow = (DataRowView)e.Item.DataItem;
+            //    item.DataCell.Text += String.Format("Count: {0}", groupDataRow.DataView.);
+            //}
+        }
+
+        protected void vwActivitiesDS_Selecting(object sender, LinqDataSourceSelectEventArgs e)
+        {
+            Int32 rInt32;
+            Double rDouble;
+            String[] ids;
+
+            if (Session["Search.SearchCriteria"] != null)
+                searchCriteria = Session["Search.SearchCriteria"].ToString();
+            if (Session["Search.CustomerId"] != null)
+                customerId = Session["Search.CustomerId"].ToString();
+            if (Session["Search.ModuleId"] != null)
+                moduleId = Session["Search.ModuleId"].ToString();
+            if (Session["Search.ProgrammeId"] != null)
+                programmeId = Session["Search.ProgrammeId"].ToString();
+            if (Session["Search.CategoryId"] != null)
+                categoryId = Session["Search.CategoryId"].ToString();
+            if (Session["Search.ShowArchived"] != null)
+                showArchived = Convert.ToBoolean(Session["Search.ShowArchived"]);
+
+            IQueryable<vwActivity> query = dc.vwActivities;
+
+            if (!String.IsNullOrEmpty(searchCriteria))
+            {
+                if(searchCriteria.Contains(";"))
+                {
+                    ids = searchCriteria.Split(";".ToCharArray());
+                    query = from a in query
+                            where ids.ToList().Contains(a.ActivityId.ToString())
+                            select a;
+                }
+                else if (Int32.TryParse(searchCriteria, out rInt32))
+                {
+                    query = from a in query
+                            join l in dc.vwLocations on a.LocationId equals l.Id into locations
+                            from l in locations.DefaultIfEmpty()
+                            where a.Name.ToLower().Contains(searchCriteria)
+                            || a.ActivityId == rInt32
+                            || a.Description.ToLower().Contains(searchCriteria)
+                            || a.LocationName.ToLower().Contains(searchCriteria)
+                            || a.NetAmount.ToString().ToLower().Contains(searchCriteria)
+                            || a.Owner.ToLower().Contains(searchCriteria)
+                            || a.PoNumber.ToLower().Contains(searchCriteria)
+                            || l.Line1.ToLower().Contains(searchCriteria)
+                            || l.Line2.ToLower().Contains(searchCriteria)
+                            || l.Line3.ToLower().Contains(searchCriteria)
+                            || l.Line4.ToLower().Contains(searchCriteria)
+                            || l.Postcode.ToLower().Contains(searchCriteria)
+                            select a;
+                }
+                else if (Double.TryParse(searchCriteria, out rDouble))
+                {
+                    query = from a in query
+                            join l in dc.vwLocations on a.LocationId equals l.Id into locations
+                            from l in locations.DefaultIfEmpty()
+                            where a.NetAmount == rDouble
+                            || l.Latitude == rDouble
+                            || l.Longitude == rDouble
+                            select a;
+                }
+                else
+                {
+                    query = from a in query
+                            join l in dc.vwLocations on a.LocationId equals l.Id into locations
+                            from l in locations.DefaultIfEmpty()
+                            where a.Name.ToLower().Contains(searchCriteria)
+                            || a.Description.ToLower().Contains(searchCriteria)
+                            || a.CreatedDateTime.ToString().ToLower().Contains(searchCriteria)
+                            || a.CompletedDateTime.ToString().ToLower().Contains(searchCriteria)
+                            || a.DueDateTime.ToString().ToLower().Contains(searchCriteria)
+                            || a.LocationName.ToLower().Contains(searchCriteria)
+                            || a.Owner.ToLower().Contains(searchCriteria)
+                            || a.PoNumber.ToLower().Contains(searchCriteria)
+                            || l.Line1.ToLower().Contains(searchCriteria)
+                            || l.Line2.ToLower().Contains(searchCriteria)
+                            || l.Line3.ToLower().Contains(searchCriteria)
+                            || l.Line4.ToLower().Contains(searchCriteria)
+                            || l.Postcode.ToLower().Contains(searchCriteria)
+                            select a;
+                }
+            }
+
+            if (!String.IsNullOrEmpty(customerId))
+                query = query.Where(a => a.CustomerId == new Guid(customerId));
+
+            if (!String.IsNullOrEmpty(moduleId))
+                query = query.Where(a => a.ModuleId == new Guid(moduleId));
+
+            if (!String.IsNullOrEmpty(programmeId))
+                query = query.Where(a => a.ProgrammeId == new Guid(programmeId));
+
+            if (!String.IsNullOrEmpty(categoryId))
+                query = query.Where(a => a.CategoryId == new Guid(categoryId));
+
+            if (!showArchived)
+                query = query.Where(a => a.Archived == false);
+
+            query = query.Where(a => a.Deleted == false);
+
+            IEnumerable<vwActivity> result = query.Select(a => a);
+
+            e.Result = result;
+        }
+        #endregion
+
+        #region Tasks Grid
+        protected void gridTasks_NeedDataSource(object source, GridNeedDataSourceEventArgs e)
+        {
+            gridTasks.DataSource = TasksManager.GetActivityTasksFromView(Session["ActivityId"].ToString());
+        }
+
+        protected void gridTasks_UpdateCommand(object source, GridCommandEventArgs e)
+        {
+            GridEditableItem editedItem = e.Item as GridEditableItem;
+            UserControl userControl = (UserControl)e.Item.FindControl(GridEditFormItem.EditFormUserControlID);
+
+            String productId = (userControl.FindControl("cbxProducts") as RadComboBox).SelectedValue;
+            Double quantity = (userControl.FindControl("txtQuantity") as RadNumericTextBox).Value.Value;
+
+            TasksManager.UpdateTaskQuantity(e.Item.OwnerTableView.DataKeyValues[e.Item.ItemIndex]["Id"].ToString(), quantity);
+        }
+
+        protected void gridTasks_InsertCommand(object source, GridCommandEventArgs e)
+        {
+            GridEditableItem editedItem = e.Item as GridEditableItem;
+            UserControl userControl = (UserControl)e.Item.FindControl(GridEditFormItem.EditFormUserControlID);
+
+            String productId = (userControl.FindControl("cbxProducts") as RadComboBox).SelectedValue;
+            Double quantity = (userControl.FindControl("txtQuantity") as RadNumericTextBox).Value.Value;
+            Double unitPrice = (userControl.FindControl("txtUnitPrice") as RadNumericTextBox).Value.Value;
+
+            TasksManager.AddTaskAsProduct(Session["ActivityId"].ToString(), productId, unitPrice, quantity);
+        }
+        #endregion
+
+        #region Medias Grid
+        protected void gridMedias_NeedDataSource(object source, GridNeedDataSourceEventArgs e)
+        {
+            gridMedias.DataSource = MediaManager.GetActivityMedias(Session["ActivityGuid"].ToString()).OrderBy(m => m.CreatedDateTime);
+        }
+
+        protected void gridMedias_ItemDataBound(object sender, GridItemEventArgs e)
+        {
+            if (e.Item.ItemType == GridItemType.Item || e.Item.ItemType == GridItemType.AlternatingItem)
+            {
+                Control target = e.Item.FindControl("targetControl");
+                if (!Object.Equals(target, null))
+                {
+                    if (!Object.Equals(this.RadToolTipManager1, null))
+                    {
+                        //Add the button (target) id to the tooltip manager
+                        RadToolTipManager1.TargetControls.Add(target.ClientID, (e.Item as GridDataItem).GetDataKeyValue("Id").ToString(), true);
+                    }
+                }
+            }
+        }
+
+        protected void gridMedias_ItemCommand(object source, GridCommandEventArgs e)
+        {
+            if (e.CommandName == "Sort" || e.CommandName == "Page")
+            {
+                RadToolTipManager1.TargetControls.Clear();
+            }
+        }
+        #endregion
+
+        #region Work Times Grid
+        protected void gridWorkTimes_NeedDataSource(object source, GridNeedDataSourceEventArgs e)
+        {
+            gridWorkTimes.DataSource = ActivityWorkTimesManager.GetActivityWorkTimesFromView(Session["ActivityGuid"].ToString());
+        }
+
+        protected void gridWorkTimes_InsertCommand(object source, GridCommandEventArgs e)
+        {
+            GridEditableItem editedItem = e.Item as GridEditableItem;
+            UserControl userControl = (UserControl)e.Item.FindControl(GridEditFormItem.EditFormUserControlID);
+
+            String employeeId = (userControl.FindControl("cbxEmployee") as RadComboBox).SelectedValue;
+            DateTime dateTime = (userControl.FindControl("txtDateTime") as RadDatePicker).SelectedDate.Value;
+            Int64 timeSpent = Convert.ToInt64((userControl.FindControl("txtTimeSpent") as RadNumericTextBox).Value);
+            Boolean isPrivate = (userControl.FindControl("ckbIsPrivate") as CheckBox).Checked;
+
+            ActivityWorkTimesManager.AddWorkTime(Session["ActivityGuid"].ToString(),
+                employeeId, dateTime, timeSpent, isPrivate);
+        } 
+        #endregion
+
+        #region Notes Grid
+        protected void gridNotes_NeedDataSource(object source, GridNeedDataSourceEventArgs e)
+        {
+            gridNotes.DataSource = ActivityNotesManager.GetActivityActivityNotes(Session["ActivityGuid"].ToString());
+        } 
+        #endregion
+    }
+}

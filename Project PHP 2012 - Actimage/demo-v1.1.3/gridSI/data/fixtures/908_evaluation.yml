@@ -1,0 +1,13 @@
+Note:
+  note_1:
+    intitule: Intérêt scientifique
+
+  note_2:
+    intitule: Niveau de la candidature
+
+  note_3:
+    intitule: Niveau du laboratoire
+
+  note_4:
+    intitule: Intérêt Défense
+    est_selection: 0

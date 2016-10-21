@@ -1,0 +1,13 @@
+all:
+  .actions:
+    login_module:   authentification   # To be called when a non-authenticated user
+    login_action:   seconnecter        # Tries to access a secure page
+    secure_module:  authentification   # To be called when a user doesn't have
+    secure_action:  nonAutorise        # The credentials required for an action
+
+    error_404_module: authentification
+    error_404_action: nonAutorise
+    error_db_module: sys
+    error_db_action: erreurSgbdr
+    setup_module:    sys
+    setup_action:    setup

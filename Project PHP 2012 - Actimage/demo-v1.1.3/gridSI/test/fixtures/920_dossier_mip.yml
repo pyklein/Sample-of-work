@@ -1,0 +1,12 @@
+Dossier_mip:
+  dossier_mip_1:
+    titre: Dossier MIP 1
+    descriptif : Je suis le dossier 1
+    Etat_partage: etat_partage_1
+    Statut_dossier_mip: statut_dossier_1
+    Niveau_protection: niveau_protection_1
+    statut_projet_mip_id: 3
+    created_by: 1
+    Organisme_mindef: organisme_mindef_1
+    pilote_id: 1
+    est_publie: true

@@ -1,0 +1,25 @@
+﻿.table
+{
+    width: 100%;
+}
+.fixedTable
+{
+    width: 600px;
+}
+.fixedTable td
+{
+	vertical-align: top;
+}
+.fixedTable .fixedColumn
+{
+    width: 250px;
+    vertical-align: top;
+}
+.fixedTable .fixedColumnRight
+{
+    width: 350px;
+}
+.fixedTable naviguation
+{
+	text-align: right;
+}

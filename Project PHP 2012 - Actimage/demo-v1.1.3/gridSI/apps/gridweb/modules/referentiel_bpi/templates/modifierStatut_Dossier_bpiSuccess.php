@@ -1,0 +1,1 @@
+<?php include_partial('interface/conteneurForme', array('action' => 'modifier', 'model' => 'Statut_Dossier_bpi', 'objForm' => $objForm, 'strModule' => $sf_context->getModuleName())) ?>

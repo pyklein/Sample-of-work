@@ -1,0 +1,980 @@
+Pays:
+  pays_AFG:
+    nom: Afghanistan
+    abreviation: AFG
+
+  pays_ZAF:
+    nom: Afrique du Sud
+    abreviation: ZAF
+
+  pays_ALA:
+    nom: Åland
+    abreviation: ALA
+
+  pays_ALB:
+    nom: Albanie
+    abreviation: ALB
+
+  pays_DZA:
+    nom: Algérie
+    abreviation: DZA
+
+  pays_DEU:
+    nom: Allemagne
+    abreviation: DEU
+
+  pays_AND:
+    nom: Andorre
+    abreviation: AND
+
+  pays_AGO:
+    nom: Angola
+    abreviation: AGO
+
+  pays_AIA:
+    nom: Anguilla
+    abreviation: AIA
+
+  pays_ATG:
+    nom: Antigua et Barbuda
+    abreviation: ATG
+
+  pays_SAU:
+    nom: Arabie Saoudite
+    abreviation: SAU
+
+  pays_ARG:
+    nom: Argentine
+    abreviation: ARG
+
+  pays_ARM:
+    nom: Arménie
+    abreviation: ARM
+
+  pays_ABW:
+    nom: Aruba
+    abreviation: ABW
+
+  pays_AUS:
+    nom: Australie
+    abreviation: AUS
+
+  pays_AUT:
+    nom: Autriche
+    abreviation: AUT
+
+  pays_AZE:
+    nom: Azerbaïdjan
+    abreviation: AZE
+
+  pays_BHS:
+    nom: Bahamas
+    abreviation: BHS
+
+  pays_BHR:
+    nom: Bahreïn
+    abreviation: BHR
+
+  pays_BGD:
+    nom: Bangladesh
+    abreviation: BGD
+
+  pays_BRB:
+    nom: Barbade
+    abreviation: BRB
+
+  pays_BLR:
+    nom: Biélorussie
+    abreviation: BLR
+
+  pays_BEL:
+    nom: Belgique
+    abreviation: BEL
+
+  pays_BLZ:
+    nom: Belize
+    abreviation: BLZ
+
+  pays_BEN:
+    nom: Bénin
+    abreviation: BEN
+
+  pays_BMU:
+    nom: Bermudes
+    abreviation: BMU
+
+  pays_BTN:
+    nom: Bhoutan
+    abreviation: BTN
+
+  pays_BOL:
+    nom: Bolivie
+    abreviation: BOL
+
+  pays_BES:
+    nom: Saint-Eustache et Saba
+    abreviation: BES
+
+  pays_BIH:
+    nom: Bosnie-Herzégovine
+    abreviation: BIH
+
+  pays_BWA:
+    nom: Botswana
+    abreviation: BWA
+
+  pays_BVT:
+    nom: Île Bouvet
+    abreviation: BVT
+
+  pays_BRA:
+    nom: Brésil
+    abreviation: BRA
+
+  pays_BRN:
+    nom: Brunei
+    abreviation: BRN
+
+  pays_BGR:
+    nom: Bulgarie
+    abreviation: BGR
+
+  pays_BFA:
+    nom: Burkina Faso
+    abreviation: BFA
+
+  pays_BDI:
+    nom: Burundi
+    abreviation: BDI
+
+  pays_CYM:
+    nom: Îles Caïmans
+    abreviation: CYM
+
+  pays_KHM:
+    nom: Cambodge
+    abreviation: KHM
+
+  pays_CMR:
+    nom: Cameroun
+    abreviation: CMR
+
+  pays_CAN:
+    nom: Canada
+    abreviation: CAN
+
+  pays_CPV:
+    nom: Cap-Vert
+    abreviation: CPV
+
+  pays_CAF:
+    nom: République Centrafricaine
+    abreviation: CAF
+
+  pays_CHL:
+    nom: Chili
+    abreviation: CHL
+
+  pays_CHN:
+    nom: Chine
+    abreviation: CHN
+
+  pays_CXR:
+    nom: Île Christmas
+    abreviation: CXR
+
+  pays_CYP:
+    nom: Chypre
+    abreviation: CYP
+
+  pays_CCK:
+    nom: Îles Cocos
+    abreviation: CCK
+
+  pays_COL:
+    nom: Colombie
+    abreviation: COL
+
+  pays_COM:
+    nom: Comores
+    abreviation: COM
+
+  pays_COG:
+    nom: Congo-Brazzaville
+    abreviation: COG
+
+  pays_COD:
+    nom: République démocratique du Congo
+    abreviation: COD
+
+  pays_COK:
+    nom: Îles Cook
+    abreviation: COK
+
+  pays_KOR:
+    nom: Corée du Sud
+    abreviation: KOR
+
+  pays_PRK:
+    nom: Corée du Nord
+    abreviation: PRK
+
+  pays_CRI:
+    nom: Costa Rica
+    abreviation: CRI
+
+  pays_CIV:
+    nom: Côte d'Ivoire
+    abreviation: CIV
+
+  pays_HRV:
+    nom: Croatie
+    abreviation: HRV
+
+  pays_CUB:
+    nom: Cuba
+    abreviation: CUB
+
+  pays_CUW:
+    nom: Curaçao
+    abreviation: CUW
+
+  pays_DNK:
+    nom: Danemark
+    abreviation: DNK
+
+  pays_DJI:
+    nom: Djibouti
+    abreviation: DJI
+
+  pays_DOM:
+    nom: République Dominicaine
+    abreviation: DOM
+
+  pays_DMA:
+    nom: Dominique
+    abreviation: DMA
+
+  pays_EGY:
+    nom: Égypte
+    abreviation: EGY
+
+  pays_SLV:
+    nom: Salvador
+    abreviation: SLV
+
+  pays_ARE:
+    nom: Émirats Arabes Unis
+    abreviation: ARE
+
+  pays_ECU:
+    nom: Équateur
+    abreviation: ECU
+
+  pays_ERI:
+    nom: Érythrée
+    abreviation: ERI
+
+  pays_ESP:
+    nom: Espagne
+    abreviation: ESP
+
+  pays_EST:
+    nom: Estonie
+    abreviation: EST
+
+  pays_USA:
+    nom: États-Unis
+    abreviation: USA
+
+  pays_ETH:
+    nom: Éthiopie
+    abreviation: ETH
+
+  pays_FLK:
+    nom: Îles Malouines
+    abreviation: FLK
+
+  pays_FRO:
+    nom: Îles Féroé
+    abreviation: FRO
+
+  pays_FJI:
+    nom: Fidji
+    abreviation: FJI
+
+  pays_FIN:
+    nom: Finlande
+    abreviation: FIN
+
+  pays_FRA:
+    nom: France
+    abreviation: FRA
+
+  pays_GAB:
+    nom: Gabon
+    abreviation: GAB
+
+  pays_GMB:
+    nom: Gambie
+    abreviation: GMB
+
+  pays_GEO:
+    nom: Géorgie
+    abreviation: GEO
+
+  pays_SGS:
+    nom: Géorgie du Sud et les Îles Sandwich du Sud
+    abreviation: SGS
+
+  pays_GHA:
+    nom: Ghana
+    abreviation: GHA
+
+  pays_GIB:
+    nom: Gibraltar
+    abreviation: GIB
+
+  pays_GRC:
+    nom: Grèce
+    abreviation: GRC
+
+  pays_GRD:
+    nom: Grenade
+    abreviation: GRD
+
+  pays_GRL:
+    nom: Groenland
+    abreviation: GRL
+
+  pays_GLP:
+    nom: Guadeloupe
+    abreviation: GLP
+
+  pays_GUM:
+    nom: Guam
+    abreviation: GUM
+
+  pays_GTM:
+    nom: Guatemala
+    abreviation: GTM
+
+  pays_GGY:
+    nom: Guernesey
+    abreviation: GGY
+
+  pays_GIN:
+    nom: Guinée
+    abreviation: GIN
+
+  pays_GNB:
+    nom: Guinée-Bissau
+    abreviation: GNB
+
+  pays_GNQ:
+    nom: Guinée Equatoriale
+    abreviation: GNQ
+
+  pays_GUY:
+    nom: Guyana
+    abreviation: GUY
+
+  pays_GUF:
+    nom: France Guyane
+    abreviation: GUF
+
+  pays_HTI:
+    nom: Haïti
+    abreviation: HTI
+
+  pays_HMD:
+    nom: Îles Heard et MacDonald
+    abreviation: HMD
+
+  pays_HND:
+    nom: Honduras
+    abreviation: HND
+
+  pays_HKG:
+    nom: Hong Kong
+    abreviation: HKG
+
+  pays_HUN:
+    nom: Hongrie
+    abreviation: HUN
+
+  pays_IMN:
+    nom: Île de Man
+    abreviation: IMN
+
+  pays_UMI:
+    nom: Îles mineures éloignées des États-Unis
+    abreviation: UMI
+
+  pays_VGB:
+    nom: Îles Vierges Britanniques
+    abreviation: VGB
+
+  pays_VIR:
+    nom: Îles Vierges des États-Unis
+    abreviation: VIR
+
+  pays_IND:
+    nom: Inde
+    abreviation: IND
+
+  pays_IDN:
+    nom: Indonésie
+    abreviation: IDN
+
+  pays_IRN:
+    nom: Iran
+    abreviation: IRN
+
+  pays_IRQ:
+    nom: Irak
+    abreviation: IRQ
+
+  pays_IRL:
+    nom: Irlande
+    abreviation: IRL
+
+  pays_ISL:
+    nom: Islande
+    abreviation: ISL
+
+  pays_ISR:
+    nom: Israël
+    abreviation: ISR
+
+  pays_ITA:
+    nom: Italie
+    abreviation: ITA
+
+  pays_JAM:
+    nom: Jamaïque
+    abreviation: JAM
+
+  pays_JPN:
+    nom: Japon
+    abreviation: JPN
+
+  pays_JEY:
+    nom: Jersey
+    abreviation: JEY
+
+  pays_JOR:
+    nom: Jordanie
+    abreviation: JOR
+
+  pays_KAZ:
+    nom: Kazakhstan
+    abreviation: KAZ
+
+  pays_KEN:
+    nom: Kenya
+    abreviation: KEN
+
+  pays_KGZ:
+    nom: Kirghizistan
+    abreviation: KGZ
+
+  pays_KIR:
+    nom: Kiribati
+    abreviation: KIR
+
+  pays_KWT:
+    nom: Koweït
+    abreviation: KWT
+
+  pays_LAO:
+    nom: Laos
+    abreviation: LAO
+
+  pays_LSO:
+    nom: Lesotho
+    abreviation: LSO
+
+  pays_LVA:
+    nom: Lettonie
+    abreviation: LVA
+
+  pays_LBN:
+    nom: Liban
+    abreviation: LBN
+
+  pays_LBR:
+    nom: Liberia
+    abreviation: LBR
+
+  pays_LBY:
+    nom: Libye
+    abreviation: LBY
+
+  pays_LIE:
+    nom: Liechtenstein
+    abreviation: LIE
+
+  pays_LTU:
+    nom: Lituanie
+    abreviation: LTU
+
+  pays_LUX:
+    nom: Luxembourg
+    abreviation: LUX
+
+  pays_MAC:
+    nom: Macao
+    abreviation: MAC
+
+  pays_MKD:
+    nom: Macédoine
+    abreviation: MKD
+
+  pays_MDG:
+    nom: Madagascar
+    abreviation: MDG
+
+  pays_MYS:
+    nom: Malaisie
+    abreviation: MYS
+
+  pays_MWI:
+    nom: Malawi
+    abreviation: MWI
+
+  pays_MDV:
+    nom: Maldives
+    abreviation: MDV
+
+  pays_MLI:
+    nom: Mali
+    abreviation: MLI
+
+  pays_MLT:
+    nom: Malte
+    abreviation: MLT
+
+  pays_MNP:
+    nom: Îles Mariannes du Nord
+    abreviation: MNP
+
+  pays_MAR:
+    nom: Maroc
+    abreviation: MAR
+
+  pays_MHL:
+    nom: Marshall
+    abreviation: MHL
+
+  pays_MTQ:
+    nom: Martinique
+    abreviation: MTQ
+
+  pays_MUS:
+    nom: Maurice
+    abreviation: MUS
+
+  pays_MRT:
+    nom: Mauritanie
+    abreviation: MRT
+
+  pays_MYT:
+    nom: France Mayotte
+    abreviation: MYT
+
+  pays_MEX:
+    nom: Mexique
+    abreviation: MEX
+
+  pays_FSM:
+    nom: Micronésie
+    abreviation: FSM
+
+  pays_MDA:
+    nom: Moldavie
+    abreviation: MDA
+
+  pays_MCO:
+    nom: Monaco
+    abreviation: MCO
+
+  pays_MNG:
+    nom: Mongolie
+    abreviation: MNG
+
+  pays_MNE:
+    nom: Monténégro
+    abreviation: MNE
+
+  pays_MSR:
+    nom: Montserrat
+    abreviation: MSR
+
+  pays_MOZ:
+    nom: Mozambique
+    abreviation: MOZ
+
+  pays_MMR:
+    nom: Birmanie
+    abreviation: MMR
+
+  pays_NAM:
+    nom: Namibie
+    abreviation: NAM
+
+  pays_NRU:
+    nom: Nauru
+    abreviation: NRU
+
+  pays_NPL:
+    nom: Népal
+    abreviation: NPL
+
+  pays_NIC:
+    nom: Nicaragua
+    abreviation: NIC
+
+  pays_NER:
+    nom: Niger
+    abreviation: NER
+
+  pays_NGA:
+    nom: Nigeria
+    abreviation: NGA
+
+  pays_NIU:
+    nom: Niue
+    abreviation: NIU
+
+  pays_NFK:
+    nom: Norfolk
+    abreviation: NFK
+
+  pays_NOR:
+    nom: Norvège
+    abreviation: NOR
+
+  pays_NCL:
+    nom: Nouvelle-Calédonie
+    abreviation: NCL
+
+  pays_NZL:
+    nom: Nouvelle-Zélande
+    abreviation: NZL
+
+  pays_IOT:
+    nom: Territoire Britannique de l'océan Indien
+    abreviation: IOT
+
+  pays_OMN:
+    nom: Oman
+    abreviation: OMN
+
+  pays_UGA:
+    nom: Ouganda
+    abreviation: UGA
+
+  pays_UZB:
+    nom: Ouzbékistan
+    abreviation: UZB
+
+  pays_PAK:
+    nom: Pakistan
+    abreviation: PAK
+
+  pays_PLW:
+    nom: Palaos
+    abreviation: PLW
+
+  pays_PSE:
+    nom: Palestine
+    abreviation: PSE
+
+  pays_PAN:
+    nom: Panamá
+    abreviation: PAN
+
+  pays_PNG:
+    nom: Papouasie Nouvelle Guinée
+    abreviation: PNG
+
+  pays_PRY:
+    nom: Paraguay
+    abreviation: PRY
+
+  pays_NLD:
+    nom: Pays-Bas
+    abreviation: NLD
+
+  pays_PER:
+    nom: Pérou
+    abreviation: PER
+
+  pays_PHL:
+    nom: Philippines
+    abreviation: PHL
+
+  pays_PCN:
+    nom: Îles Pitcairn
+    abreviation: PCN
+
+  pays_POL:
+    nom: Pologne
+    abreviation: POL
+
+  pays_PYF:
+    nom: Polynésie Française
+    abreviation: PYF
+
+  pays_PRI:
+    nom: Porto Rico
+    abreviation: PRI
+
+  pays_PRT:
+    nom: Portugal
+    abreviation: PRT
+
+  pays_QAT:
+    nom: Qatar
+    abreviation: QAT
+
+  pays_REU:
+    nom: France Reunion
+    abreviation: REU
+
+  pays_ROU:
+    nom: Roumanie
+    abreviation: ROU
+
+  pays_GBR:
+    nom: Royaume-Uni
+    abreviation: GBR
+
+  pays_RUS:
+    nom: Russie
+    abreviation: RUS
+
+  pays_RWA:
+    nom: Rwanda
+    abreviation: RWA
+
+  pays_ESH:
+    nom: Sahara Occidental
+    abreviation: ESH
+
+  pays_BLM:
+    nom: Saint Barthélemy
+    abreviation: BLM
+
+  pays_KNA:
+    nom: Saint Christophe et Niévès
+    abreviation: KNA
+
+  pays_SMR:
+    nom: Saint-Marin
+    abreviation: SMR
+
+  pays_MAF:
+    nom: Saint-Martin (Antilles françaises)
+    abreviation: MAF
+
+  pays_SXM:
+    nom: Saint Martin
+    abreviation: SXM
+
+  pays_SPM:
+    nom: France Saint Pierre et Miquelon
+    abreviation: SPM
+
+  pays_VAT:
+    nom: Vatican
+    abreviation: VAT
+
+  pays_VCT:
+    nom: Saint Vincent et les Grenadines
+    abreviation: VCT
+
+  pays_SHN:
+    nom: Ascension et Tristan da Cunha Sainte Hélène
+    abreviation: SHN
+
+  pays_LCA:
+    nom: Sainte-Lucie
+    abreviation: LCA
+
+  pays_SLB:
+    nom: îles Salomon
+    abreviation: SLB
+
+  pays_WSM:
+    nom: Samoa
+    abreviation: WSM
+
+  pays_ASM:
+    nom: Samoa Américaines
+    abreviation: ASM
+
+  pays_STP:
+    nom: São Tomé et Principe
+    abreviation: STP
+
+  pays_SEN:
+    nom: Sénégal
+    abreviation: SEN
+
+  pays_SRB:
+    nom: Serbie
+    abreviation: SRB
+
+  pays_SYC:
+    nom: Seychelles
+    abreviation: SYC
+
+  pays_SLE:
+    nom: Sierra Leone
+    abreviation: SLE
+
+  pays_SGP:
+    nom: Singapour
+    abreviation: SGP
+
+  pays_SVK:
+    nom: Slovaquie
+    abreviation: SVK
+
+  pays_SVN:
+    nom: Slovénie
+    abreviation: SVN
+
+  pays_SOM:
+    nom: Somalie
+    abreviation: SOM
+
+  pays_SDN:
+    nom: Soudan
+    abreviation: SDN
+
+  pays_LKA:
+    nom: Sri Lanka
+    abreviation: LKA
+
+  pays_SWE:
+    nom: Suède
+    abreviation: SWE
+
+  pays_CHE:
+    nom: Suisse
+    abreviation: CHE
+
+  pays_SUR:
+    nom: Suriname
+    abreviation: SUR
+
+  pays_SWZ:
+    nom: Swaziland
+    abreviation: SWZ
+
+  pays_SYR:
+    nom: Syrie
+    abreviation: SYR
+
+  pays_TJK:
+    nom: Tadjikistan
+    abreviation: TJK
+
+  pays_TWN:
+    nom: Taïwan
+    abreviation: TWN
+
+  pays_TZA:
+    nom: Tanzanie
+    abreviation: TZA
+
+  pays_TCD:
+    nom: Tchad
+    abreviation: TCD
+
+  pays_CZE:
+    nom: République Tchèque
+    abreviation: CZE
+
+  pays_ATF:
+    nom: France Terres Australes et Antarctiques Françaises
+    abreviation: ATF
+
+  pays_THA:
+    nom: Thaïlande
+    abreviation: THA
+
+  pays_TLS:
+    nom: Timor Oriental
+    abreviation: TLS
+
+  pays_TGO:
+    nom: Togo
+    abreviation: TGO
+
+  pays_TKL:
+    nom: Tokelau
+    abreviation: TKL
+
+  pays_TON:
+    nom: Tonga
+    abreviation: TON
+
+  pays_TTO:
+    nom: Trinité et Tobago
+    abreviation: TTO
+
+  pays_TUN:
+    nom: Tunisie
+    abreviation: TUN
+
+  pays_TKM:
+    nom: Turkménistan
+    abreviation: TKM
+
+  pays_TCA:
+    nom: îles Turques et Caïques
+    abreviation: TCA
+
+  pays_TUR:
+    nom: Turquie
+    abreviation: TUR
+
+  pays_TUV:
+    nom: Tuvalu
+    abreviation: TUV
+
+  pays_UKR:
+    nom: Ukraine
+    abreviation: UKR
+
+  pays_URY:
+    nom: Uruguay
+    abreviation: URY
+
+  pays_VEN:
+    nom: Venezuela
+    abreviation: VEN
+
+  pays_VNM:
+    nom: Viêt Nam
+    abreviation: VNM
+
+  pays_WLF:
+    nom: France Wallis et Futuna
+    abreviation: WLF
+
+  pays_YEM:
+    nom: Yémen
+    abreviation: YEM
+
+  pays_ZMB:
+    nom: Zambie
+    abreviation: ZMB
+
+  pays_ZWE:
+    nom: Zimbabwe
+    abreviation: ZWE

@@ -1,0 +1,192 @@
+listerDossier_theses:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+creerDossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierDossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierProposant_Dossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+changerActivationDossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+  
+listerDossier_postdocs:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+creerDossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierDossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierProposant_Dossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+changerActivationDossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+
+listerDossier_eres:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+creerDossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierDossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierProposant_Dossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+changerActivationDossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+
+listerDocuments:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierDocument:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+creerDocument_joint:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+creerDocument_reference:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+telechargerDocument:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+supprimerDocument:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+
+listerCommissions:
+  credentials: [SUP-MRIS]
+creerCommission:
+  credentials: [SUP-MRIS]
+modifierCommission:
+  credentials: [SUP-MRIS]
+modifierParticipants_mindef:
+  credentials: [SUP-MRIS]
+ajouterParticipant_mindef:
+  credentials: [SUP-MRIS]
+retirerParticipant_mindef:
+  credentials: [SUP-MRIS]
+genererDocumentsCommission:
+  credentials: [SUP-MRIS]
+modifierInvitations:
+  credentials: [SUP-MRIS]
+  
+listerRemarque_mris:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierRemarque_mris:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+supprimerRemarque_mris:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+
+listerDossiersCommission:
+  credentials: [SUP-MRIS]
+
+validerDossier:
+  credentials: [SUP-MRIS]
+validerProposition:
+  credentials: [SUP-MRIS]
+miseEnAttenteProposition:
+  credentials: [SUP-MRIS]
+refuserProposition:
+  credentials: [SUP-MRIS]
+
+evaluerPreselectionDossier:
+  credentials: [SUP-MRIS]
+evaluerCommissionPreselection:
+  credentials: [SUP-MRIS]
+evaluerDossierPreselection:
+  credentials: [SUP-MRIS]
+evaluerSelectionDossier:
+  credentials: [SUP-MRIS]
+evaluerDossierFinale:
+  credentials: [SUP-MRIS]
+
+listerEvenement_mris:
+  credentials: [SUP-MRIS]
+modifierEvenement_mris:
+  credentials: [SUP-MRIS]
+supprimerEvenement_mris:
+  credentials: [SUP-MRIS]
+
+listerSuivi_Dossier_eres:
+  credentials: [SUP-MRIS]
+modifierSuiviDossier_ere:
+  credentials: [SUP-MRIS]
+supprimerSuiviDossier_ere:
+  credentials: [SUP-MRIS]
+listerSuivi_Dossier_postdocs:
+  credentials: [SUP-MRIS]
+modifierSuiviDossier_postdoc:
+  credentials: [SUP-MRIS]
+supprimerSuiviDossier_postdoc:
+  credentials: [SUP-MRIS]
+listerSuivi_Dossier_theses:
+  credentials: [SUP-MRIS]
+modifierSuiviDossier_these:
+  credentials: [SUP-MRIS]
+supprimerSuiviDossier_these:
+  credentials: [SUP-MRIS]
+
+modifierEncadrants_Dossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierEncadrants_Dossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierEncadrants_Dossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+
+modifierContractualisation_Dossier_postdoc:
+  credentials: [SUP-MRIS]
+modifierContractualisation_Dossier_ere:
+  credentials: [SUP-MRIS]
+modifierContractualisation_Dossier_these:
+  credentials: [SUP-MRIS]
+
+modifierFinancement_Dossier_these:
+  credentials: [SUP-MRIS]
+modifierVersement_Dossier_these:
+  credentials: [SUP-MRIS]
+supprimerVersement_Dossier_these:
+  credentials: [SUP-MRIS]
+modifierFinancement_Dossier_postdoc:
+  credentials: [SUP-MRIS]
+modifierVersement_Dossier_postdoc:
+  credentials: [SUP-MRIS]
+supprimerVersement_Dossier_postdoc:
+  credentials: [SUP-MRIS]
+modifierFinancement_Dossier_ere:
+  credentials: [SUP-MRIS]
+modifierVersement_Dossier_ere:
+  credentials: [SUP-MRIS]
+supprimerVersement_Dossier_ere:
+  credentials: [SUP-MRIS]
+
+voirDescriptionDossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS, SUP-BPI, USR-BPI]]
+voirDescriptionDossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS, SUP-BPI, USR-BPI]]
+voirDescriptionDossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS, SUP-BPI, USR-BPI]]
+voirEvaluationDossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+voirEvaluationDossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+voirEvaluationDossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+voirSuiviDossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS, SUP-BPI, USR-BPI]]
+voirSuiviDossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS, SUP-BPI, USR-BPI]]
+voirSuiviDossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS, SUP-BPI, USR-BPI]]
+
+rechercherDossier_theses:
+  credentials: [[SUP-MRIS, USR-MRIS, COR-MRIS, SUP-BPI, USR-BPI]]
+
+modifierLaboratoires_Dossier_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierLaboratoires_Dossier_ere:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+modifierLaboratoires_Dossier_postdoc:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+
+modifierCofinance_these:
+  credentials: [[SUP-MRIS, USR-MRIS]]
+
+voirRapportStatistiquesEtTableauDeBord_Dossier_ere:
+  credentials: [SUP-MRIS]
+voirRapportStatistiquesEtTableauDeBord_Dossier_postdoc:
+  credentials: [SUP-MRIS]
+voirRapportStatistiquesEtTableauDeBord_Dossier_these:
+  credentials: [SUP-MRIS]
+exporterRapportStatistiqueCSV:
+  credentials: [SUP-MRIS]

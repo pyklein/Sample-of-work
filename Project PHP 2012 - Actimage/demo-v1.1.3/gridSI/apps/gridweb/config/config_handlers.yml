@@ -1,0 +1,4 @@
+config/msg.yml:
+  class:		sfDefineEnvironmentConfigHandler
+  param:
+    prefix: msg_

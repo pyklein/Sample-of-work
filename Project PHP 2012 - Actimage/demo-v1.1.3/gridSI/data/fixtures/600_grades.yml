@@ -1,0 +1,200 @@
+Grade:
+  grade_1:
+    intitule: Général d'armée
+    abreviation: GA
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_2:
+    intitule: Général de corps d'armée
+    abreviation: GCA
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_3:
+    intitule: Général de division
+    abreviation: GD
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_4:
+    intitule: Général de brigade
+    abreviation: GB
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_5:
+    intitule: Colonel
+    abreviation: CCOL
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_6:
+    intitule: Lieutenant-colonel
+    abreviation: LCL
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_7:
+    intitule: Commandant
+    abreviation: CDT
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_8:
+    intitule: Capitaine
+    abreviation: CNE
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_9:
+    intitule: Lieutenant
+    abreviation: LTT
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_10:
+    intitule: Sous-lieutenant
+    abreviation: SLT
+    est_actif: true
+    Organisme_mindef: organisme_mindef_1
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_11:
+    intitule: Général d'armée aérienne
+    abreviation: GAA
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_12:
+    intitule: Général de corps aérien
+    abreviation: GCAA
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_13:
+    intitule: Général de Division Aérienne
+    abreviation: GDA
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_14:
+    intitule: Général de brigade aérienne
+    abreviation: GBA
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_15:
+    intitule: Colonel
+    abreviation: COL
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_16:
+    intitule: Lieutenant-Colonel
+    abreviation: LCL
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_17:
+    intitule: Commandant
+    abreviation: CDT
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_18:
+    intitule: Capitaine
+    abreviation: GNE
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_19:
+    intitule: Lieutenant
+    abreviation: LTT
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  grade_20:
+    intitule: Sous-Lieutenant
+    abreviation: SLT
+    est_actif: true
+    Organisme_mindef: organisme_mindef_6
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'

@@ -1,0 +1,16 @@
+Intervenant:
+  intervenant_1:
+    nom: Einstein
+    prenom: Albert
+    titre: Mître physitien
+    est_participant_commission: true
+    est_responsable: true
+    email: albert.einstein@actimage.com
+    adresse: Addr1
+    code_postal: 67000
+    complement_adresse: Chez
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    Ville: ville_1

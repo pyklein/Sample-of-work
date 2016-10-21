@@ -1,0 +1,1 @@
+<?php include_partial('interface/conteneurForme', array('action' => 'modifier', 'model' => 'Organisme_mindef', 'objForm' => $objForm , 'strModule' => $sf_context->getModuleName())) ?>

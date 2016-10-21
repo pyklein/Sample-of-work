@@ -1,0 +1,207 @@
+all:
+  # SERVEUR SMTP
+  mail:
+    adresse:      obi-wan
+    port:         25
+    utilisateur:  
+    motdepasse:   
+    expediteur:   mindef.grid@actimage.net
+    en_demo:      true
+
+  # THUMBNAILS
+  photos:
+    thumbnails:
+      postfix: 'thumb'
+      largeur: 150
+      hauteur: 200
+
+
+  # REPERTOIRES
+  arborescence:
+    # Repertoire de stockage de l'application
+    repertoire_racine:  C:\grid
+
+    # Repertoires partagés
+    repertoires_partages:
+      mip:     C:\Documents_partages\MIP
+      bpi:     C:\Documents_partages\BPI
+      ere:     C:\Documents_partages\MRIS\Dossier_ere
+      these:   C:\Documents_partages\MRIS\Dossier_these
+      postdoc: C:\Documents_partages\MRIS\Dossier_postdoc
+
+
+  # Fin repertoires grid
+
+  #IMPORTATION IXARM
+  #nom du xml
+  importation_ixarm_fichier: iXarm.xml
+
+  # NOTIFICATIONS
+  # Longeur de l'extraction des notifications
+  extrait_longueur: 25
+
+  # UPLOAD DES FICHIER
+  # Limit de upload
+  # Suffixes permies: b/B, k/K, m/M, g/G, t/T
+  taille_max_upload_fichier: 2M
+
+  # MOT DE PASSE
+  mot_de_passe:
+    # Longeur d'un mot de passe généré
+    longueur: 8
+    # Caracteres utilisés pour la génération d'un mot de passe
+    alphabet: 'ABCDEFGHKLMNOPQRSTWXYZabcdefghjkmnpqrstwxyz123456789'
+
+  # COMPTE UTILISATEUR
+  # Blockage après 'nombre_tentatives' de tentetive de connection erroné dans 'espace_temps' minutes
+  echec_authentification:
+    nombre_tentatives: 3
+    espace_temps: 30
+
+  # EXTENSION DES FICHIERS
+  extensions:
+    # Fichiers éditables
+    editables: txt, rtf, doc, docx, xls, xlsx, ppt, pptx, odt, odp, ods
+    # Autres fichiers
+    autres:    pdf, jpg, jpeg, png, gif, wav, mp3, wma, avi, mp4, 3gp
+    # Images
+    images:    jpg, jpeg, png, gif
+    # Fichier RTF
+    rtf:       rtf
+    # Fichier PDF
+    pdf:       pdf
+    # Fichiers burautiques et textes
+    bureau:    pdf, txt, rtf, doc, docx, xls, xlsx, ppt, pptx, odt, odp, ods
+
+  # PAGINATION
+  # Choix disponible pour la pagination
+  choix_pagination : '2,5,10,20,30,40,50,100'
+
+  # EFFECTS JAVASCRIPTS
+  # Activer ou desactiver les effects visuels
+  effects: true
+
+  #Menus d'icones déroulants
+  menus_deroulants: true
+
+  # Delai après date de declaration conforme(choix entre day, month ou year)
+  delai_apres_declaration_conforme: 4 month
+
+  # Delais d'envoi des differents types de relances - en jours
+  relances_mip:
+    avant_date_limite_etat_avancement:  30
+    apres_date_limite_etat_avancement:  7
+    avant_date_limite_compte_rendu:     30
+    apres_date_limite_compte_rendu:     7
+    apres_date_envoie_etat_majeur:      30
+    apres_date_recu_avis_favorable:     7
+
+  # Nombre de nouveaux dossiers dans tableau de bord MIP
+  nb_dossiers_nouveaux: 5
+
+  # Nombre d'éléments par page dans tableau de bord MIP
+  nb_element_par_page_tableau_bord: 5
+
+  # URL publique d'acces a l'application
+  url_application:  "http://localhost:8080/mindef-grid/src/trunk/gridSI/web/gridweb_dev.php/"
+
+  #Tolérence (en mois) pour la date de versement d'une recompense d'une redevance pour un inventeur (dossier BPI)
+  tolerence_date_versement: 10
+
+  # FTP
+  ftp:
+    adresse:     192.168.6.237
+    port:        21
+    utilisateur: test
+    motdepasse:  test
+    dir_grid:    grid
+    #délai pour la récupération des dossiers (en minutes)
+    delai:       30
+
+  # IMAGES GENERES
+  # Configuration des images generés pour les statistiques
+  image_genere:
+    largeur:       1040
+    hauteur:       400
+    taille_police: 12
+
+  # LDAP
+  ldap:
+    # Adresse de serveur LDAP
+    adresse:       "localhost"
+    # Numéro de port de serveur LDAP
+    port:          "389"
+    # Le DN de compte "admin" pour la connexion
+    utilisateur:   "cn=admin,dc=dga,dc=defense,dc=gouv,dc=fr"
+    # Mot de passe de connexion
+    motdepasse:    "secret"
+    # DN de base pour les recherches
+    base:          "dmdName=users,dc=dga,dc=defense,dc=gouv,dc=fr"
+    # Attribut permettant de construire le DN d'un utilisateur dans le noeud de "base"
+    attribut_rdn:  "uid"
+    # Temps d'attente de serveur (en seconds)
+    timeout:       2
+    # Mapping des données LDAP
+    correspondances:
+      givenname:        prenom
+      sn:               nom
+      l:                ville
+      street:           adresse
+      ou:               Entite
+      departmentnumber: Organisme_mindef
+      rank:             Grade
+      initials:         Civilite
+      postalCode:       CodePostal
+      mail:             email
+
+
+  # PHP
+  php:
+    # Chemin absolu de l'executable de php
+#    chemin: /usr/bin/php
+    chemin: php
+
+  # TACHES
+  #
+  # Chaque ligne correspond à une tâche à exécuter et est notée de la façon suivante :
+  #   mm hh jj MMM JJJ
+  #
+  # Dans cette syntaxe :
+  #   mm  représente les minutes (de 0 à 59)
+  #   hh  représente l'heure (de 0 à 23)
+  #   jj  représente le numéro du jour du mois (de 1 à 31)
+  #   MMM représente le numéro du mois (de 1 à 12)
+  #   JJJ représente l'abréviation du nom du jour ou le chiffre correspondant au jour de la semaine
+  #       (0 représente le dimanche, 1 représente le lundi, ..., 6 représente le samedi)
+  #
+  # Pour chaque unité de temps (minute/heure/...) les notations possibles sont :
+  #   *   : à chaque unité de temps (0, 1, 2, 3, 4...)
+  #   */3 : toutes les 3 unités de temps (0, 3, 6, 9...)
+  #
+  # Exemples :
+  #   Tous les ans                                0   0   1   1   *
+  #   Tous les mois                               0   0   1   *   *
+  #   Toutes les semaines                         0   0   *   *   0
+  #   Tous les jours à minuit                     0   0   *   *   *
+  #   Toutes les heures                           0   *   *   *   *
+  #   Tous les jours à 23h30                     30  23   *   *   *
+  #   Toutes les heures, passées de 5 minutes     5   *   *   *   *
+  #   Tous les premiers du mois à 23h30          30  23   1   *   *
+  #   Tous les lundis à 22h28                    28  22   *   *   1
+  #   Tous les jours pairs du mois à 23h59       59  23 */2   *   *
+  #   Toutes les 5 minutes                      */5   *   *   *   *
+  tache:
+    #                            mm  hh  jj MMM JJJ
+    # Création des alertes BPI
+    alertes_bpi:               "  0   0   *   *   *"
+    # Envoie des mails
+    mails:                     "*/5   *   *   *   *"
+    # Création de relances MIP
+    relances_mip:              "  0   3   *   *   *"
+    # Importation des dossiers (déjà récuperés par "recuperation_dossier_ftp")
+    importation_mris:          "  0   5   *   *   *"
+    # Purge des tables temporaires
+    purgesession:              "  0   4   *   *   *"
+    # Récuperation des dossiers MRIS par FTP
+    recuperation_dossier_ftp:  "  0  22   *   *   *"
+    

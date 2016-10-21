@@ -1,0 +1,32 @@
+Notification:
+  notification_1:
+    Metier: metier_bpi
+    contenu: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec metus lectus, a sodales velit. Nam venenatis sollicitudin erat, non lacinia metus blandit sit amet. Nulla quis imperdiet purus. Cras nibh risus, sodales vel aliquet non, lobortis non velit. Phasellus non eros nisl, vitae molestie nibh. Maecenas aliquet sollicitudin neque, eu consectetur ligula aliquam semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis tempor metus nec ante auctor accumsan. Aenean iaculis hendrerit est a tempus. Pellentesque ac elementum nulla. Nullam egestas dignissim varius. Sed feugiat, leo at auctor elementum, quam sapien posuere elit, id laoreet augue ipsum et nibh.
+    date_debut: '2011-03-04'
+    date_fin: '2012-04-03'
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+
+  notification_2:
+    Metier: metier_mip
+    contenu: Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse sed quam neque, vitae elementum tellus. Proin ut massa non ligula feugiat hendrerit eu non tellus. Mauris nisi nibh, posuere eget aliquet in, pretium malesuada risus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Phasellus et metus neque, at tristique mauris. Integer commodo adipiscing odio, at rutrum magna vulputate ac. Aenean tincidunt metus eu enim ullamcorper facilisis. Phasellus consequat rutrum pellentesque. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam vel dolor lectus. Aliquam erat volutpat. Mauris fringilla lacinia egestas.
+    date_debut: '2011-02-03'
+    date_fin: '2012-03-09'
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+
+  notification_3:
+    Metier: metier_mris
+    contenu: Quisque quam turpis, luctus semper interdum a, auctor at libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla at commodo metus. Quisque tempor tincidunt leo, ut pharetra nisi elementum ut. Praesent ultricies justo nec neque vulputate quis convallis nibh aliquam. Donec in mauris dolor, a eleifend ligula. Morbi ut dui vel erat malesuada facilisis. Nulla sed nisi risus. In hac habitasse platea dictumst. Proin quis tortor dui, id volutpat mauris.
+    date_debut: '2011-03-31'
+    date_fin: '2012-04-15'
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+
+  notification_4:
+    Metier: metier_administrateur
+    contenu: nteger tincidunt ultricies ipsum, sit amet venenatis mi elementum id. Sed semper orci lectus. Vivamus at elit quam. Sed hendrerit est et est sagittis sed bibendum mi accumsan. Nulla felis dolor, bibendum in ornare et, facilisis vel massa. Quisque id sapien vel ipsum mattis eleifend eu id justo. Fusce mattis est eget ante tincidunt id porttitor urna egestas. Curabitur accumsan pretium metus, imperdiet condimentum nulla blandit id.
+    date_debut: '2011-03-04'
+    date_fin: '2012-12-12'
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1

@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/Connors.Erp.Web/!svn/ver/109/trunk/Connors.Erp.Web/trunk/Resources/js/Classes
+END
+ErpMarkerCollection.js
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Connors.Erp.Web/!svn/ver/108/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/ErpMarkerCollection.js
+END
+Project.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Connors.Erp.Web/!svn/ver/109/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/Project.js
+END
+ErpMarker.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Connors.Erp.Web/!svn/ver/107/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/ErpMarker.js
+END
+Location.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Connors.Erp.Web/!svn/ver/84/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/Location.js
+END
+QueryClass.js
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/Connors.Erp.Web/!svn/ver/84/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/QueryClass.js
+END
+Activity.js
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/Connors.Erp.Web/!svn/ver/106/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/Activity.js
+END
+ContentTabInfo.js
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/Connors.Erp.Web/!svn/ver/84/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/ContentTabInfo.js
+END
+WorkTimesCollection.js
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/Connors.Erp.Web/!svn/ver/75/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/WorkTimesCollection.js
+END
+TasksCollection.js
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/Connors.Erp.Web/!svn/ver/75/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/TasksCollection.js
+END
+WorkTime.js
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/Connors.Erp.Web/!svn/ver/75/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/WorkTime.js
+END
+SubActivityCollection.js
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/Connors.Erp.Web/!svn/ver/75/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/SubActivityCollection.js
+END
+Task.js
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Connors.Erp.Web/!svn/ver/75/trunk/Connors.Erp.Web/trunk/Resources/js/Classes/Task.js
+END

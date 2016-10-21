@@ -1,0 +1,131 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations
+END
+AddLocationStep1.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep1.ascx
+END
+AddLocationStep2.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep2.ascx
+END
+AddLocationStep3.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep3.ascx
+END
+LocationFinder.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinder.ascx
+END
+AddLocationStep1.ascx.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep1.ascx.designer.cs
+END
+AddLocationStep1.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep1.ascx.cs
+END
+AddLocationStep2.ascx.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep2.ascx.designer.cs
+END
+ViewLocation.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/ViewLocation.ascx
+END
+AddLocationStep2.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep2.ascx.cs
+END
+AddLocationStep3.ascx.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep3.ascx.designer.cs
+END
+LocationFinder.ascx.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinder.ascx.designer.cs
+END
+AddLocationStep3.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/AddLocationStep3.ascx.cs
+END
+LocationFinder.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinder.ascx.cs
+END
+ViewLocation.ascx.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Connors.Erp.Web/!svn/ver/40/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/ViewLocation.ascx.designer.cs
+END
+ViewLocation.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/Connors.Erp.Web/!svn/ver/40/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/ViewLocation.ascx.cs
+END
+LocationFinderFoundLocations.ascx
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinderFoundLocations.ascx
+END
+LocationFinderFoundLocations.ascx.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinderFoundLocations.ascx.designer.cs
+END
+LocationFinderFoundLocations.ascx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinderFoundLocations.ascx.cs
+END
+LocationFinder.aspx
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinder.aspx
+END
+LocationFinder.aspx.designer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Connors.Erp.Web/!svn/ver/3/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinder.aspx.designer.cs
+END
+LocationFinder.aspx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/Connors.Erp.Web/!svn/ver/79/trunk/Connors.Erp.Web/trunk/_common/controls/Locations/LocationFinder.aspx.cs
+END

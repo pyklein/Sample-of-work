@@ -1,0 +1,1 @@
+<?php include_partial('interface/conteneurForme', array('action' => 'creer', 'model' => 'Phase_depot_brevet', 'objForm' => $objForm , 'strModule' => $sf_context->getModuleName())) ?>

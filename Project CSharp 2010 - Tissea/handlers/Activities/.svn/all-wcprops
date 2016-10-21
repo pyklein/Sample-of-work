@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/Connors.Erp.Web/!svn/ver/103/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities
+END
+SetProjectIdHandler.ashx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Connors.Erp.Web/!svn/ver/102/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/SetProjectIdHandler.ashx
+END
+SetPlanningOrderHandler.ashx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/Connors.Erp.Web/!svn/ver/103/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/SetPlanningOrderHandler.ashx.cs
+END
+SetProjectIdHandler.ashx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Connors.Erp.Web/!svn/ver/102/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/SetProjectIdHandler.ashx.cs
+END
+GetActivitiesHandler.ashx
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/Connors.Erp.Web/!svn/ver/89/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/GetActivitiesHandler.ashx
+END
+AddActivityHandler.ashx
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/Connors.Erp.Web/!svn/ver/59/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/AddActivityHandler.ashx
+END
+GetActivitiesHandler.ashx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/Connors.Erp.Web/!svn/ver/89/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/GetActivitiesHandler.ashx.cs
+END
+AddActivityHandler.ashx.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/Connors.Erp.Web/!svn/ver/67/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/AddActivityHandler.ashx.cs
+END
+SetPlanningOrderHandler.ashx
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/Connors.Erp.Web/!svn/ver/103/trunk/Connors.Erp.Web/trunk/_common/handlers/Activities/SetPlanningOrderHandler.ashx
+END

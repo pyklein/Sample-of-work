@@ -1,0 +1,114 @@
+listerDossier_mips:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP, CLI-MIP]]
+listerEvenement_mips:
+  credentials: [[SUP-MIP, USR-MIP]]
+modifierDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+modifierInnovateurs:
+  credentials: [[SUP-MIP, USR-MIP]]
+ajouterInnovateur:
+  credentials: [[SUP-MIP, USR-MIP]]
+retirerInnovateur:
+  credentials: [[SUP-MIP, USR-MIP]]
+modifierDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+modifierValorisation:
+  credentials: [[SUP-MIP, USR-MIP]]
+changerActivationDossier_mip:
+  credentials: [SUP-MIP]
+supprimerDossier_mip:
+  credentials: [SUP-MIP]
+listerDocuments_mips:
+  credentials: [[SUP-MIP, USR-MIP ]]
+listerRemarques:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP, CLI-MIP]]
+creerDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+controlerDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+suiviDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+listerRelances:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+modifierCalendrier_dossier_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+ajouterInnovateur:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+creerDocument_mip_joint:
+  credentials: [[SUP-MIP, USR-MIP]]
+creerDocument_mip_reference:
+  credentials: [[SUP-MIP, USR-MIP]]
+telechargerDocument_mip_joint:
+  credentials: [[SUP-MIP, USR-MIP]]
+telechargerDocument_mip_reference:
+  credentials: [[SUP-MIP, USR-MIP]]
+modifierDocument_mip_joint:
+  credentials: [[SUP-MIP, USR-MIP]]
+modifierDocument_mip_reference:
+  credentials: [[SUP-MIP, USR-MIP]]
+supprimerDocument_mip_joint:
+  credentials: [[SUP-MIP, USR-MIP]]
+supprimerDocument_mip_reference:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+listerRemarque_mips:
+  credentials: [[SUP-MIP, USR-MIP]]
+modifierRemarque_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+supprimerRemarque_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+voirDescriptionDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP, CLI-MIP, SUP-BPI, USR-BPI]]
+voirCalendrierDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP, CLI-MIP, SUP-BPI, USR-BPI]]
+voirValorisationDossier_mip:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP, CLI-MIP, SUP-BPI, USR-BPI]]
+exporterDossier_mipPDF:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP, CLI-MIP, SUP-BPI, USR-BPI]]
+  
+voirRapportStatistique:
+  credentials: [[SUP-MIP, USR-MIP]]
+  
+#section pré-projet
+creerProjet_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+basculerProjet_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+abandonnerProjet_mip:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+exporterRapportStatistiqueCSV:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+#Tableau de bord MIP
+voirTableauBordMip:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+genererLettres:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+listerFinancementDossier_mips:
+  credentials: [[SUP-MIP, CLI-MIP]]
+creerFinancementDossier_mip:
+  credentials: [[SUP-MIP, CLI-MIP]]
+modifierFinancementDossier_mip:
+  credentials: [[SUP-MIP, CLI-MIP]]
+supprimerFinancementDossier_mip:
+  credentials: [[SUP-MIP, CLI-MIP]]
+
+listerEngagementDossier_mips:
+  credentials: [[SUP-MIP, CLI-MIP]]
+creerEngagementDossier_mip:
+  credentials: [[SUP-MIP, CLI-MIP]]
+modifierEngagementDossier_mip:
+  credentials: [[SUP-MIP, CLI-MIP]]
+supprimerEngagementDossier_mip:
+  credentials: [[SUP-MIP, CLI-MIP]]
+
+lierDossiers_bpi:
+  credentials: [[SUP-MIP, CLI-MIP]]
+  

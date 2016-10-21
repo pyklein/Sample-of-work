@@ -1,0 +1,21 @@
+#all:
+#  doctrine:
+#    class: sfDoctrineDatabase
+#    param:
+#      dsn: 'mysql:host=jar-jar;dbname=grid'
+#      username: grid_usr
+#      password: ifcfcib20
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=jar-jar;dbname=grid'
+      username: grid_usr
+      password: ifcfcib20
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=jar-jar;dbname=grid_ut'
+      username: grid_usr
+      password: ifcfcib20

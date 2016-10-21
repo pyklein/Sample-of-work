@@ -1,0 +1,506 @@
+Departement:
+  departement_01:
+    nom: Ain
+    code_departemental: "01"
+    est_actif: true
+
+  departement_02:
+    nom: Aisne
+    code_departemental: "02"
+    est_actif: true
+
+  departement_03:
+    nom: Allier
+    code_departemental: "03"
+    est_actif: true
+
+  departement_04:
+    nom: Alpes-de-Haute-Provence
+    code_departemental: "04"
+    est_actif: true
+
+  departement_05:
+    nom: Hautes-Alpes
+    code_departemental: "05"
+    est_actif: true
+
+  departement_06:
+    nom: Alpes-Maritimes
+    code_departemental: "06"
+    est_actif: true
+
+  departement_07:
+    nom: Ardèche
+    code_departemental: "07"
+    est_actif: true
+
+  departement_08:
+    nom: Ardennes
+    code_departemental: "08"
+    est_actif: true
+
+  departement_09:
+    nom: Ariège
+    code_departemental: "09"
+    est_actif: true
+
+  departement_10:
+    nom: Aube
+    code_departemental: 10
+    est_actif: true
+
+  departement_11:
+    nom: Aude
+    code_departemental: 11
+    est_actif: true
+
+  departement_12:
+    nom: Aveyron
+    code_departemental: 12
+    est_actif: true
+
+  departement_13:
+    nom: Bouches-du-Rhône
+    code_departemental: 13
+    est_actif: true
+
+  departement_14:
+    nom: Calvados
+    code_departemental: 14
+    est_actif: true
+
+  departement_15:
+    nom: Cantal
+    code_departemental: 15
+    est_actif: true
+
+  departement_16:
+    nom: Charente
+    code_departemental: 16
+    est_actif: true
+
+  departement_17:
+    nom: Charente-Maritime
+    code_departemental: 17
+    est_actif: true
+
+  departement_18:
+    nom: Cher
+    code_departemental: 18
+    est_actif: true
+
+  departement_19:
+    nom: Corrèze
+    code_departemental: 19
+    est_actif: true
+
+  departement_2A:
+    nom: Corse-du-Sud
+    code_departemental: 2A
+    est_actif: true
+
+  departement_2B:
+    nom: Haute-Corse
+    code_departemental: 2B
+    est_actif: true
+
+  departement_21:
+    nom: Côte-d'Or
+    code_departemental: 21
+    est_actif: true
+
+  departement_22:
+    nom: Côtes-d'Armor
+    code_departemental: 22
+    est_actif: true
+
+  departement_23:
+    nom: Creuse
+    code_departemental: 23
+    est_actif: true
+
+  departement_24:
+    nom: Dordogne
+    code_departemental: 24
+    est_actif: true
+
+  departement_25:
+    nom: Doubs
+    code_departemental: 25
+    est_actif: true
+
+  departement_26:
+    nom: Drôme
+    code_departemental: 26
+    est_actif: true
+
+  departement_27:
+    nom: Eure
+    code_departemental: 27
+    est_actif: true
+
+  departement_28:
+    nom: Eure-et-Loir
+    code_departemental: 28
+    est_actif: true
+
+  departement_29:
+    nom: Finistère
+    code_departemental: 29
+    est_actif: true
+
+  departement_30:
+    nom: Gard
+    code_departemental: 30
+    est_actif: true
+
+  departement_31:
+    nom: Haute-Garonne
+    code_departemental: 31
+    est_actif: true
+
+  departement_32:
+    nom: Gers
+    code_departemental: 32
+    est_actif: true
+
+  departement_33:
+    nom: Gironde
+    code_departemental: 33
+    est_actif: true
+
+  departement_34:
+    nom: Hérault
+    code_departemental: 34
+    est_actif: true
+
+  departement_35:
+    nom: Ille-et-Vilaine
+    code_departemental: 35
+    est_actif: true
+
+  departement_36:
+    nom: Indre
+    code_departemental: 36
+    est_actif: true
+
+  departement_37:
+    nom: Indre-et-Loire
+    code_departemental: 37
+    est_actif: true
+
+  departement_38:
+    nom: Isère
+    code_departemental: 38
+    est_actif: true
+
+  departement_39:
+    nom: Jura
+    code_departemental: 39
+    est_actif: true
+
+  departement_40:
+    nom: Landes
+    code_departemental: 40
+    est_actif: true
+
+  departement_41:
+    nom: Loir-et-Cher
+    code_departemental: 41
+    est_actif: true
+
+  departement_42:
+    nom: Loire
+    code_departemental: 42
+    est_actif: true
+
+  departement_43:
+    nom: Haute-Loire
+    code_departemental: 43
+    est_actif: true
+
+  departement_44:
+    nom: Loire-Atlantique
+    code_departemental: 44
+    est_actif: true
+
+  departement_45:
+    nom: Loiret
+    code_departemental: 45
+    est_actif: true
+
+  departement_46:
+    nom: Lot
+    code_departemental: 46
+    est_actif: true
+
+  departement_47:
+    nom: Lot-et-Garonne
+    code_departemental: 47
+    est_actif: true
+
+  departement_48:
+    nom: Lozère
+    code_departemental: 48
+    est_actif: true
+
+  departement_49:
+    nom: Maine-et-Loire
+    code_departemental: 49
+    est_actif: true
+
+  departement_50:
+    nom: Manche
+    code_departemental: 50
+    est_actif: true
+
+  departement_51:
+    nom: Marne
+    code_departemental: 51
+    est_actif: true
+
+  departement_52:
+    nom: Haute-Marne
+    code_departemental: 52
+    est_actif: true
+
+  departement_53:
+    nom: Mayenne
+    code_departemental: 53
+    est_actif: true
+
+  departement_54:
+    nom: Meurthe-et-Moselle
+    code_departemental: 54
+    est_actif: true
+
+  departement_55:
+    nom: Meuse
+    code_departemental: 55
+    est_actif: true
+
+  departement_56:
+    nom: Morbihan
+    code_departemental: 56
+    est_actif: true
+
+  departement_57:
+    nom: Moselle
+    code_departemental: 57
+    est_actif: true
+
+  departement_58:
+    nom: Nièvre
+    code_departemental: 58
+    est_actif: true
+
+  departement_59:
+    nom: Nord
+    code_departemental: 59
+    est_actif: true
+
+  departement_60:
+    nom: Oise
+    code_departemental: 60
+    est_actif: true
+
+  departement_61:
+    nom: Orne
+    code_departemental: 61
+    est_actif: true
+
+  departement_62:
+    nom: Pas-de-Calais
+    code_departemental: 62
+    est_actif: true
+
+  departement_63:
+    nom: Puy-de-Dôme
+    code_departemental: 63
+    est_actif: true
+
+  departement_64:
+    nom: Pyrénées-Atlantiques
+    code_departemental: 64
+    est_actif: true
+
+  departement_65:
+    nom: Hautes-Pyrénées
+    code_departemental: 65
+    est_actif: true
+
+  departement_66:
+    nom: Pyrénées-Orientales
+    code_departemental: 66
+    est_actif: true
+
+  departement_67:
+    nom: Bas-Rhin
+    code_departemental: 67
+    est_actif: true
+
+  departement_68:
+    nom: Haut-Rhin
+    code_departemental: 68
+    est_actif: true
+
+  departement_69:
+    nom: Rhône
+    code_departemental: 69
+    est_actif: true
+
+  departement_70:
+    nom: Haute-Saône
+    code_departemental: 70
+    est_actif: true
+
+  departement_71:
+    nom: Saône-et-Loire
+    code_departemental: 71
+    est_actif: true
+
+  departement_72:
+    nom: Sarthe
+    code_departemental: 72
+    est_actif: true
+
+  departement_73:
+    nom: Savoie
+    code_departemental: 73
+    est_actif: true
+
+  departement_74:
+    nom: Haute-Savoie
+    code_departemental: 74
+    est_actif: true
+
+  departement_75:
+    nom: Paris
+    code_departemental: 75
+    est_actif: true
+
+  departement_76:
+    nom: Seine-Maritime
+    code_departemental: 76
+    est_actif: true
+
+  departement_77:
+    nom: Seine-et-Marne
+    code_departemental: 77
+    est_actif: true
+
+  departement_78:
+    nom: Yvelines
+    code_departemental: 78
+    est_actif: true
+
+  departement_79:
+    nom: Deux-Sèvres
+    code_departemental: 79
+    est_actif: true
+
+  departement_80:
+    nom: Somme
+    code_departemental: 80
+    est_actif: true
+
+  departement_81:
+    nom: Tarn
+    code_departemental: 81
+    est_actif: true
+
+  departement_82:
+    nom: Tarn-et-Garonne
+    code_departemental: 82
+    est_actif: true
+
+  departement_83:
+    nom: Var
+    code_departemental: 83
+    est_actif: true
+
+  departement_84:
+    nom: Vaucluse
+    code_departemental: 84
+    est_actif: true
+
+  departement_85:
+    nom: Vendée
+    code_departemental: 85
+    est_actif: true
+
+  departement_86:
+    nom: Vienne
+    code_departemental: 86
+    est_actif: true
+
+  departement_87:
+    nom: Haute-Vienne
+    code_departemental: 87
+    est_actif: true
+
+  departement_88:
+    nom: Vosges
+    code_departemental: 88
+    est_actif: true
+
+  departement_89:
+    nom: Yonne
+    code_departemental: 89
+    est_actif: true
+
+  departement_90:
+    nom: Territoire de Belfort
+    code_departemental: 90
+    est_actif: true
+
+  departement_91:
+    nom: Essonne
+    code_departemental: 91
+    est_actif: true
+
+  departement_92:
+    nom: Hauts-de-Seine
+    code_departemental: 92
+    est_actif: true
+
+  departement_93:
+    nom: Seine-Saint-Denis
+    code_departemental: 93
+    est_actif: true
+
+  departement_94:
+    nom: Val-de-Marne
+    code_departemental: 94
+    est_actif: true
+
+  departement_95:
+    nom: Val-d'Oise
+    code_departemental: 95
+    est_actif: true
+
+  departement_971:
+    nom: Guadeloupe
+    code_departemental: 971
+    est_actif: true
+
+  departement_972:
+    nom: Martinique
+    code_departemental: 972
+    est_actif: true
+
+  departement_973:
+    nom: Guyane
+    code_departemental: 973
+    est_actif: true
+
+  departement_974:
+    nom: La Réunion
+    code_departemental: 974
+    est_actif: true
+
+  departement_976:
+    nom: Mayotte
+    code_departemental: 976
+    est_actif: true
+

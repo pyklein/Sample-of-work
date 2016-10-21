@@ -1,0 +1,349 @@
+Dossier_these:
+  dossier_these_1:
+    numero: CNRS_123
+    titre: Math CNRS
+    objet: dossier math cnrs
+    statut_dossier_these_id: 1
+    domaine_scientifique_id: 2
+    type_convention_organisme_id: 4
+    realise_par: 1
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_these_2:
+    numero: DGA_456
+    titre: Social DGA
+    objet: dossier social DGA
+    statut_dossier_these_id: 1
+    domaine_scientifique_id: 1
+    type_convention_organisme_id: 4
+    realise_par: 2
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_these_3:
+    numero: Terre_654
+    titre: Social Terre
+    objet: dossier social Terre
+    statut_dossier_these_id: 1
+    domaine_scientifique_id: 1
+    type_convention_organisme_id: 4
+    realise_par: 3
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_these_4:
+    numero: AIR_747
+    titre: Social AIR
+    objet: dossier social Air
+    statut_dossier_these_id: 1
+    domaine_scientifique_id: 1
+    type_convention_organisme_id: 4
+    realise_par: 4
+    created_at: '2011-02-12 00:00:00'
+
+Dossier_postdoc:
+  dossier_postdoc_1:
+    numero_definitif: CNRS_123_POST
+    titre: Math CNRS
+    objet: dossier math cnrs
+    statut_dossier_postdoc_id: 1
+    domaine_scientifique_id: 2
+    realise_par: 1
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_postdoc_2:
+    numero_definitif: DGA_456_POST
+    titre: Social DGA
+    objet: dossier social DGA
+    statut_dossier_postdoc_id: 1
+    domaine_scientifique_id: 1
+    realise_par: 2
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_postdoc_3:
+    numero_definitif: Terre_654_POST
+    titre: Social Terre
+    objet: dossier social Terre
+    statut_dossier_postdoc_id: 1
+    domaine_scientifique_id: 1
+    realise_par: 3
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_postdoc_4:
+    numero_definitif: AIR_747_POST
+    titre: Social AIR
+    objet: dossier social Air
+    statut_dossier_postdoc_id: 1
+    domaine_scientifique_id: 1
+    realise_par: 4
+    created_at: '2011-02-12 00:00:00'
+
+Dossier_ere:
+  dossier_ere_1:
+    numero_definitif: CNRS_123_ERE
+    titre: Math CNRS
+    objet: dossier math cnrs
+    statut_dossier_ere_id: 1
+    domaine_scientifique_id: 2
+    realise_par: 1
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_ere_2:
+    numero_definitif: DGA_456_ERE
+    titre: Social DGA
+    objet: dossier social DGA
+    statut_dossier_ere_id: 1
+    domaine_scientifique_id: 1
+    realise_par: 2
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_ere_3:
+    numero_definitif: Terre_654_ERE
+    titre: Social Terre
+    objet: dossier social Terre
+    statut_dossier_ere_id: 1
+    domaine_scientifique_id: 1
+    realise_par: 3
+    created_at: '2011-02-12 00:00:00'
+
+  dossier_ere_4:
+    numero_definitif: AIR_747_ERE
+    titre: Social AIR
+    objet: dossier social Air
+    statut_dossier_ere_id: 1
+    domaine_scientifique_id: 1
+    realise_par: 4
+    created_at: '2011-02-12 00:00:00'
+
+Type_dossier_mris:
+  type_dossier_mris_1:
+    intitule: Thèses
+
+  type_dossier_mris_2:
+    intitule: Stages Postdoctoraux
+
+  type_dossier_mris_3:
+    intitule: Stages ERE
+
+Type_evenement_postdoc:
+  type_evenement_postdoc_1:
+    intitule: Démarrage de thèse
+
+  type_evenement_postdoc_2:
+    intitule: Soutenance de thèse
+
+  type_evenement_postdoc_3:
+    intitule: Début de thèse
+
+  type_evenement_postdoc_4:
+    intitule: Début de bourse
+
+Type_evenement_ere:
+  type_evenement_ere_1:
+    intitule: Démarrage de thèse
+
+  type_evenement_ere_2:
+    intitule: Soutenance de thèse
+
+  type_evenement_ere_3:
+    intitule: Début de thèse
+
+  type_evenement_ere_4:
+    intitule: Début de bourse
+
+Intervenant:
+  intervenant_1:
+    nom: Einstein
+    prenom: Albert
+    titre: Mître physitien
+    est_participant_commission: true
+    est_responsable: true
+    email: albert.einstein@actimage.com
+    adresse: Addr1
+    code_postal: 67000
+    complement_adresse: Chez
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_2:
+    nom: Kepler
+    prenom: Johannes
+    titre: Mître Astronome
+    est_participant_commission: false
+    est_responsable: true
+    email: johannes.kepler@actimage.com
+    adresse: Addr2
+    code_postal: 67000
+    complement_adresse: Chez2
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_3:
+    nom: Galilei
+    prenom: Galileo
+    titre: Mître Astronom
+    est_participant_commission: true
+    est_responsable: false
+    email: galileo.galilei@actimage.com
+    adresse: Addr3
+    code_postal: 67000
+    complement_adresse: Chez3
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_4:
+    nom: Newton
+    prenom: Isaac
+    titre: Mître Sir
+    est_participant_commission: false
+    est_responsable: true
+    email: issac.newton@actimage.com
+    adresse: Addr4
+    code_postal: 67000
+    complement_adresse: Chez4
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_5:
+    nom: Darwin
+    prenom: Charles
+    titre: Mître du temps
+    est_participant_commission: true
+    est_responsable: true
+    email: charles.darwin@actimage.com
+    adresse: Addr5
+    code_postal: 67000
+    complement_adresse: Chez5
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_6:
+    nom: Pasteur
+    prenom: Louis
+    titre: Mître chimist/biologiste
+    est_participant_commission: true
+    est_responsable: true
+    email: louis.pasteur@actimage.com
+    adresse: Addr6
+    code_postal: 67000
+    complement_adresse: Chez6
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_7:
+    nom: Maxwell
+    prenom: James Clerk
+    titre: Mître physiste
+    est_participant_commission: true
+    est_responsable: false
+    email: james.clerk.maxwell@actimage.com
+    adresse: Addr7
+    code_postal: 67000
+    complement_adresse: Chez7
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_8:
+    nom: Fisher
+    prenom: Emil
+    titre: Mître chimiste
+    est_participant_commission: true
+    est_responsable: true
+    email: emil.fisher@actimage.com
+    adresse: Addr8
+    code_postal: 67000
+    complement_adresse: Chez8
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_9:
+    nom: Hubble
+    prenom: Edwin
+    titre: Mître astronome
+    est_participant_commission: true
+    est_responsable: false
+    email: albert.einstein@actimage.com
+    adresse: Addr9
+    code_postal: 67000
+    complement_adresse: Chez9
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+  intervenant_10:
+    nom: Dirac
+    prenom: Paul
+    titre: Mître mecanique quantique
+    est_participant_commission: true
+    est_responsable: true
+    email: albert.einstein@actimage.com
+    adresse: Addr10
+    code_postal: 67000
+    complement_adresse: Chez10
+    telephone_fixe: 0388676767
+    telephone_mobile: 0667676767
+    est_actif: true
+    Civilite: civilite_1
+    UtilisateurCreatedBy: utilisateur_3
+    UtilisateurUpdatedBy: utilisateur_3
+    Ville: ville_1
+
+Encadrant_these:
+  encadrant_these_1:
+    dossier_these_id: 1
+    intervenant_id: 1
+    role_these_id: 1
+
+Encadrant_ere:
+  encadrant_ere_1:
+    dossier_ere_id: 1
+    intervenant_id: 2
+    role_ere_id: 1
+
+Encadrant_postdoc:
+  encadrant_postdoc_1:
+    dossier_postdoc_id: 1
+    intervenant_id: 4
+    role_postdoc_id: 1

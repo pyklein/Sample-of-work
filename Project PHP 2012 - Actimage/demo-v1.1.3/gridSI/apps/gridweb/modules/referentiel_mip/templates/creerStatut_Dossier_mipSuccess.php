@@ -1,0 +1,1 @@
+<?php include_partial('interface/conteneurForme', array('action' => 'creer', 'model' => 'Statut_Dossier_mip', 'objForm' => $objForm , 'strModule' => $sf_context->getModuleName())) ?>

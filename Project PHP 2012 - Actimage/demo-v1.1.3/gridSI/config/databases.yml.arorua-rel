@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=arorua.actimage.net;dbname=grid_release'
+      username: grid_usr
+      password: ifcfcib20

@@ -1,0 +1,43 @@
+all:
+  # configuration de serveur SMTP
+  mail_smtp:        obi-wan
+  mail_port:        25
+  mail_utilisateur:
+  mail_motdepasse:
+
+  # repertoire de stockage des photos des utilisateurs
+  photos_utilisateur:
+    repertoire: /var/www/wwwGridRel/uploads/
+    thumbnails_ext: 'thumb'
+    thumbnails_largeur: 150
+    thumbnails_hauteur: 200
+    
+  # repertoire de stockage des photos des utilisateurs
+  photos_dossier_mip:
+    repertoire: /var/www/wwwGridRel/uploads/MIP/
+    thumbnails_ext: 'thumb'
+    thumbnails_largeur: 150
+    thumbnails_hauteur: 200
+
+  # repertoire de stockage des documents MIP (joints)
+  documents_dossier_mip:
+    repertoire: /var/www/wwwGridRel/uploads/MIP/Documents/
+
+  documents_partages:
+    repertoire: /var/www/wwwGridRel/doc_partages/
+    
+  # longeur de de l'extraction des notifications
+  extrait_longueur: 25
+
+  #Sufixes permies: b/B, k/K, m/M, g/G, t/T
+  taille_max_upload_fichier: 20M
+
+  #longeur de mot de passe lors de la creation/reinitialisation
+  mot_de_passe:
+    longueur: 8
+    alphabet: 'ABCDEFGHKLMNOPQRSTWXYZabcdefghjkmnpqrstwxyz123456789'
+
+  extensions: txt, rtf, doc, docx, xls, xlsx, ppt, pptx, odt, odp, ods, pdf, jpg, jpeg, png, gif, wav, mp3, wma, avi, mp4, 3gp
+
+  #choix disponible pour la pagination
+  choix_pagination : '2,5,10,20,30,40,50,100'

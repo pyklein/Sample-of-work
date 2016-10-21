@@ -1,0 +1,80 @@
+
+
+Organisme:
+  organisme_1:
+    intitule: ACTIMAGE Consulting
+    Type_organisme: type_organisme_1
+    abreviation: ACTIMAGE
+  organisme_2:
+    intitule: Université de Strasbourg
+    Type_organisme: type_organisme_2
+    abreviation:  UDS
+  organisme_3:
+    intitule: Université de Paris
+    Type_organisme: type_organisme_2
+    abreviation: UDP
+  organisme_4:
+    intitule: Sensio Labs
+    Type_organisme: type_organisme_1
+    abreviation:  SLabs
+  organisme_5:
+    intitule: Air France
+    Type_organisme: type_organisme_1
+    abreviation: AF
+  organisme_6:
+    intitule: Université de Grenoble
+    Type_organisme: type_organisme_2
+    abreviation:  UDG
+
+Service:
+  service_1:
+    intitule: Developpement Symfony
+    intitule_ancien:  Developpement PHP
+    abreviation:  DEV-S
+    Organisme:  organisme_1
+  service_2:
+    intitule: Developpement Java
+    abreviation:  DEV-J
+    Organisme:  organisme_1
+  service_3:
+    intitule: Ressources Humaines
+    abreviation:  RH
+    Organisme:  organisme_2
+  service_4:
+    intitule: Ressources Humaines 1
+    abreviation:  RH 1
+    Organisme:  organisme_3
+  service_5:
+    intitule: Ressources Humaines 2
+    abreviation:  RH 2
+    Organisme:  organisme_4
+
+Laboratoire:
+  laboratoire_1:
+    intitule: Salle de réunion 19
+    abreviation: SR19
+    Service: service_1
+    Organisme:  organisme_1
+  laboratoire_2:
+    intitule: Salle de réunion 12
+    abreviation: SR12
+    Service: service_2
+    Organisme:  organisme_1
+  laboratoire_3:
+    intitule: Cuisine
+    abreviation: CU
+    Organisme: organisme_1
+  laboratoire_4:
+    intitule: Salle de réunion 18
+    abreviation: SR18
+    Service: service_3
+    Organisme:  organisme_2
+  laboratoire_5:
+    intitule: Salle de réunion 11
+    abreviation: SR11
+    Service: service_2
+  laboratoire_6:
+    intitule: Institut de biologie
+    abreviation: IB
+    Service: service_4
+    Organisme: organisme_3

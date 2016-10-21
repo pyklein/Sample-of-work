@@ -1,0 +1,5 @@
+chargerThumbnailUtilisateurMip:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP, CLI-MIP]]
+
+all:
+  credentials: [SUP-MIP]

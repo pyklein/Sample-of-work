@@ -1,0 +1,17 @@
+Commission:
+  commission_1:
+    est_selection: 0
+    est_suivi: 1
+    est_analyse: 1
+    date_debut: '2011-04-12 16:40:00'
+    date_fin: '2011-04-27 09:25:00'
+    type_dossier_mris_id: 1
+
+  commission_2:
+    est_selection: 0
+    est_suivi: 1
+    est_analyse: 1
+    date_debut: '2008-04-12 16:40:00'
+    date_fin: '2008-04-27 09:25:00'
+    type_dossier_mris_id: 1
+

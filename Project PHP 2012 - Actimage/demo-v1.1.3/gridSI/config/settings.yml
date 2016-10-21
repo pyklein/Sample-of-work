@@ -1,0 +1,100 @@
+
+prod:
+  .settings:
+    no_script_name:         false
+    logging_enabled:        false
+
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    
+    # nom de l'application
+    projet_nom: GRID
+
+    # numéro de version
+    projet_version: v1.0.4
+
+    # Helpers included in all templates by default
+    standard_helpers:       [Partial, Cache, Libelle, LinkToGrid]
+
+    # Form security secret (CSRF protection)
+    csrf_secret:            4f6bd923a33b6bf71f6a562ebd590939f73b647e
+
+    # Output escaping settings
+    escaping_strategy:      true
+    escaping_method:        ESC_SPECIALCHARS
+
+    # Enable the database manager
+    use_database:           true
+
+
+    arborescence:
+      # repertoire de stockage des photos des utilisateurs
+      utilisateur_repertoire:               /uploads
+      # repertoire de stockage des photos des étudiants
+      etudiant_repertoire:                  /uploads
+      # repertoire de stockage des modèles de documents
+      modeles_documents_repertoire:         /uploads
+      # convention organisme
+      convention_organisme_repertoire:      /uploads
+
+      fichiers_temporaires_repertoire:      /temp
+
+      dossier_mip_repertoire:               /dossiers/MIP
+      dossier_bpi_repertoire:               /dossiers/BPI
+      dossier_these_repertoire:             /dossiers/MRIS/these
+      dossier_postdoc_repertoire:           /dossiers/MRIS/postdoc
+      dossier_ere_repertoire:               /dossiers/MRIS/ere
+
+      documents_dossier_repertoire:         /documents
+      convention_dossier_repertoire:        /documents
+
+      import_ixarm_repertoire:              /importation_iXarm
+
+      import_ixarm_repertoire_courant:      /importation_iXarm/courant
+
+      # FICHIER STATIQUES
+      # Ces fichier doivent être dans le repertoire "documents_modele_repertoire"
+      fichiers_statiques:
+      
+        fiche_inscription:                            fichier_absent1.pdf
+        grilles_evaluation:                           fichier_absent2.pdf
+        fiches_suivi:                                 fichier_absent3.pdf
+
+        # Modèle de lettre d'invitation d'une commission pour un participant interne ou externe
+        lettre_invitation_personne:                   Invitation_Commission_personne_modele.rtf
+
+        # Modèle de lettre d'invitation d'une commission pour un laboratoire
+        lettre_invitation_laboratoire:                Invitation_Commission_laboratoire_modele.rtf
+
+        # Modèle de lettre d'invitation d'une commission pour un service
+        lettre_invitation_service:                    Invitation_Commission_service_modele.rtf
+
+        # Modèle de lettre de validation de dossier
+        lettre_validation_refus:                      Validation_Refus.rtf
+        lettre_validation_refus_apres_attente:        Validation_Refus_ApresAttente.rtf
+        lettre_validation_liste_attente:              Validation_ListeAttente.rtf
+        lettre_validation_attestation:                Validation_attestation.rtf
+        lettre_validation_acceptation_directe:        Validation_Directe.rtf
+        lettre_validation_acceptation_apres_attente:  Validation_ApresAttente.rtf
+
+        # Modèles BPI
+        lettre_accompagnement_licence:                Lettre_Accompagnement_Licence.rtf
+        lettre_accompagnement_copropriete:            Lettre_Accompagnement_Copropriete.rtf
+        lettre_depot_dga:                             Lettre_Depot_DGA.rtf
+        lettre_depot_hors_dga:                        Lettre_Depot_HorsDGA.rtf

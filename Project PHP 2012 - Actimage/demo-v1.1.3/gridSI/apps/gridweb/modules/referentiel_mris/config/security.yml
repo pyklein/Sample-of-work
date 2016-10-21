@@ -1,0 +1,30 @@
+listerEtudiants:
+  credentials: [[SUP-MRIS]]
+modifierEtudiant:
+  credentials: [[SUP-MRIS]]
+modifierFormationEtudiant:
+  credentials: [[SUP-MRIS]]
+modifierPhotoEtudiant:
+  credentials: [[SUP-MRIS]]
+creerEtudiant:
+  credentials: [[SUP-MRIS]]
+changerActivationEtudiant:
+  credentials: [[SUP-MRIS]]
+
+listerIntervenants:
+  credentials: [[SUP-MRIS]]
+changerActivationIntervenant:
+  credentials: [[SUP-MRIS]]
+creerIntervenant:
+  credentials: [[SUP-MRIS]]
+modifierIntervenant:
+  credentials: [[SUP-MRIS]]
+
+listerConvention_organismes:
+  credentials: [[SUP-MRIS]]
+creerConvention_organisme:
+  credentials: [[SUP-MRIS]]
+modifierConvention_organisme:
+  credentials: [[SUP-MRIS]]
+telechargerConvention_organisme:
+  credentials: [[SUP-MRIS]]

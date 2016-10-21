@@ -1,0 +1,24 @@
+afficherMentionCnil:
+  is_secure: false
+  
+rechercherInnovateurs:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP]]
+modifierInnovateurLectureSeule:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP]]
+
+editerProfil:
+  credentials: [[ADM, SUP-MIP, USR-MIP, CLI-MIP, COR-MIP, SUP-BPI, USR-BPI, CLI-BPI, COR-BPI, SUP-MRIS, USR-MRIS, CLI-MRIS, COR-MRIS]]
+
+chargerThumbnailEditerProfilUtilisateur:
+  credentials: [[ADM, SUP-MIP, USR-MIP, CLI-MIP, COR-MIP, SUP-BPI, USR-BPI, CLI-BPI, COR-BPI, SUP-MRIS, USR-MRIS, CLI-MRIS, COR-MRIS]]
+chargerThumbnailProfilMip:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP]]
+
+exporterInnovateursCSV:
+  credentials: [[SUP-MIP, USR-MIP, COR-MIP]]
+
+creerPilotePopup:
+  credentials: [[SUP-MIP, USR-MIP]]
+
+all:
+  credentials: [[ADM, SUP-MIP, SUP-BPI, SUP-MRIS]]

@@ -1,0 +1,26 @@
+changerActivationStatutDossierBpi:
+  credentials: [[SUP-BPI]]
+creerStatut_Dossier_bpi:
+  credentials: [[SUP-BPI]]
+listerStatut_Dossier_bpis:
+  credentials: [[SUP-BPI]]
+modifierStatut_Dossier_bpi:
+  credentials: [[SUP-BPI]]
+changerActivationPhaseDepotBrevet:
+  credentials: [[SUP-BPI]]
+creerPhase_depot_brevet:
+  credentials: [[SUP-BPI]]
+listerPhase_depot_brevets:
+  credentials: [[SUP-BPI]]
+modifierPhase_depot_brevet:
+  credentials: [[SUP-BPI]]
+listerInventeurs:
+  credentials: [[SUP-BPI]]
+changerActivationInventeur:
+  credentials: [[SUP-BPI]]
+creerInventeur:
+  credentials: [[SUP-BPI]]
+preCreerInventeur:
+  credentials: [[SUP-BPI]]
+modifierInventeur:
+  credentials: [[SUP-BPI]]

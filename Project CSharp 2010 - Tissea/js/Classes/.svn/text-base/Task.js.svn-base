@@ -1,0 +1,13 @@
+﻿function Task(query) {
+    this.activityGuid = query.ActivityGuid;
+    this.activityId = query.ActivityId ;  
+    this.productId = query.ProductId ;  
+    this.productName = query.ProductName ;  
+    this.stockCode = query.StockCode ;  
+    this.quantityOrdered = query.QuantityOrdered ;  
+    this.unitPrice = query.UnitPrice ;  
+    this.netAmount = query.NetAmount ; 
+    this.description = query.Description;
+    this.comment1= query.Comment1;
+    this.comment2= query.Comment2;      
+}

@@ -1,0 +1,27 @@
+Dossier_mip:
+<?php for ($i = 1; $i <= 100; $i++): ?>
+  dossier_mip_<?php echo $i ?>:
+    titre: Dossier MIP <?php echo $i . "\r\n"?>
+    descriptif : Je suis le dossier <?php echo $i . "\r\n"?>
+    Etat_partage: etat_partage_<?php echo ($i % 3) + 1 . "\r\n"?>
+    Statut_dossier_mip: statut_dossier_<?php echo ($i % 14) + 1 . "\r\n"?>
+    Niveau_protection: niveau_protection_<?php echo ($i % 3) + 1 . "\r\n"?>
+    statut_projet_mip_id: 3
+    created_by: 1
+    Organisme_mindef: organisme_mindef_<?php echo ($i % 11) + 1 . "\r\n"?>
+    pilote_id: 1
+    est_publie: <?php echo $i % 2  . "\r\n" ?>
+    dossier_vivant: 1
+    updated_at: <?php echo 1990 + ($i % 20) ?>'-04-26 00:00:00'
+    created_at: <?php echo 1990 + ($i % 20) ?>'-04-26 00:00:00'
+    date_bascule: <?php echo 1990 + ($i % 20) ?>'-04-26 00:00:00'
+<?php endfor; ?>
+
+
+Innovateur_dossier_mip:
+<?php for ($i = 1; $i <= 100; $i++) : ?>
+  innovateur_dossier_mip_<?php echo $i ?>:
+    Innovateur: utilisateur_<?php echo ($i % 4) +11 . "\r\n" ?>
+    Dossier_mip: dossier_mip_<?php echo $i . "\r\n" ?>
+    Type_innovateur: type_innovateur_<?php echo ($i % 4) + 1 . "\r\n" ?>
+<?php endfor; ?>

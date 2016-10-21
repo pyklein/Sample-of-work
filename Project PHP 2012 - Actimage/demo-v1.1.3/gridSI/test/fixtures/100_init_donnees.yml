@@ -1,0 +1,813 @@
+
+# ---------------------------Section Utilisateurs et Profils---------------------------
+Civilite:
+  civilite_1:
+    id: 1
+    intitule: Monsieur
+    abreviation: M
+  civilite_2:
+    id: 2
+    intitule: Madame
+    abreviation: Mme
+  civilite_3:
+    id: 3
+    intitule: Mademoiselle
+    abreviation: Mlle
+
+Statut:
+  statut_1:
+    id: 1
+    intitule: Actif
+  statut_2:
+    id: 2
+    intitule: Retraité
+  statut_3:
+    id: 3
+    intitule: Provisoire
+  statut_4:
+    id: 4
+    intitule: Muté
+  statut_5:
+    id: 5
+    intitule: Libéré
+  statut_6:
+    id: 6
+    intitule: Décédé
+
+Profil:
+  profil_1:
+    id: 1
+    intitule: Administrateur
+    code: ADM
+    Metier: metier_administrateur
+  profil_2:
+    id: 2
+    intitule: Super-utilisateur
+    code: SUP
+    Metier: metier_bpi
+  profil_3:
+    id: 3
+    intitule: Utilisateur
+    code: USR
+    Metier: metier_bpi
+  profil_4:
+    id: 4
+    intitule: Correspondant
+    code: COR
+    Metier: metier_bpi
+  profil_5:
+    id: 5
+    intitule: Client
+    code: CLI
+    Metier: metier_bpi
+  profil_6:
+    id: 6
+    intitule: Super-utilisateur
+    code: SUP
+    Metier: metier_mip
+  profil_7:
+    id: 7
+    intitule: Utilisateur
+    code: USR
+    Metier: metier_mip
+  profil_8:
+    id: 8
+    intitule: Correspondant
+    code: COR
+    Metier: metier_mip
+  profil_9:
+    id: 9
+    intitule: Client
+    code: CLI
+    Metier: metier_mip
+  profil_10:
+    id: 10
+    intitule: Super-utilisateur
+    code: SUP
+    Metier: metier_mris
+  profil_11:
+    id: 11
+    intitule: Utilisateur
+    code: USR
+    Metier: metier_mris
+  profil_12:
+    id: 12
+    intitule: Correspondant
+    code: COR
+    Metier: metier_mris
+  profil_13:
+    id: 13
+    intitule: Client
+    code: CLI
+    Metier: metier_mris
+
+Metier:
+  metier_bpi:
+    id: 1
+    intitule: BPI
+  metier_mip:
+    id: 2
+    intitule: MIP
+  metier_mris:
+    id: 3
+    intitule: MRIS
+  metier_administrateur:
+    id: 4
+    intitule: Administrateur
+    est_administrateur: true
+Type_innovateur:
+  type_innovateur_1:
+    id:  1
+    intitule: "Innovateur"
+  type_innovateur_2:
+    id:  2
+    intitule: "Abandon"
+  type_innovateur_3:
+    id:  3
+    intitule: "Extérieur"
+  type_innovateur_4:
+    id:  4
+    intitule: "Personne de référence"
+#---------------------------Section Mail---------------------------
+Mail_statut:
+  statut_1:
+    id: 1
+    intitule: En attente d'envoi
+  statut_2:
+    id: 2
+    intitule: Envoyé
+
+#---------------------------Section commune---------------------------
+Etat_partage:
+  etat_partage_1:
+    id: 1
+    intitule: Non partageable
+  etat_partage_2:
+    id: 2
+    intitule: Partageable
+  etat_partage_3:
+    id: 3
+    intitule: Partagé
+
+Organisme_mindef:
+  organisme_mindef_1:
+    intitule: Air
+    abreviation: Air
+    code: A
+  organisme_mindef_2:
+    intitule: SID constructions
+    abreviation: SID
+    code: C
+  organisme_mindef_3:
+    intitule: DGA
+    abreviation: DGA
+    code: D
+  organisme_mindef_4:
+    intitule: SEA essences
+    abreviation: SEA
+    code: E
+  organisme_mindef_5:
+    intitule: Extérieur
+    abreviation: Extérieur
+    code: E
+  organisme_mindef_6:
+    intitule: Gendarmerie
+    abreviation: DGGN
+    code: G
+  organisme_mindef_7:
+    intitule: DIRISI information
+    abreviation: DIRISI
+    code: I
+  organisme_mindef_8:
+    intitule: Marine
+    abreviation: Marine
+    code: M
+  organisme_mindef_9:
+    intitule: COS opérations spéciales
+    abreviation: COS
+    code: O
+  organisme_mindef_10:
+    intitule: DRM renseignement
+    abreviation: DRM
+    code: R
+  organisme_mindef_11:
+    intitule: Santé
+    abreviation: Santé
+    code: S
+  organisme_mindef_13:
+    intitule: Terre
+    abreviation: Terre
+    code: T
+  organisme_mindef_14:
+    intitule: Autres
+    abreviation: Autres
+    code: X
+  organisme_mindef_15:
+    intitule: EMA
+    abreviation: EMA
+    code: H
+
+Type_organisme:
+  type_organisme_1:
+    intitule: Industriel
+  type_organisme_2:
+    intitule: Universitaire
+  type_organisme_3:
+    intitule: Region
+  type_organisme_4:
+    intitule: Autre
+
+#---------------------------Section MIP---------------------------
+Type_relance_dossier_mip:
+  type_relance_dossier_mip_1:
+    intitule: Avant état d'avancement
+  type_relance_dossier_mip_2:
+    intitule: Apres état d'avancement
+  type_relance_dossier_mip_3:
+    intitule: Avant compte-rendu
+  type_relance_dossier_mip_4:
+    intitule: Apres compte-rendu
+  type_relance_dossier_mip_5:
+    intitule: Avis Etat-Majeur
+  type_relance_dossier_mip_6:
+    intitule: Lettre de soutien
+
+Statut_projet_mip:
+  statut_projet_mip_1:
+    intitule: Pré-projet en cours
+    abreviation: PPEC
+    id: 1
+  statut_projet_mip_2:
+    intitule: Pré-projet abandonné
+    abreviation: PPA
+    id: 2
+  statut_projet_mip_3:
+    intitule: "Dossier d'innovation"
+    abreviation: DI
+    id: 3
+    
+Statut_dossier_mip:
+  statut_dossier_1:
+    intitule: Rendez-vous à prendre
+    abreviation: RDV
+  statut_dossier_2:
+    intitule: Attente de visite innovateur
+    abreviation: VIS
+    Precedent: statut_dossier_1
+  statut_dossier_3:
+    intitule: Demande d'avis EM à envoyer
+    Precedent: statut_dossier_2
+  statut_dossier_4:
+    intitule: Attente avis EM
+    Precedent: statut_dossier_3
+  statut_dossier_5:
+    intitule: Lettre de soutien à envoyer
+    Precedent: statut_dossier_4
+  statut_dossier_6:
+    intitule: Attente financement
+    Precedent: statut_dossier_5
+  statut_dossier_7:
+    intitule: Attente EA
+    Precedent: statut_dossier_6
+  statut_dossier_8:
+    intitule: Attente CR
+    Precedent: statut_dossier_7
+  statut_dossier_9:
+    intitule: Attente de clôture
+    Precedent: statut_dossier_8
+  statut_dossier_10:
+    intitule: Financé clos
+    Precedent: statut_dossier_9
+  statut_dossier_11:
+    intitule: Abandon clos
+    Precedent: statut_dossier_10
+  statut_dossier_12:
+    intitule: Transféré
+    Precedent: statut_dossier_11
+  statut_dossier_13:
+    intitule: Abandon clos - non communicable
+    Precedent: statut_dossier_12
+  statut_dossier_14:
+    intitule: Ouvert sans suite
+    Precedent: statut_dossier_13
+
+Mode_transmission:
+  mode_transmission_mail:
+    id: 1
+    intitule: E-mail / courriel
+  mode_transmission_poste:
+    id: 2
+    intitule: Voie postal / lettre
+  mode_transmission_fax:
+    id: 3
+    intitule: Fax
+  mode_transmission_main_propre:
+    id: 4
+    intitule: Main propre
+  mode_transmission_note:
+    id: 5
+    intitule: Note
+  mode_transmission_be:
+    id: 6
+    intitule: Bordereau d'envoi (BE)
+  mode_transmission_video:
+    id: 7
+    intitule: Vidéo
+
+Budget_type:
+  budget_type_demande:
+    id: 1
+    intitule: Demandé
+  budget_type_restitue:
+    id: 2
+    intitule: Restitué
+
+Niveau_protection:
+  niveau_protection_1:
+    id: 1
+    intitule: Non classifiés
+    abreviation: NC
+  niveau_protection_2:
+    id: 2
+    intitule: DR
+    abreviation: DR
+  niveau_protection_3:
+    id: 3
+    intitule: CD
+    abreviation: CD
+  niveau_protection_4:
+    id: 4
+    intitule: SD
+    abreviation: SD
+
+Documents_mip_type:
+  documents_mip_type_1:
+    intitule: Lettre de soutien
+  documents_mip_type_2:
+    intitule: Lettre d'acceptation
+  documents_mip_type_3:
+    intitule: Demande de rendez-vous
+  documents_mip_type_4:
+    intitule: Acceptation du dossier
+
+Prix:
+  prix_1:
+    intitule: "Prix de l'audace"
+    est_actif: 1
+  prix_2:
+    intitule: "Concours Lépine - Médaille d'or"
+    est_actif: 1
+
+#---------------------------Section MRIS---------------------------
+Valeur_note:
+  valeur_note_a:
+    id: 1
+    intitule: A
+  valeur_note_b:
+    id: 2
+    intitule: B
+  valeur_note_c:
+    id: 3
+    intitule: C
+  valeur_note_d:
+    id: 4
+    intitule: D
+
+Type_cursus:
+  type_cursus_1:
+    intitule: Université
+  type_cursus_2:
+    intitule: Ecole d'ingénieur
+    
+Type_suivi_these:
+  type_suivi_these_1:
+    intitule: Etat d'avancement (EA)
+  type_suivi_these_2:
+    intitule: Question de l'étudiant (QE)
+
+Type_suivi_postdoc:
+  type_suivi_postdoc_1:
+    intitule: Etat d'avancement (EA)
+  type_suivi_postdoc_2:
+    intitule: Question de l'étudiant (QE)
+
+Type_suivi_ere:
+  type_suivi_ere_1:
+    intitule: Etat d'avancement (EA)
+  type_suivi_ere_2:
+    intitule: Question de l'étudiant (QE)
+
+Type_convention_organisme:
+  type_convention_organisme_1:
+    id: 1
+    intitule: Stage postdoctoral
+  type_convention_organisme_2:
+    id: 2
+    intitule: Stage ERE
+  type_convention_organisme_3:
+    id: 3
+    intitule: Thèse - Cofinancée
+  type_convention_organisme_4:
+    id: 4
+    intitule: Thèse - Cofinancée par une région
+  type_convention_organisme_5:
+    id: 5
+    intitule: Thèse - Cofinancée par un industriel
+  type_convention_organisme_6:
+    id: 6
+    intitule: Thèse - Non cofinancée
+  type_convention_organisme_7:
+    id: 7
+    intitule: Décision financière
+
+Type_evenement_these:
+  type_evenement_these_1:
+    id: 1
+    intitule: dossier papier reçu et complet
+  type_evenement_these_2:
+    id: 2
+    intitule: nomination
+  type_evenement_these_3:
+    id: 3
+    intitule: début de thèse
+  type_evenement_these_4:
+    id: 4
+    intitule: fin de bourse
+  type_evenement_these_5:
+    id: 5
+    intitule: début de bourse
+  type_evenement_these_6:
+    id: 6
+    intitule: suivi
+  type_evenement_these_7:
+    id: 7
+    intitule: début d'interruption
+  type_evenement_these_8:
+    id: 8
+    intitule: fin d'interruption
+  type_evenement_these_9:
+    id: 9
+    intitule: démission
+  type_evenement_these_10:
+    id: 10
+    intitule: dossier clos
+  type_evenement_these_11:
+    id: 11
+    intitule: prolongation refusée
+  type_evenement_these_12:
+    id: 12
+    intitule: soutenance
+  type_evenement_these_13:
+    id: 13
+    intitule: exemplaires de thèse reçus
+  type_evenement_these_14:
+    id: 14
+    intitule: diffusion
+  type_evenement_these_15:
+    id: 15
+    intitule: devenir
+  type_evenement_these_16:
+    id: 16
+    intitule: attestation de DEA reçue
+  type_evenement_these_17:
+    id: 17
+    intitule: financement terminé
+  type_evenement_these_18:
+    id: 18
+    intitule: poster
+  type_evenement_these_19:
+    id: 19
+    intitule: publication
+  type_evenement_these_20:
+    id: 20
+    intitule: communication
+  type_evenement_these_21:
+    id: 21
+    intitule: congé maternité
+  type_evenement_these_22:
+    id: 22
+    intitule: ancien 13
+  type_evenement_these_23:
+    id: 23
+    intitule: proposé prix de thèse par les DT
+  type_evenement_these_24:
+    id: 24
+    intitule: nominé prix de thèse
+  type_evenement_these_25:
+    id: 25
+    intitule: lauréat prix de thèse
+  type_evenement_these_26:
+    id: 26
+    intitule: rapport des rapporteurs reçus
+  type_evenement_these_27:
+    id: 27
+    intitule: attestation assedic demandée
+  type_evenement_these_28:
+    id: 28
+    intitule: informations administratives
+
+Role_these:
+  role_these_1:
+    id: 1
+    intitule: Directeur de Thèse
+  role_these_2:
+    id: 2
+    intitule: Responsable Scientifique
+  role_these_4:
+    id: 4
+    intitule: Pilote Industriel
+  role_these_5:
+    id: 5
+    intitule: Pilote DGA
+  role_these_6:
+    id: 6
+    intitule: Pilote DGA Groupe de Suivi
+  role_these_7:
+    id: 7
+    intitule: Industriel Groupe de Suivi
+  role_these_8:
+    id: 8
+    intitule: Expert Groupe de Suivi
+  role_these_13:
+    id: 13
+    intitule: Directeur de Master
+  role_these_14:
+    id: 14
+    intitule: Cofinanceur
+  role_these_15:
+    id: 15
+    intitule: Co-directeur de thèse
+
+Domaine_scientifique:
+  domaine_scientifique_1:
+    id: 1
+    intitule: Ingénierie de l'information et robotique
+    est_actif: 1
+  domaine_scientifique_2:
+    id: 2
+    intitule: Fluides, structures
+    est_actif: 1
+  domaine_scientifique_3:
+    id: 3
+    intitule: Ondes acoustiques et radioélectriques
+    est_actif: 1
+  domaine_scientifique_4:
+    id: 4
+    intitule: Biologie et biotechnologies
+    est_actif: 1
+  domaine_scientifique_5:
+    id: 5
+    intitule: Photonique
+    est_actif: 1
+  domaine_scientifique_6:
+    id: 6
+    intitule: Nanotechnologies
+    est_actif: 1
+  domaine_scientifique_7:
+    id: 7
+    intitule: Matériaux, Chimie et Energie
+    est_actif: 1
+  domaine_scientifique_8:
+    id: 8
+    intitule: Environnement et géosciences
+    est_actif: 1
+  domaine_scientifique_9:
+    id: 9
+    intitule: Homme et systèmes
+    est_actif: 1
+  domaine_scientifique_61:
+    id: 61
+    intitule: Sciences de l'Homme et de la société
+    est_actif: 1
+
+Type_document_postdoc:
+  type_document_postdoc_1:
+    id: 100
+    intitule: Autre
+
+Type_document_these:
+  type_document_these_1:
+    id: 100
+    intitule: Autre
+    
+Type_document_ere:
+  type_document_ere_1:
+    id: 100
+    intitule: Autre
+
+Statut_dossier_these:
+  statut_dossier_these_1:
+    intitule: Proposition
+  statut_dossier_these_2:
+    intitule: Validé
+  statut_dossier_these_3:
+    intitule: Refusé
+  statut_dossier_these_4:
+    intitule: Mis en attente
+
+Statut_dossier_postdoc:
+  statut_dossier_postdoc_1:
+    intitule: Proposition
+  statut_dossier_postdoc_2:
+    intitule: Validé
+  statut_dossier_postdoc_3:
+    intitule: Refusé
+  statut_dossier_postdoc_4:
+    intitule: Mis en attente
+
+Statut_dossier_ere:
+  statut_dossier_ere_1:
+    intitule: Proposition
+  statut_dossier_ere_2:
+    intitule: Validé
+  statut_dossier_ere_3:
+    intitule: Refusé
+  statut_dossier_ere_4:
+    intitule: Mis en attente
+    
+#---------------------------Section BPI---------------------------
+Statut_declaration:
+  statut_declaration_1:
+    intitule: Informelle
+    abreviation:  INF
+  statut_declaration_2:
+    intitule: Non conforme
+    abreviation:  NCONF
+  statut_declaration_3:
+    intitule: Conforme
+    abreviation:  CONF
+
+Type_action:
+  type_action_1:
+    intitule: Prise de rendez vous
+
+  type_action_2:
+    intitule: Depot de dossier
+
+Statut_action:
+  Statut_action_1:
+    intitule: A mener
+
+  Statut_action_2:
+    intitule: Menée
+
+Type_depot:
+  type_depot_1:
+    intitule: France
+    abreviation: FR
+  type_depot_2:
+    intitule: Européen
+    abreviation: EP
+  type_depot_3:
+    intitule: International
+    abreviation: PCT
+  type_depot_4:
+    intitule: Américain
+    abreviation: US
+  type_depot_5:
+    intitule: Extension
+    abreviation: EXT
+
+Classement:
+  classement_1:
+    intitule: De Mission
+    abreviation: M
+  classement_2:
+    intitule: Hors Mission Attribuable
+    abreviation: HMA
+  classement_3:
+    intitule: Hors Mission Non Attribuable
+    abreviation: HMNA
+
+Type_contrat:
+  type_contrat_1:
+    intitule: Règlement de copropriété
+  type_contrat_2:
+    intitule: Cession de titre
+  type_contrat_3:
+    intitule: Transfert de savoir-faire
+  type_contrat_4:
+    intitule: License d'utilisation d'une invention brevetable ou non brevetée ou communication de savoir-faire
+  type_contrat_5:
+    intitule: Accord de confidentialité
+
+Statut_contrat:
+  statut_contrat_1:
+    intitule: En cours de redaction
+  statut_contrat_2:
+    intitule: En cours de revision
+  statut_contrat_3:
+    intitule: En cours de correction
+  statut_contrat_4:
+    intitule: Signé
+
+Type_redevance:
+  type_redevance_1:
+    intitule: Cession
+  type_redevance_2:
+    intitule: License
+
+Statut_valorisation_externe:
+  statut_valorisation_externe_1:
+    intitule: Prospecté
+  statut_valorisation_externe_2:
+    intitule: Contractualisé
+
+Nature_exploitation:
+  nature_exploitation_1:
+    intitule: Aucune
+  nature_exploitation_2:
+    intitule: Prévue
+  nature_exploitation_3:
+    intitule: Prévisible
+  nature_exploitation_4:
+    intitule: Effective
+
+Type_contentieux:
+  type_contentieux_1:
+    id: 1
+    intitule: Invention
+  type_contentieux_2:
+    id: 2
+    intitule: Droits
+  type_contentieux_3:
+    id: 3
+    intitule: Exploitation interne
+
+Type_alerte_bpi:
+  type_alerte_bpi_1:
+    id: 1
+    intitule: Action à mener
+  type_alerte_bpi_2:
+    id: 2
+    intitule: Delai pour le classement de l'invention
+  type_alerte_bpi_3:
+    id: 3
+    intitule: Attribution des droits
+  type_alerte_bpi_4:
+    id: 4
+    intitule: Brevets
+  type_alerte_bpi_5:
+    id: 5
+    intitule: Prime au brevet
+
+Statut_dossier_bpi:
+  statut_dossier_bpi_1:
+    intitule: En création BPI
+    abreviation: CREA
+  statut_dossier_bpi_2:
+    intitule: Rendez-vous à prendre BPI
+    abreviation: RDV
+    Precedent: statut_dossier_bpi_1
+  statut_dossier_bpi_3:
+    intitule: Attente de visite inventeur BPI
+    abreviation: VIS
+    Precedent: statut_dossier_bpi_2
+  statut_dossier_bpi_4:
+    intitule: Projet de financement à envoyer BPI
+    Precedent: statut_dossier_bpi_3
+
+Phase_depot_brevet:
+  phase_depot_brevet_1:
+    intitule: Pre-depot
+    abreviation: PREDEP
+  phase_depot_brevet_2:
+    intitule: Phase nationale
+    abreviation: NATION
+    PhaseDepotBrevet: phase_depot_brevet_1
+  phase_depot_brevet_3:
+    intitule: Phase internationale
+    abreviation: INTERNAT
+    PhaseDepotBrevet: phase_depot_brevet_1
+  phase_depot_brevet_4:
+    intitule: Pre-lecture
+    abreviation: PRELECT
+    PhaseDepotBrevet: phase_depot_brevet_2
+  phase_depot_brevet_5:
+    intitule: En commission
+    abreviation: COMMIS
+    PhaseDepotBrevet: phase_depot_brevet_2
+  phase_depot_brevet_6:
+    intitule: Retour correction
+    abreviation: CORRECT
+    PhaseDepotBrevet: phase_depot_brevet_2
+  phase_depot_brevet_7:
+    intitule: Pre-commission internationale
+    abreviation: PRECOMINT
+    PhaseDepotBrevet: phase_depot_brevet_3
+  phase_depot_brevet_8:
+    intitule: Commission internationale
+    abreviation: COMMINTER
+    PhaseDepotBrevet: phase_depot_brevet_3
+  phase_depot_brevet_9:
+    intitule: Accepté
+    abreviation: ACC
+    PhaseDepotBrevet: phase_depot_brevet_8
+  phase_depot_brevet_10:
+    intitule: Vérification des documents
+    abreviation: VERDOC
+    PhaseDepotBrevet: phase_depot_brevet_4
+  phase_depot_brevet_11:
+    intitule: Recherche des brevet existants
+    abreviation: RECHEXST
+    PhaseDepotBrevet: phase_depot_brevet_4

@@ -1,0 +1,107 @@
+﻿function ErpMapContextMenuManager(sender, eventArgs) {
+    closeTab();
+    var item = eventArgs.get_item();
+    var value = item.get_value();
+    //alert("item =" + value);
+    if (value != null) {
+        value += "Eval()";
+        eval(value);
+    }
+}
+
+function addLocationEval() {
+    loading("visible");
+    completeTypeLocation();
+    closeAllFromAspMenu();
+    createLocationMarker();
+}
+
+function createLocationMarker() {
+    var latLng = new google.maps.LatLng(document.getElementById("latRightClickMap").value, document.getElementById("lngRightClickMap").value);
+    markerLocationAdd.setPosition(latLng);
+    markerLocationAdd.setVisible(true);
+    markerLocationAdd.setMap(map);
+    getGeocodeLocationFromLatLng(latLng);
+    document.getElementById("txtLatitudeLocation").value = latLng.lat();
+    document.getElementById("txtLongitudeLocation").value = latLng.lng();
+    google.maps.event.addListener(markerLocationAdd, 'dragend', function() {
+        document.getElementById("txtLatitudeLocation").value = this.getPosition().lat();
+        document.getElementById("txtLongitudeLocation").value = this.getPosition().lng();
+        getGeocodeLocationFromLatLng(this.getPosition());
+    });
+    diplayAddLocation();
+}
+
+function setPositionLatLngForGeocodeLocation(address) {
+    var latLng = address; ;
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[0]) {
+                markerLocationAdd.setPosition(results[0].geometry.location);
+            }
+        }
+        else {
+            document.getElementById("logAlert").style.borderColor = "blue";
+            document.getElementById("logAlert").innerHTML = "<table><tr><td><img src=\"Resources/icons/logInfoMessage.jpg\" alt=\"info\" width=\"30%\"/></td><td VALIGN='middle' style='color:blue;'><b color:blue>&nbsp; Location not found</b></td></tr>";
+            $("#logAlert").stop(true, true).delay(5).slideDown(250);
+            closelogalert();
+        }
+
+    });
+
+}
+
+function getGeocodeLocationFromLatLng(latlng) {
+
+    document.getElementById("txtLine1").value = "";
+    document.getElementById("txtLine2").value = "";
+    document.getElementById("txtLine3").value = "";
+    document.getElementById("txtLine4").value = "";
+    document.getElementById("txtPostCode").value = "";
+    document.getElementById("txtCountry").value = "";
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({ 'latLng': latlng }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                var i = 0; //formatted_address = "Liverpool, Merseyside L17 5AD, UK"
+                var boolPostCode = true;
+
+                while (results[1].address_components[i]) {
+
+                    if (results[1].address_components[i].types[0] == "sublocality" && isDiferent(results[1].address_components[i].long_name))
+                        document.getElementById("txtLine1").value = results[1].address_components[i].long_name;
+                    if (results[1].address_components[i].types[0] == "administrative_area_level_2" && isDiferent(results[1].address_components[i].long_name))
+                        document.getElementById("txtLine2").value = results[1].address_components[i].long_name;
+                    if (results[1].address_components[i].types[0] == "administrative_area_level_3" && isDiferent(results[1].address_components[i].long_name))
+                        document.getElementById("txtLine3").value = results[1].address_components[i].long_name;
+                    if (results[1].address_components[i].types[0] == "locality" && isDiferent(results[1].address_components[i].long_name))
+                        document.getElementById("txtLine4").value = results[1].address_components[i].long_name;
+                    if (results[1].address_components[i].types[0] == "postal_code" && (boolPostCode || results[1].address_components[i].long_name.toString().length > document.getElementById("txtPostCode").value.toString().length)) {
+                        document.getElementById("txtPostCode").value = results[1].address_components[i].long_name;
+                        boolPostCode = false;
+                    }
+                    if (results[1].address_components[i].types[0] == "country") {
+                        document.getElementById("txtCountry").value = results[1].address_components[i].long_name;
+                        getIdCountry(document.getElementById("txtCountry").value);
+                    }
+
+                    i++;
+                }
+
+            }
+            else {
+                alert("Geocoder failed due to: " + status);
+            }
+        }
+    });
+}
+function isDiferent(address_components) {
+    if (address_components != document.getElementById("txtLine1").value &&
+    address_components != document.getElementById("txtLine2").value &&
+    address_components != document.getElementById("txtLine3").value &&
+    address_components != document.getElementById("txtLine4").value)
+        return true;
+    else
+        return false;
+}

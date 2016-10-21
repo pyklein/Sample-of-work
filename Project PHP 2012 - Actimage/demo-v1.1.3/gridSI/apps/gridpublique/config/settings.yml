@@ -1,0 +1,6 @@
+all:
+  .actions:
+    error_404_module: authentification
+    error_404_action: nonAutorise
+    error_db_module: authentification
+    error_db_action: erreurSgbdr

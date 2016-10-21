@@ -1,0 +1,35 @@
+# Racine des messages. Non referncé lors de l'appele de l'arborecence
+all:
+
+  # -------------Section COMMUNE------------------
+
+  bouton_voir:                     Voir
+  bouton_changer_pagination:       Modifier
+  bouton_reset_filtres:            Annuler tous les filtres
+  bouton_filtrer:                  Filtrer
+  bouton_retourner:                Revenir à la liste des dossiers
+
+  libelle_actions:                         Actions
+  libelle_page_sur:                        Page {0} sur {1}
+  libelle_numero:                          Numéro
+  libelle_intitule_acronyme:               Intitulé - Acronyme
+  libelle_innovateurs:                     Innovateur(s)
+  libelle_organisme_armee:                 Organisme/Armée
+  libelle_statut_dossier:                  Statut du dossier
+  libelle_annee:                           Année
+  libelle_nbr_el_par_page:                 Nombre d'éléments par page
+  libelle_toutes:                          Toutes
+  libelle_filtres:                         Filtres
+  libelle_informations_complementaires:    Informations complémentaires
+  libelle_pilote:                          Pilote
+  libelle_innovateur_principal:            Innovateur principal
+  libelle_telephone:                       Téléphone
+  libelle_telephone_mobile:                Mobile
+  libelle_innovateur:                      Innovateur
+  libelle_erreur_sgbdr:                    "La base de données GRID est introuvable ou innaccessible, contactez un administrateur."
+  libelle_pas_droit_acces:       Vous n'êtes pas autorisé à accéder à cette fonctionnalité.
+
+  dossier_mip_nombre_resultat:     "{0} dossier(s) d'innovation trouvé(s)"
+  dossier_mip_0_resultat:          Aucun dossier d'innovation trouvé
+  dossier_mip_titre:               "Dossier d'innovation \"{0}\""
+  

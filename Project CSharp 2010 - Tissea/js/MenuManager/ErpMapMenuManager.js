@@ -1,0 +1,129 @@
+﻿function ErpMapMenu_OnClientItemClickController(sender, eventArgs) {
+    var item = eventArgs.get_item();
+    sender._openedItem = item;
+    sender.repaint();
+    sender.updated();
+    if(item.get_selected())
+        item.set_selected(false);
+    else
+        item.set_selected(true);
+    var value = item.get_value();
+    if (value != null) {
+        value += "Eval()";
+        eval(value);
+    }
+    clearAllInput();
+}
+
+function MapTypeEval() {
+
+}
+
+function ActivityEval() {
+    refreshMap();
+    closeAllFromAspMenu();    
+    show('DivActivity', '');
+    show("DivList", '');
+    $("#DivList").stop(true, true).delay(1).slideDown(250);
+
+}
+
+function LocationEval() {
+    refreshMap();
+    closeAllFromAspMenu();
+    show('DivLocation', '');
+    show('DivAddActivities', '');
+    show("DivList", '');
+    $("#DivList").stop(true, true).delay(1).slideDown(250);
+}
+
+function SearchEval() {
+    refreshMap();
+    closeAllFromAspMenu();
+    show('DivSearch', '');
+
+}
+
+function MapEval() {
+    radioChangeMap("Map");
+}
+
+function TerrainEval() {
+    radioChangeMap("Terrain");
+
+}
+
+function SatelliteEval() {
+    radioChangeMap("Satellite");
+}
+
+function HybridEval() {
+    radioChangeMap("Hybrid");
+}
+
+function LegendEval() {
+    closeAllFromAspMenu();
+    show('DivLegend', '');
+}
+
+function PlanningAndOptimiseEval() {
+    clearMap();
+    completeProjectSelect();
+    closeAllFromAspMenu();
+    show('DisplayDay', '');
+    show('DivGetProject', '');
+    $("#DivList").stop(true, true).delay(10).slideDown(250);
+    show('DivPlanningAndOptimise', '');
+    show('DivSearchAdvancedOptimise', '');
+    show('DivProject','');
+    //show('DivSearchAdvancedOptimise', '');
+    //$("#DivSearchAdvancedOptimise").stop(true, true).delay(10).slideDown(250);
+     
+}
+
+function AuditEval() {
+    closeAllFromAspMenu();
+    refreshMap();
+    show('DivAudit', '');
+    show("DivList", '');
+    $("#DivList").stop(true, true).delay(10).slideDown(250);
+}
+
+function closeAllFromAspMenu() {
+    //refreshMap();
+    while (document.getElementById("tBodyAdvancedActSearch").firstChild) {
+        document.getElementById('tBodyAdvancedActSearch').removeChild(document.getElementById("tBodyAdvancedActSearch").firstChild);
+    } //ProjectStatut
+    
+    while (document.getElementById("ProjectCalendar").firstChild) {
+        document.getElementById('ProjectCalendar').removeChild(document.getElementById("ProjectCalendar").firstChild);
+    }
+    clearMap();
+    erpMarkerAddCollection.toEmpty();
+    refreshList();
+    removeStartEndMarker();
+    close('DisplayDay', '');
+    close('DivPlanningAndOptimise', '');
+    close('DivDearchAdvancedOptimise', '');
+    close('DivAddActivities', '');
+    close('DivSearch', '');
+    close('DivLegend', '');
+    close('DivProject', '');
+    close('DivLocation', '');
+    close('DivActivity', '');
+    close('DivGetProject', '');
+    close('DivList', '');
+    close('DivAudit', '');
+    close('DivAddLocation', '');
+    close('choiceDisplaySearchActivity', '');
+    close('choiceDisplaySearchLocation', '');
+    $('#DivSearchAdvancedOptimise').stop(true, true).delay(1).slideUp(10);
+    //alert("del marker");
+    removeStartEndMarker();
+}
+
+function clearMap() {
+    if (polylineArray['Google'])
+        polylineArray['Google'].setMap(null);
+}
+

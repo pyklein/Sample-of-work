@@ -1,0 +1,669 @@
+Entite:
+  entite_1:
+    intitule: Etat Major de la région terre Ile de France
+    abreviation: EMRTIF
+    lieu: Ile de France
+    Ville: ville_1
+    Organisme_mindef: organisme_mindef_1
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    est_executant: true
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  entite_2:
+    intitule: Division Soutien des Forces
+    abreviation: DSF
+    lieu: Ile de France
+    Ville: ville_1
+    Organisme_mindef: organisme_mindef_1
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    est_executant: true
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  entite_3:
+    intitule: Etat-major de la Région Terre Sud-Est
+    abreviation: EMRTSE
+    lieu: Sud-Est
+    Ville: ville_1
+    Organisme_mindef: organisme_mindef_1
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    est_executant: true
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  entite_4:
+    intitule: 3ième Régiment de parachutistes d'infanterie de marine
+    abreviation: 3RPIM
+    lieu: Sud-Est
+    Ville: ville_1
+    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_3
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    est_executant: true
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+
+  entite_5:
+    intitule: Section Technique de l'Armée de Terre
+    abreviation: STAT
+    lieu: Sud-Est
+    Ville: ville_1
+    Organisme_mindef: organisme_mindef_2
+    Entite: entite_2
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    est_executant: true
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+#
+  entite_6:
+    intitule: Service des Télécommunications et de l'Informatique
+    abreviation: STI
+    lieu: Sud-Est
+    Ville: ville_1
+    Organisme_mindef: organisme_mindef_2
+    Entite: entite_5
+    est_actif: true
+    UtilisateurCreatedBy: utilisateur_1
+    UtilisateurUpdatedBy: utilisateur_1
+    est_executant: true
+    created_at: '2011-03-04 16:28:43'
+    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_7:
+#    intitule: Direction Régionale TEI Région Terre Sud-est
+#    abreviation: DRTRTS
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_6
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_8:
+#    intitule: Structure Intégrée du Maintien en condition opérationnelle du Matériel Terrestres
+#    abreviation: SIMCOMT
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    #Entite: entite_6
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_9:
+#    intitule: 11ème Base de soutien du matériel - Détachement de GUERET
+#    abreviation: 11BSMDG
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_10:
+#    intitule: 11ème base de soutien du matériel - Detachement du Materiel de Tulle
+#    abreviation: 11BSMDMT
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_11:
+#    intitule: 12ème base de soutien du matériel de l'armée de terre
+#    abreviation: 12BSMAT
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_12:
+#    intitule: 13ème base de soutien du matériel de l'armée de terre - Portion Centrale
+#    abreviation: 13BSMATPC
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_13:
+#    intitule: 13ème base de soutien du matériel de l'armée de terre - Détachement de Moulins
+#    abreviation: 13BSMATDM
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_14:
+#    intitule: 15ème base de soutien du matériel portion centrale
+#    abreviation: 15BSMPC
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_15:
+#    intitule: 15ème base de soutien du matériel détachement de fourchambault
+#    abreviation: 15BSMDF
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_14
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_16:
+#    intitule: 15ème base de soutien du matériel détachement de saint-florentin
+#    abreviation: 15BSMDSF
+#    lieu: Saint-florentin
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_14
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_17:
+#    intitule: 15ème Base de soutien du matériel détachement de Langres
+#    abreviation: 15BSMDL
+#    lieu: Landres
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_14
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_18:
+#    intitule: 3ème régiment du matériel de l'Armée de Terre -Portion centrale Muret
+#    abreviation: 3RMATPCM
+#    lieu: Portion centrale Muret
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_19:
+#    intitule: 9ème bataillon de soutien aéromobile
+#    abreviation: 9BSA
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_20:
+#    intitule: Détachement de maintenance Niveau d'intervention technique 2-Région Terre Ile de France
+#    abreviation: DMNIT2RTIF
+#    lieu: Ile de France
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_21:
+#    intitule: Direction Régionale MAT Région Terre Nord-ouest
+#    abreviation: Nord-ouest
+#    lieu: Sud-Est
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_22:
+#    intitule: Direction Régionale MAT Région Terre Sud-ouest
+#    abreviation: DRMRTSO
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_23:
+#    intitule: 9e bataillon du materiel
+#    abreviation: 9BM
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_22
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_24:
+#    intitule: Groupement admistration moyen
+#    abreviation: GAM
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_25:
+#    intitule: Structure Intégrée du Maintien en condition opérationnelle des Matériels Terrestres
+#    abreviation: SIMCOMT
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_1
+#    Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_26:
+#    intitule: Service de l'administration générale et des finances de l'armée de l'air
+#    abreviation: SAGFAA
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_27:
+#    intitule: Direction des Commissariats à Djibouti
+#    abreviation: DCD
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_26
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_28:
+#    intitule: Service Industriel de l'Aéronautique
+#    abreviation: SIA
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_29:
+#    intitule: AIA d'Ambérieu en Bugey
+#    abreviation: AIAAB
+#    lieu: Ambérieu en Bugey
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_28
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_30:
+#    intitule: AIA de Bordeaux
+#    abreviation: AIAB
+#    lieu: Bordeaux
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_28
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_31:
+#    intitule: AIA de Bretagne
+#    abreviation: AIABR
+#    lieu: Bretagne
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_28
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_32:
+#    intitule: AIA de Clermont-Ferrand
+#    abreviation: AIACF
+#    lieu: Clermont-Ferrand
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_28
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_33:
+#    intitule: AIA de Cuers-Pierrefeu
+#    abreviation: AIACP
+#    lieu: Cuers-Pierrefeu
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_28
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_34:
+#    intitule: Sous-direction des achats du SIAé basée à l'AIA de Clermont-Ferrand
+#    abreviation: SDASBACF
+#    lieu: Clermont-Ferrand
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_28
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_35:
+#    intitule: Structure Intégrée de Maintien en condition opérationnelle des Matériels Aéronautiques du ministère de la Défense
+#    abreviation: SIMCOMAMD
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_36:
+#    intitule: Structure Spécialisée d'achat et de Mandatement 33 503 Bordeaux
+#    abreviation: SSAMB
+#    lieu: Bordeaux
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_35
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_37:
+#    intitule: Structure Spécialisée d'achat et de Mandatement 33 504 (Beauséjour)
+#    abreviation: SSAMBB
+#    lieu: Beauséjour
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_6
+#    Entite: entite_35
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_38:
+#    intitule: Direction de la Qualité et du Progrès
+#    abreviation: DQP
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_39:
+#    intitule: Direction de la Stratégie
+#    abreviation: DS
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_40:
+#    intitule: CEDOCAR section marché
+#    abreviation: CSM
+#    lieu: Beauséjour
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    Entite: entite_39
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_41:
+#    intitule: Direction des Opérations
+#    abreviation: DO
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_42:
+#    intitule: Service centralisé des achats
+#    abreviation: SCA
+#    lieu: Beauséjour
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    Entite: entite_41
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_43:
+#    intitule: Centre d'analyse de défense
+#    abreviation: CAD
+#    lieu: Beauséjour
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    Entite: entite_42
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_44:
+#    intitule: SPx TEST
+#    abreviation: SPT
+#    lieu: Beauséjour
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    Entite: entite_42
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_45:
+#    intitule: Direction des Plans, du Budget et de la Gestion
+#    abreviation: DPBG
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_46:
+#    intitule: Direction du développement international
+#    abreviation: DDI
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_47:
+#    intitule: Direction Technique
+#    abreviation: DT
+#    lieu: Sud-Ouest
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'
+#
+#  entite_48:
+#    intitule: Service de l'Attaché d'Armement à Washington
+#    abreviation: SAAW
+#    lieu: Washington
+#    Ville: ville_1
+#    Organisme_mindef: organisme_mindef_3
+#    #Entite: entite_8
+#    est_actif: true
+#    UtilisateurCreatedBy: utilisateur_1
+#    UtilisateurUpdatedBy: utilisateur_1
+#    est_executant: true
+#    created_at: '2011-03-04 16:28:43'
+#    updated_at: '2011-03-04 16:28:43'

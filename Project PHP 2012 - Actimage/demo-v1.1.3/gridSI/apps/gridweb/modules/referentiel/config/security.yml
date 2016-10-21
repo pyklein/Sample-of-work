@@ -1,0 +1,100 @@
+#referentiel
+listerVilles:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierVille:
+  credentials: [ADM]
+creerVille:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationVille:
+  credentials: [ADM]
+listerDepartements:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierDepartement:
+  credentials: [ADM]
+creerDepartement:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationDepartement:
+  credentials: [ADM]
+listerGrades:
+  credentials:  [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierGrade:
+  credentials: [ADM]
+creerGrade:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationGrade:
+  credentials: [ADM]
+listerOrganismes:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierOrganisme:
+  credentials: [ADM]
+creerOrganisme:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationOrganisme:
+  credentials: [ADM]
+listerServices:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierService:
+  credentials: [ADM]
+creerService:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationService:
+  credentials: [ADM]
+listerLaboratoires:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierLaboratoire:
+  credentials: [ADM]
+creerLaboratoire:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationLaboratoire:
+  credentials: [ADM]
+
+listerPoint_contacts:
+  credentials: [[SUP-MIP, SUP-MRIS, SUP-BPI]]
+creerPoint_contact:
+  credentials: [[SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierPoint_contact:
+  credentials: [[SUP-MIP, SUP-MRIS, SUP-BPI]]
+
+listerEntites:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierEntite:
+  credentials: [ADM]
+creerEntite:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationEntite:
+  credentials: [ADM]
+
+listerOrganisme_mindefs:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+modifierOrganisme_mindef:
+  credentials: [ADM]
+creerOrganisme_mindef:
+  credentials: [[ADM, SUP-MIP, SUP-MRIS, SUP-BPI]]
+changerActivationOrganisme_mindef:
+  credentials: [ADM]
+
+# Popup
+creerOrganisme_mindefPopup:
+  credentials: [[ADM, SUP-MRIS, SUP-BPI, SUP-MIP, USR-MIP]]
+creerEntitePopup:
+  credentials: [[ADM, SUP-MRIS, SUP-BPI, SUP-MIP, USR-MIP]]
+creerGradePopup:
+  credentials: [[ADM, SUP-MRIS, SUP-BPI, SUP-MIP, USR-MIP]]
+creerVillePopup:
+  credentials: [[ADM, SUP-MRIS, SUP-BPI, SUP-MIP, USR-MIP]]
+creerOrganismePopup:
+  credentials: [[ADM, SUP-MRIS, SUP-BPI, SUP-MIP, USR-MIP]]
+creerServicePopup:
+  credentials: [[ADM, SUP-MRIS, SUP-BPI, SUP-MIP, USR-MIP]]
+creerLaboratoirePopup:
+  credentials: [[ADM, SUP-MRIS, SUP-BPI, SUP-MIP, USR-MIP]]
+
+listerContactSes:
+  credentials: [[SUP-MIP]]
+modifierContactSe:
+  credentials: [[SUP-MIP]]
+creerContactSe:
+  credentials: [[SUP-MIP]]
+
+modifierLibelleOrganisme:
+  credentials: [[SUP-MIP]]

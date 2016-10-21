@@ -1,0 +1,172 @@
+/*
+
+    Feuille de style pour l'export PDF
+
+*/
+
+fieldset {
+  border: solid 1 #770000;
+  margin: 1mm;
+  padding: 2mm;
+  padding-top: 0mm;
+  font-size: 4mm;
+  line-height: normal;
+  background: #FFFFFF;
+}
+legend {
+  background: #FFFFFF;
+  padding: 1;
+  border: solid 1px #440000;
+}
+
+p {
+    text-align: justify;
+}
+
+div {
+    text-align: justify;
+}
+
+img {
+/*    float: right;*/
+}
+
+ul li p {
+    margin: 0px;
+}
+
+
+
+/* balises generales */
+
+.clear {
+	clear: both;
+	visibility: hidden;
+        display: none;
+}
+
+h2{
+	color: #0e3083;
+}
+
+
+/* - Structure Generale - */
+
+body{
+	background: #f6f6f6 url('../images/interface/bg_body.png') repeat-x;
+	text-align: center;
+	font-size: 75%;
+	font-family: "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+}
+
+label {
+	display: inline-block;
+	width: 200px;
+	text-align: right;
+	font-weight: bold;
+	padding-right: 5px;
+}
+
+.floatleft {
+    float: left;
+}
+
+.floatright {
+    float: right;
+}
+
+/* Taille des nom d'écrans */
+.nom_ecran {
+   font-size: 8px;
+   margin-top: 10px;
+   display: inline-block;
+}
+
+/* pour que l'élément prenne 100% de largeur (tableaux)*/
+.long {
+    width:100%;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+table, table tr, table th, table td {
+    border: 0px solid #444;
+}
+
+table.mep {
+    width: 100%;
+}
+table.mep, table.mep tr, table.mep th, table.mep td {
+    border: 1px solid #888;
+}
+table th {
+    background-color: #888;
+    color: #fff;
+}
+table tr.pair {
+    background-color: #ddd;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.boutons {
+    text-align: right;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* Vue de contrôle : puces */
+ul li.controle_haut {
+  list-style-image: url("../images/interface/controle_haut.png");
+}
+
+ul li.controle_bas {
+  list-style-image: url("../images/interface/controle_bas.png");
+}
+
+
+.miseenpage {
+    padding: 0px;
+    border: 0px;
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.width_cinquante {
+  width:50%;
+}
+
+.width_cinquante img {
+  width:96%;
+}
+
+/* Suivi des dossier MRIS */
+.suivi_mris_soixante {
+  width:58%;
+}
+.suivi_mris_quarante {
+  width:38%;
+}
+
+.suivi_mris_quatrevingtquinze {
+  width:95%;
+}

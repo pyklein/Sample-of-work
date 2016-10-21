@@ -1,0 +1,21 @@
+
+default:
+  http_metas:
+    content-type: text/html
+    
+  metas:
+    #title:        symfony project
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:    [main.css, ui-lightness/jquery-ui-1.8.10.custom.css, jquery-ui-timepicker.css, jquery.fancybox-1.3.4.css, jquery-ddm.css]
+
+  javascripts:    [jquery/jquery-1.6.1.min.js, utilSelect.js, utilCheckbox.js, utilBouton.js, utilElement.js, utilDDM.js]
+
+  has_layout:     true
+  layout:         layout
+  
+  components:
+    fil-ariane:  [interface, filAriane]

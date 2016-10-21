@@ -1,0 +1,65 @@
+﻿function Project(name,startDateTime,endDateTime,customer) {
+    this.Name = name;
+    this.Customer = customer;
+    this.StartDateTime = startDateTime;
+    this.EndDateTime = endDateTime;
+}
+
+
+function createProject() {
+    loading("visible");
+//    var name = document.getElementById("RadTextBoxProjectName").value;
+//    var end = radDatePickerEndDateTime.get_value();
+//    var start = radDatePickerStartDateTime.get_value();
+//    var customer = document.getElementById("hiddenCustomerProject").value;
+//    var project = new Project(name, start, end,customer);
+    linkActivitiesToProject();
+}
+//Project 1 TEST
+
+
+function linkActivitiesToProject() {
+    if (currentMarkerType == MarkerType.Activity) {
+        var inputHidden = document.getElementById('hiddenActivitiesProject');
+        inputHidden.value = "";
+        var i = 0;
+        while (i < erpMarkerAddCollection.length()) {
+            if (erpMarkerAddCollection.arrayErpMarker[i] != "") {
+                inputHidden.value += erpMarkerAddCollection.arrayErpMarker[i].object.id + ";";
+            }
+            i++;
+        }
+        
+        inputHidden.value = inputHidden.value.substr(0, inputHidden.value.length - 1);
+        //alert(inputHidden.value);    
+    }
+    else {
+        document.getElementById("logAlert").style.borderColor = "red";
+        document.getElementById("logAlert").innerHTML = "<table><tr><td><img src=\"Resources/icons/logWarningMessage.png\" alt=\"valid\" width=\"30%\"/></td><td VALIGN:middle style='color:red;'><b>I have to select a location before adding a project</b></td></tr>";
+        $("#logAlert").stop(true, true).delay(10).slideDown(250);
+        closelogalert();
+    }
+
+}
+
+function displayActivityProject() {
+    var idProject = document.getElementById('ProjectList').options[document.getElementById('ProjectList').selectedIndex].value;
+    getActivityFromProjectId(idProject);
+}
+
+function setProject() {
+
+
+
+
+
+
+}
+
+function setLisActivityForAProject() {
+    linkActivitiesToProject();
+    
+
+
+
+}

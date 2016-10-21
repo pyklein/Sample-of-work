@@ -1,0 +1,116 @@
+creerDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierSituation_inventeurs:
+  credentials: [[SUP-BPI, USR-BPI]]
+retirerInventeur:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+listerDossier_bpis:
+  credentials: [[SUP-BPI, USR-BPI, COR-BPI]]
+changerActivationDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+cloreDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+rouvrirDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+actionsDossiers:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierAction_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+supprimerAction_bpi:
+
+listerBrevets:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierBrevet:
+  credentials: [[SUP-BPI, USR-BPI]]
+creerBrevet:
+  credentials: [[SUP-BPI, USR-BPI]]
+changerActivationBrevet:
+  credentials: [[SUP-BPI, USR-BPI]]
+genererDocumentsBrevet:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+listerRedevances:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierRedevance:
+  credentials: [[SUP-BPI, USR-BPI]]
+creerRedevance:
+  credentials: [[SUP-BPI, USR-BPI]]
+changerActivationRedevance:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+creerDocument_bpi_joint:
+  credentials: [[SUP-BPI, USR-BPI]]
+creerDocument_bpi_reference:
+  credentials: [[SUP-BPI, USR-BPI]]
+telechargerDocument_bpi_joint:
+  credentials: [[SUP-BPI, USR-BPI]]
+telechargerDocument_bpi_reference:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierDocument_bpi_joint:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierDocument_bpi_reference:
+  credentials: [[SUP-BPI, USR-BPI]]
+supprimerDocument_bpi_joint:
+  credentials: [[SUP-BPI, USR-BPI]]
+supprimerDocument_bpi_reference:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+listerRemarque_bpis:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierRemarque_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+supprimerRemarque_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+modifierClassement:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+modifierDroits:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+modifierValorisation:
+  credentials: [[SUP-BPI, USR-BPI]]
+retirerValorisation:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+changerActivationContrat:
+  credentials: [[SUP-BPI, USR-BPI]]
+listerContrats:
+  credentials: [[SUP-BPI, USR-BPI]]
+modifierContrat:
+  credentials: [[SUP-BPI, USR-BPI]]
+creerContrat:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+modifierExploitation:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+modifierRecompenses:
+  credentials: [[SUP-BPI, USR-BPI]]
+supprimerExploitationExterne:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+voirDescriptionDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI, COR-BPI, SUP-MIP, USR-MIP]]
+voirValorisationEtRecompensesDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI, COR-BPI, SUP-MIP, USR-MIP]]
+voirBrevetsEtContratsDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI, COR-BPI, SUP-MIP, USR-MIP]]
+exporterDossier_bpiPDF:
+  credentials: [[SUP-BPI, USR-BPI, COR-BPI, SUP-MIP, USR-MIP]]
+
+modifierContentieux:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+alertesDossier_bpi:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+voirRapportStatistique:
+  credentials: [[SUP-BPI, USR-BPI]]
+
+lierDossiers_mip:
+  credentials: [[SUP-BPI, USR-BPI]]

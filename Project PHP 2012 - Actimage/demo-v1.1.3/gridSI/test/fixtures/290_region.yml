@@ -1,0 +1,46 @@
+Region:
+  region_1:
+    intitule: Alsace
+  region_2:
+    intitule: Aquitaine
+  region_3:
+    intitule: Auvergne
+  region_4:
+    intitule: Basse Normandie
+  region_5:
+    intitule: Bourgogne
+  region_6:
+    intitule: Bretagne
+  region_7:
+    intitule: Centre
+  region_8:
+    intitule: Champagne-Ardenne
+  region_9:
+    intitule: Corse
+  region_10:
+    intitule: Franche-Comté
+  region_11:
+    intitule: Haute Normandie
+  region_12:
+    intitule: Ile-de-France
+  region_13:
+    intitule: Languedoc-Roussillon
+  region_14:
+    intitule: Limousin
+  region_15:
+    intitule: Lorraine
+  region_16:
+    intitule: Midi-Pyrénées
+  region_17:
+    intitule: Nord-Pas-de-Calais
+  region_18:
+    intitule: Pays de la Loire
+  region_19:
+    intitule: Picardie
+  region_20:
+    intitule: Poitou-Charentes
+  region_21:
+    intitule: Provence-Alpes-Côte-d'Azur
+  region_22:
+    intitule: Rhône-Alpes
+
